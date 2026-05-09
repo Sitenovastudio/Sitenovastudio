@@ -10,13 +10,13 @@
         body { 
             font-family: 'Inter', sans-serif; 
             scroll-behavior: smooth;
-            /* Subtle textured background */
-            background-color: #ffffff;
+            background-color: #fdfdfd;
+            /* Subtle modern pattern */
             background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
         }
         .serif { font-family: 'Playfair Display', serif; }
         .hero-gradient {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
         }
     </style>
 </head>
@@ -27,156 +27,112 @@
         <h1 class="serif text-xl md:text-2xl font-bold tracking-tight">Sitenova<span class="text-indigo-600">Studio</span></h1>
         <div class="space-x-4 md:space-x-6 flex items-center">
             <a href="#portfolio" class="hidden md:block hover:text-indigo-600 font-medium text-sm">Work</a>
-            <a href="#pricing" class="hover:text-indigo-600 font-medium text-sm">Pricing</a>
+            <a href="#pricing" class="hover:text-indigo-600 font-medium text-sm font-bold">Pricing</a>
             <a href="mailto:hello.sitenovastudio@gmail.com" class="bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-2 rounded-full hover:bg-indigo-700 transition text-sm shadow-md">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero-gradient relative py-16 md:py-24 px-6">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div class="text-center lg:text-left">
-                <span class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-indigo-600 uppercase bg-indigo-50 rounded-full">Digital Agency 2026</span>
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
+            <div>
+                <span class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-indigo-600 uppercase bg-white rounded-full shadow-sm">Design Studio 2026</span>
                 <h2 class="serif text-4xl md:text-6xl lg:text-7xl mb-6 leading-tight">Elevate Your <span class="text-indigo-600 italic">Event.</span></h2>
-                <p class="text-gray-600 text-base md:text-lg mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">We design interactive digital invites and minimalist landing pages that capture attention instantly.</p>
+                <p class="text-gray-600 text-base md:text-lg mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">We design interactive digital invites and minimalist landing pages that capture attention and drive results.</p>
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                    <a href="#portfolio" class="bg-gray-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition shadow-lg text-center">View Projects</a>
+                    <a href="#portfolio" class="bg-gray-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition shadow-lg">View Work</a>
+                    <a href="#pricing" class="bg-white border border-gray-200 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition">Pricing Plans</a>
                 </div>
             </div>
             <div class="relative px-4">
-                <!-- Main Image with decorative background element -->
-                <div class="absolute -top-4 -left-4 w-24 h-24 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Modern Digital Art" class="relative rounded-3xl shadow-2xl transform lg:rotate-2 hover:rotate-0 transition duration-500 w-full h-auto">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Design Preview" class="relative rounded-3xl shadow-2xl transform lg:rotate-2 hover:rotate-0 transition duration-500 w-full h-auto">
             </div>
         </div>
     </header>
 
-    <!-- Services -->
-    <section class="py-16 px-6 max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white/60 backdrop-blur p-8 rounded-3xl border border-white shadow-sm hover:shadow-md transition">
-                <h3 class="font-bold text-lg mb-2">Digital Invites</h3>
-                <p class="text-gray-500 text-sm">Interactive RSVPs for weddings and corporate galas.</p>
-            </div>
-            <div class="bg-white/60 backdrop-blur p-8 rounded-3xl border border-white shadow-sm hover:shadow-md transition">
-                <h3 class="font-bold text-lg mb-2">Landing Pages</h3>
-                <p class="text-gray-500 text-sm">High-conversion pages for modern businesses.</p>
-            </div>
-            <div class="bg-white/60 backdrop-blur p-8 rounded-3xl border border-white shadow-sm hover:shadow-md transition">
-                <h3 class="font-bold text-lg mb-2">Social Kits</h3>
-                <p class="text-gray-500 text-sm">Matching social media assets for your launch.</p>
+    <!-- Services Summary -->
+    <section class="py-12 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 -mt-10 relative z-10">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-50">
+            <h3 class="font-bold text-indigo-600 mb-1 italic">01.</h3>
+            <h4 class="font-bold mb-2">Digital Invites</h4>
+            <p class="text-gray-500 text-sm">Elegant, interactive RSVP links.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-50">
+            <h3 class="font-bold text-indigo-600 mb-1 italic">02.</h3>
+            <h4 class="font-bold mb-2">Landing Pages</h4>
+            <p class="text-gray-500 text-sm">Optimized for business growth.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-50">
+            <h3 class="font-bold text-indigo-600 mb-1 italic">03.</h3>
+            <h4 class="font-bold mb-2">Social Kits</h4>
+            <p class="text-gray-500 text-sm">Matching assets for launches.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="serif text-3xl md:text-4xl mb-12 text-center">Featured Projects</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group"><div class="overflow-hidden rounded-2xl shadow-lg mb-4"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700"></div><h3 class="font-bold">Wedding Invitations</h3></div>
+                <div class="group"><div class="overflow-hidden rounded-2xl shadow-lg mb-4"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700"></div><h3 class="font-bold">Business Landing</h3></div>
+                <div class="group"><div class="overflow-hidden rounded-2xl shadow-lg mb-4"><img src="https://images.unsplash.com/photo-1522673607200-1648832cee77?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700"></div><h3 class="font-bold">Event Galas</h3></div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section (Responsive Grid) -->
-    <section id="portfolio" class="py-20 px-6 bg-white/40">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="serif text-3xl md:text-4xl mb-4">Our Creative Works</h2>
-                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Card 1 -->
-                <div class="group">
-                    <div class="overflow-hidden rounded-2xl mb-4 shadow-lg bg-white">
-                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
-                    </div>
-                    <h3 class="font-bold text-lg">Wedding Collections</h3>
-                </div>
-                <!-- Card 2 -->
-                <div class="group">
-                    <div class="overflow-hidden rounded-2xl mb-4 shadow-lg bg-white">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
-                    </div>
-                    <h3 class="font-bold text-lg">Business Landing</h3>
-                </div>
-                <!-- Card 3 -->
-                <div class="group sm:col-span-2 lg:col-span-1">
-                    <div class="overflow-hidden rounded-2xl mb-4 shadow-lg bg-white">
-                        <img src="https://images.unsplash.com/photo-1522673607200-1648832cee77?auto=format&fit=crop&q=80&w=600" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700">
-                    </div>
-                    <h3 class="font-bold text-lg">Gala Events</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section (Responsive) -->
-    <section id="pricing" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
+    <!-- Pricing Section (Unified) -->
+    <section id="pricing" class="py-24 px-6 bg-indigo-50/30">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="serif text-3xl md:text-5xl mb-4">Investment Plans</h2>
+            <p class="text-gray-500 mb-16">Simple pricing for premium digital results.</p>
+            
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                <!-- Plan 1 -->
-                <div class="bg-white/80 p-8 rounded-3xl border border-gray-100 shadow-xl">
+                <!-- Basic -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
                     <h3 class="font-bold text-gray-400 mb-4">Essential</h3>
                     <div class="text-4xl font-bold mb-6">₹1,499</div>
-                    <a href="mailto:hello.sitenovastudio@gmail.com?subject=Essential Plan" class="block text-center border-2 border-indigo-600 text-indigo-600 py-3 rounded-xl font-bold hover:bg-indigo-50 transition">Get Started</a>
-                </div>
-                <!-- Plan 2 (Highlighted) -->
-                <div class="bg-indigo-600 p-10 rounded-3xl text-white shadow-2xl transform lg:scale-110">
-                    <h3 class="font-bold opacity-80 mb-4 uppercase text-xs tracking-widest">Recommended</h3>
-                    <div class="text-5xl font-bold mb-6">₹9,999</div>
-                    <p class="text-sm opacity-90 mb-8">Full Business Landing Page with SEO and Lead Forms.</p>
-                    <a href="mailto:hello.sitenovastudio@gmail.com?subject=Business Plan" class="block text-center bg-white text-indigo-600 py-4 rounded-xl font-bold hover:bg-gray-100 transition shadow-lg">Start Building</a>
-                </div>
-                <!-- Plan 3 -->
-                <div class="bg-white/80 p-8 rounded-3xl border border-gray-100 shadow-xl">
-                    <h3 class="font-bold text-gray-400 mb-4">Custom</h3>
-                    <div class="text-4xl font-bold mb-6 italic text-gray-900 text-lg">Let's Discuss</div>
-                    <a href="mailto:hello.sitenovastudio@gmail.com?subject=Custom Quote" class="block text-center border-2 border-gray-900 text-gray-900 py-3 rounded-xl font-bold hover:bg-gray-50 transition">Inquire</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 bg-white/80 border-t border-gray-100 text-center px-6">
-        <div class="serif text-2xl font-bold mb-4">Sitenova<span class="text-indigo-600">Studio</span></div>
-        <p class="text-indigo-600 font-semibold mb-2">hello.sitenovastudio@gmail.com</p>
-        <p class="text-gray-400 text-xs uppercase tracking-widest">&copy; 2026 SitenovaStudio | Handcrafted Excellence</p>
-    </footer>
-
-</body>
-</html>
-                    <ul class="space-y-4 mb-8 text-gray-500 text-sm">
-                        <li>✅ 1 Custom Digital Invite</li>
-                        <li>✅ RSVP Tracking Link</li>
+                    <ul class="text-left text-sm space-y-3 mb-8 text-gray-600">
+                        <li>✅ Interactive Digital Invite</li>
+                        <li>✅ RSVP Dashboard Link</li>
                         <li>✅ Mobile Optimized</li>
-                        <li>✅ 48-Hour Delivery</li>
                     </ul>
-                    <a href="mailto:hello@sitenovastudio.com?subject=Invite Inquiry" class="block text-center border-2 border-indigo-600 text-indigo-600 py-3 rounded-xl font-semibold hover:bg-indigo-50">Get Started</a>
+                    <a href="mailto:hello.sitenovastudio@gmail.com?subject=Inquiry: Essential" class="block py-3 rounded-xl border-2 border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-50 transition">Get Started</a>
                 </div>
-                <div class="bg-indigo-600 rounded-3xl p-10 text-white shadow-2xl transform md:scale-110">
-                    <div class="uppercase text-xs font-bold tracking-widest mb-2 opacity-80">Best Value</div>
-                    <h3 class="text-xl font-bold mb-2">Business</h3>
-                    <div class="text-4xl font-bold mb-6">₹9,999<span class="text-sm font-normal opacity-80">/page</span></div>
-                    <ul class="space-y-4 mb-8 text-sm">
-                        <li>✅ Professional Landing Page</li>
-                        <li>✅ Lead Capture Form</li>
-                        <li>✅ Basic SEO Setup</li>
+                <!-- Pro -->
+                <div class="bg-indigo-600 p-10 rounded-3xl text-white shadow-2xl transform lg:scale-110">
+                    <div class="bg-white/20 text-xs inline-block px-3 py-1 rounded-full mb-4 uppercase font-bold tracking-widest">Recommended</div>
+                    <h3 class="font-bold mb-4">Business Pro</h3>
+                    <div class="text-5xl font-bold mb-6">₹9,999</div>
+                    <ul class="text-left text-sm space-y-3 mb-8 opacity-90">
+                        <li>✅ Custom Business Landing Page</li>
+                        <li>✅ SEO & Lead Forms</li>
                         <li>✅ Free Hosting Setup</li>
                     </ul>
-                    <a href="mailto:hello@sitenovastudio.com?subject=Business Page Inquiry" class="block text-center bg-white text-indigo-600 py-3 rounded-xl font-semibold hover:bg-gray-100 shadow-lg">Select Plan</a>
+                    <a href="mailto:hello.sitenovastudio@gmail.com?subject=Inquiry: Business Pro" class="block py-4 rounded-xl bg-white text-indigo-600 font-bold hover:bg-gray-100 transition shadow-lg">Start Project</a>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-xl transition duration-300">
-                    <h3 class="text-xl font-bold mb-2 text-gray-400">Custom</h3>
-                    <div class="text-4xl font-bold mb-6 text-gray-900 italic">Let's Talk</div>
-                    <ul class="space-y-4 mb-8 text-gray-500 text-sm">
-                        <li>✅ Multi-page Website</li>
+                <!-- Custom -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                    <h3 class="font-bold text-gray-400 mb-4">Studio Custom</h3>
+                    <div class="text-4xl font-bold mb-6">Custom</div>
+                    <ul class="text-left text-sm space-y-3 mb-8 text-gray-600">
+                        <li>✅ Full Website Development</li>
                         <li>✅ Premium Animations</li>
-                        <li>✅ Brand Strategy</li>
-                        <li>✅ Priority Support</li>
+                        <li>✅ Brand Identity Design</li>
                     </ul>
-                    <a href="mailto:hello@sitenovastudio.com?subject=Custom Studio Inquiry" class="block text-center border-2 border-gray-900 text-gray-900 py-3 rounded-xl font-semibold hover:bg-gray-50">Contact Us</a>
+                    <a href="mailto:hello.sitenovastudio@gmail.com?subject=Inquiry: Custom" class="block py-3 rounded-xl border-2 border-gray-900 text-gray-900 font-bold hover:bg-gray-50 transition">Contact Us</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-white border-t border-gray-100 text-center">
-        <div class="serif text-xl font-bold mb-4">Sitenova<span class="text-indigo-600">Studio</span></div>
-        <p class="text-gray-400 text-sm">&copy; 2026 SitenovaStudio. All designs are handcrafted.</p>
+    <footer class="py-16 bg-white border-t border-gray-100 text-center px-6">
+        <div class="serif text-2xl font-bold mb-4">Sitenova<span class="text-indigo-600">Studio</span></div>
+        <p class="text-indigo-600 font-semibold mb-6 underline">hello.sitenovastudio@gmail.com</p>
+        <div class="text-gray-400 text-xs uppercase tracking-widest">
+            &copy; 2026 SitenovaStudio | Handcrafted in India
+        </div>
     </footer>
 
 </body>
