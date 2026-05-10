@@ -405,6 +405,12 @@
 
       box-shadow:0 10px 25px rgba(0,0,0,0.2);
 
+      transition:0.3s ease;
+
+    }
+
+    #music-btn:hover{
+      transform:scale(1.08);
     }
 
     /* ANIMATION */
@@ -458,7 +464,7 @@
 
 </head>
 
-<body onclick="document.getElementById('bg-music').play()">
+<body>
 
   <!-- HERO -->
 
@@ -703,7 +709,7 @@
 
   <!-- BACKGROUND MUSIC -->
 
-  <audio id="bg-music" autoplay loop>
+  <audio id="bg-music" loop>
 
     <source src="music/song.mp3" type="audio/mp3">
 
@@ -712,9 +718,7 @@
   <!-- MUSIC BUTTON -->
 
   <button id="music-btn">
-
-    🔊
-
+    🔇
   </button>
 
   <!-- SCRIPT -->
@@ -755,9 +759,29 @@
 
     const musicBtn = document.getElementById("music-btn");
 
-    let isPlaying = true;
+    let isPlaying = false;
 
-    musicBtn.addEventListener("click", () => {
+    /* PLAY MUSIC ON FIRST CLICK */
+
+    document.body.addEventListener("click", () => {
+
+      if(!isPlaying){
+
+        music.play();
+
+        musicBtn.innerHTML = "🔊";
+
+        isPlaying = true;
+
+      }
+
+    }, { once:true });
+
+    /* BUTTON TOGGLE */
+
+    musicBtn.addEventListener("click", (e) => {
+
+      e.stopPropagation();
 
       if(isPlaying){
 
@@ -765,15 +789,17 @@
 
         musicBtn.innerHTML = "🔇";
 
+        isPlaying = false;
+
       }else{
 
         music.play();
 
         musicBtn.innerHTML = "🔊";
 
-      }
+        isPlaying = true;
 
-      isPlaying = !isPlaying;
+      }
 
     });
 
