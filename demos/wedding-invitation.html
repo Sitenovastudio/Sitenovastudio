@@ -1,0 +1,581 @@
+# Premium Marathi Wedding Invitation Website Demo
+
+```html
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohan ❤️ Sneha | Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#fff9f5;
+      color:#333;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      position:relative;
+      padding:20px;
+    }
+
+    .overlay-design{
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at top, rgba(255,215,0,0.18), transparent 40%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      animation:fadeUp 1.5s ease;
+      max-width:850px;
+    }
+
+    .ganesha{
+      font-size:22px;
+      color:#ffd700;
+      margin-bottom:15px;
+      letter-spacing:2px;
+    }
+
+    .hero h1{
+      font-size:78px;
+      color:#ffd700;
+      margin-bottom:10px;
+      text-shadow:0 0 15px rgba(255,215,0,0.4);
+    }
+
+    .hero h2{
+      font-size:28px;
+      font-weight:400;
+      margin-bottom:25px;
+    }
+
+    .hero p{
+      font-size:19px;
+      line-height:1.9;
+      opacity:0.95;
+    }
+
+    .hero-buttons{
+      margin-top:35px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 32px;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s ease;
+      border:2px solid transparent;
+    }
+
+    .primary-btn{
+      background:#ffd700;
+      color:#000;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-3px);
+      background:white;
+    }
+
+    .secondary-btn{
+      border:2px solid white;
+      color:white;
+    }
+
+    .secondary-btn:hover{
+      background:white;
+      color:black;
+    }
+
+    section{
+      padding:90px 20px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:42px;
+      color:#8b0000;
+      margin-bottom:18px;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:#777;
+      max-width:700px;
+      margin:0 auto 50px;
+      line-height:1.8;
+    }
+
+    .countdown-wrapper{
+      display:flex;
+      justify-content:center;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+
+    .time-box{
+      width:170px;
+      background:white;
+      padding:35px 20px;
+      border-radius:28px;
+      text-align:center;
+      box-shadow:0 10px 35px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .time-box:hover{
+      transform:translateY(-8px);
+    }
+
+    .time-box h3{
+      font-size:52px;
+      color:#8b0000;
+      margin-bottom:8px;
+    }
+
+    .time-box p{
+      color:#666;
+      font-size:18px;
+    }
+
+    .story{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .story-card{
+      background:white;
+      padding:35px;
+      border-radius:30px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .story-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .story-card h3{
+      color:#8b0000;
+      margin-bottom:15px;
+      font-size:28px;
+    }
+
+    .events{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .event-card{
+      background:linear-gradient(135deg,#8b0000,#b22222);
+      color:white;
+      padding:40px 30px;
+      border-radius:28px;
+      text-align:center;
+      box-shadow:0 12px 30px rgba(139,0,0,0.2);
+    }
+
+    .event-card h3{
+      font-size:30px;
+      margin-bottom:15px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:340px;
+      object-fit:cover;
+      border-radius:24px;
+      transition:0.4s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.04);
+    }
+
+    .venue-box{
+      background:white;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .venue-content{
+      padding:40px;
+      text-align:center;
+    }
+
+    iframe{
+      width:100%;
+      height:380px;
+      border:none;
+    }
+
+    .rsvp{
+      background:linear-gradient(135deg,#fff5ef,#fff0f7);
+    }
+
+    .rsvp-form{
+      max-width:650px;
+      margin:auto;
+      display:grid;
+      gap:20px;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select,
+    .rsvp-form textarea{
+      padding:18px;
+      border:none;
+      border-radius:16px;
+      background:white;
+      font-size:16px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.06);
+      outline:none;
+    }
+
+    .rsvp-form button{
+      background:#8b0000;
+      color:white;
+      border:none;
+      padding:18px;
+      border-radius:16px;
+      font-size:18px;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:600;
+    }
+
+    .rsvp-form button:hover{
+      background:#5d0000;
+      transform:translateY(-3px);
+    }
+
+    footer{
+      background:#8b0000;
+      color:white;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    footer h3{
+      font-size:30px;
+      margin-bottom:10px;
+      color:#ffd700;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media(max-width:768px){
+      .hero h1{
+        font-size:48px;
+      }
+
+      .hero h2{
+        font-size:22px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .section-title{
+        font-size:34px;
+      }
+
+      .time-box{
+        width:140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="overlay-design"></div>
+
+    <div class="hero-content">
+
+      <div class="ganesha">
+        || श्री गणेशाय नमः ||
+      </div>
+
+      <h1>रोहन ❤️ स्नेहा</h1>
+
+      <h2>आमच्या शुभ विवाह सोहळ्यास आपले सहर्ष स्वागत</h2>
+
+      <p>
+        आपल्या प्रेमळ उपस्थितीने आणि आशीर्वादाने
+        आमचा विशेष दिवस आणखी सुंदर बनवावा
+        ही नम्र विनंती.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#rsvp" class="btn primary-btn">RSVP करा</a>
+        <a href="#venue" class="btn secondary-btn">लोकेशन पहा</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">लग्नास आता फक्त...</h2>
+
+      <p class="section-subtitle">
+        आमच्या आयुष्यातील सर्वात सुंदर क्षणासाठी आता फारच कमी वेळ उरला आहे ❤️
+      </p>
+
+      <div class="countdown-wrapper">
+
+        <div class="time-box">
+          <h3 id="days">00</h3>
+          <p>दिवस</p>
+        </div>
+
+        <div class="time-box">
+          <h3 id="hours">00</h3>
+          <p>तास</p>
+        </div>
+
+        <div class="time-box">
+          <h3 id="minutes">00</h3>
+          <p>मिनिटे</p>
+        </div>
+
+        <div class="time-box">
+          <h3 id="seconds">00</h3>
+          <p>सेकंद</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">आमची प्रेमकथा</h2>
+
+      <div class="story">
+
+        <div class="story-card">
+          <h3>💖 पहिली भेट</h3>
+          <p>
+            एका सुंदर योगायोगातून सुरू झालेली मैत्री आज आयुष्यभराच्या नात्यात बदलत आहे.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <h3>💍 साखरपुडा</h3>
+          <p>
+            दोन कुटुंबांचे प्रेम आणि आशीर्वाद यांच्यासह आमच्या नवीन प्रवासाची सुरुवात.
+          </p>
+        </div>
+
+        <div class="story-card">
+          <h3>👰🤵 लग्न</h3>
+          <p>
+            प्रेम, विश्वास आणि आनंदाने भरलेल्या नवीन आयुष्याची सुरुवात.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">कार्यक्रम</h2>
+
+      <div class="events">
+
+        <div class="event-card">
+          <h3>💛 हळद</h3>
+          <p>१४ डिसेंबर २०२६</p>
+          <p>सकाळी १०:००</p>
+        </div>
+
+        <div class="event-card">
+          <h3>🎵 संगीत</h3>
+          <p>१४ डिसेंबर २०२६</p>
+          <p>सायं. ७:००</p>
+        </div>
+
+        <div class="event-card">
+          <h3>💒 विवाह</h3>
+          <p>१५ डिसेंबर २०२६</p>
+          <p>सायं. ७:००</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">आमचे सुंदर क्षण</h2>
+
+      <div class="gallery">
+
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop">
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="venue">
+    <div class="container">
+
+      <h2 class="section-title">स्थळ</h2>
+
+      <div class="venue-box">
+
+        <div class="venue-content">
+          <h3>📍 शुभम मंगल कार्यालय, पुणे</h3>
+          <p style="margin-top:15px;color:#666;line-height:1.8;">
+            आपण आपल्या उपस्थितीने आमचा आनंद द्विगुणित करावा ❤️
+          </p>
+        </div>
+
+        <iframe
+          src="https://maps.google.com/maps?q=pune&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="rsvp" id="rsvp">
+    <div class="container">
+
+      <h2 class="section-title">RSVP</h2>
+
+      <p class="section-subtitle">
+        कृपया आपल्या उपस्थितीची माहिती आम्हाला द्या.
+      </p>
+
+      <form class="rsvp-form">
+
+        <input type="text" placeholder="आपले पूर्ण नाव" required>
+
+        <input type="number" placeholder="किती जण येणार?" required>
+
+        <select required>
+          <option value="">उपस्थित राहणार का?</option>
+          <option>हो</option>
+          <option>नाही</option>
+        </select>
+
+        <textarea rows="5" placeholder="विशेष संदेश"></textarea>
+
+        <button type="submit">Submit RSVP</button>
+
+      </form>
+
+    </div>
+  </section>
+
+  <footer>
+    <h3>रोहन ❤️ स्नेहा</h3>
+    <p>Made with ❤️ by SiteNova Studio</p>
+  </footer>
+
+  <script>
+
+    const weddingDate = new Date("December 15, 2026 19:00:00").getTime();
+
+    const timer = setInterval(() => {
+
+      const now = new Date().getTime();
+
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+    },1000);
+
+  </script>
+
+</body>
+</html>
+```
+
+
