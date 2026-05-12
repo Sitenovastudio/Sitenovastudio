@@ -1,509 +1,320 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Rohan ❤️ Sneha | Wedding Invitation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
-<style>
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SitenovaStudio | Premium Digital Invites</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
 
-:root {
-  --maroon: #8b0000;
-  --maroon-light: #a52020;
-  --gold: #c9a84c;
-  --gold-light: #e8c96e;
-  --cream: #fff9f0;
-  --warm: #fdf6ec;
-}
+    :root {
+      --indigo: #4f46e5;
+      --indigo-dark: #3730a3;
+      --pink: #ec4899;
+      --dark: #0f0f13;
+      --off-white: #f9f7f4;
+      --telegram-blue: #0088cc;
+    }
 
-body { font-family:'Poppins',sans-serif; background:var(--cream); color:#333; overflow-x:hidden; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1a2e;
+      overflow-x: hidden;
+      background: var(--off-white);
+    }
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
-    url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat fixed;
-  display: flex; align-items: center; justify-content: center;
-  padding: 80px 20px;
-  color: white; position: relative;
-}
-.hero::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
-  background: linear-gradient(to top, var(--cream), transparent);
-}
-.hero-content { position:relative; z-index:2; max-width:1200px; width:100%; }
+    .serif { font-family: 'Cormorant Garamond', serif; }
 
-.ganesha {
-  text-align:center; color:var(--gold-light); font-size:20px;
-  margin-bottom:48px; letter-spacing:3px;
-  font-family:'Cormorant Garamond',serif; font-size:26px; font-style:italic;
-  animation: fadeDown 1s ease both;
-}
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: rgba(249,247,244,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); background: #fff; }
+    .nav-inner { max-width: 1280px; margin: auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family:'Cormorant Garamond',serif; font-size: 26px; font-weight: 700; text-decoration: none; color: inherit; }
+    .nav-logo span { color: var(--indigo); }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: #444; text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--indigo); }
+    .nav-cta { background: var(--dark); color: #fff !important; padding: 10px 26px; border-radius: 50px; font-size: 14px !important; transition: all 0.3s !important; }
+    .nav-cta:hover { background: var(--indigo) !important; transform: translateY(-2px); }
 
-.couple-row { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-bottom:60px; }
+    /* ── HERO ── */
+    .hero-section { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding: 130px 32px 60px; max-width: 1280px; margin: auto; }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5.5vw, 80px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; animation: fadeSlideUp 0.7s 0.1s ease both; }
+    .hero-title em { font-style: italic; color: var(--indigo); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e5e7eb; padding: 8px 18px; border-radius: 50px; font-size: 12px; font-weight: 600; color: var(--indigo); text-transform: uppercase; margin-bottom: 28px; box-shadow: 0 2px 12px rgba(79,70,229,0.1); animation: fadeSlideUp 0.6s ease both; }
+    .hero-img-wrap { border-radius: 32px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.18); position: relative; }
+    .hero-img-wrap img { width: 100%; height: 580px; object-fit: cover; transition: transform 0.7s ease; }
+    .hero-img-wrap:hover img { transform: scale(1.04); }
 
-.couple-img-wrap {
-  position:relative; text-align:center;
-  animation: fadeLeft 1s 0.2s ease both;
-}
-.couple-img-inner {
-  width:100%; max-width:380px; height:380px; /* SAME 1:1 ASPECT RATIO */
-  object-fit:cover; object-position:center;
-  border-radius:28px;
-  border: 4px solid var(--gold);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 8px rgba(201,168,76,0.15);
-  transition: transform 0.5s;
-}
-.couple-img-inner:hover { transform:scale(1.03); }
+    .float-card { position: absolute; background: #fff; border-radius: 20px; padding: 20px 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); z-index: 10; }
+    .float-card-1 { bottom: -20px; left: -40px; }
+    .float-card-2 { top: 24px; right: -24px; background: var(--indigo); color: #fff; text-align: center; }
 
-.couple-details { animation: fadeRight 1s 0.2s ease both; }
-.couple-details h1 {
-  font-family:'Cormorant Garamond',serif;
-  font-size: clamp(46px, 5vw, 72px); font-weight:700;
-  color:var(--gold-light); letter-spacing:-1px;
-  text-shadow: 0 0 30px rgba(201,168,76,0.3);
-  margin-bottom:20px;
-}
-.couple-details p { font-size:18px; line-height:2.2; color:rgba(255,255,255,0.88); }
-.couple-details p strong { color:var(--gold-light); }
+    @keyframes fadeSlideUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
 
-.heart-divider { text-align:center; font-size:64px; margin:20px 0 60px; animation:heartbeat 2.5s ease infinite; }
-@keyframes heartbeat { 0%,100%{transform:scale(1)} 40%{transform:scale(1.2)} 60%{transform:scale(1.1)} }
+    /* ── MARQUEE ── */
+    .marquee-wrap { background: var(--dark); padding: 18px 0; overflow: hidden; }
+    .marquee-track { display: flex; gap: 60px; white-space: nowrap; animation: marquee 30s linear infinite; }
+    .marquee-item { color: rgba(255,255,255,0.7); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 16px; }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-.hero-btns { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-top:20px; animation:fadeUp 1s 0.6s ease both; }
-.hero-btn {
-  padding:15px 36px; border-radius:50px; font-weight:600; font-size:15px;
-  text-decoration:none; transition:all 0.3s; letter-spacing:0.5px;
-}
-.hero-btn-gold { background:var(--gold); color:#1a0a00; box-shadow:0 8px 24px rgba(201,168,76,0.4); }
-.hero-btn-gold:hover { background:var(--gold-light); transform:translateY(-3px); }
-.hero-btn-outline { border:2px solid rgba(255,255,255,0.7); color:#fff; }
-.hero-btn-outline:hover { background:rgba(255,255,255,0.15); transform:translateY(-3px); }
+    /* ── DEMO CARDS ── */
+    .demo-card { border-radius: 28px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; background: #fff; transition: all 0.4s ease; display: flex; flex-direction: column; height: 100%; }
+    .demo-card:hover { transform: translateY(-14px); box-shadow: 0 28px 60px rgba(0,0,0,0.14); }
+    .demo-img { overflow: hidden; height: 260px; position: relative; }
+    .demo-img img { width: 100%; height: 100%; object-fit: cover; }
+    .demo-img-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: 0.4s; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+    .demo-card:hover .demo-img-overlay { background: rgba(0,0,0,0.25); }
+    .demo-img-overlay span { background: #fff; color: #111; font-weight: 700; padding: 10px 24px; border-radius: 50px; opacity: 0; transform: translateY(10px); transition: 0.3s; }
+    .demo-card:hover .demo-img-overlay span { opacity: 1; transform: translateY(0); }
+    .demo-body { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+    .demo-btn { display: block; text-align: center; padding: 14px; border-radius: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s; margin-top: auto; }
 
-.share-btns { text-align:center; margin:30px 0 0 0; gap:15px; display:flex; justify-content:center; flex-wrap:wrap; }
-.share-btns .hero-btn { padding:12px 28px; font-size:14px; }
+    /* ── PRICING ── */
+    .price-card.popular { background: var(--indigo); color: #fff; border: none; transform: scale(1.05); z-index: 5; box-shadow: 0 25px 50px rgba(79, 70, 229, 0.4); }
 
-@keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
-@keyframes fadeLeft { from{opacity:0;transform:translateX(-30px)} to{opacity:1;transform:translateX(0)} }
-@keyframes fadeRight { from{opacity:0;transform:translateX(30px)} to{opacity:1;transform:translateX(0)} }
-@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    /* ── CONTACT ── */
+    .contact-wrap { background: var(--dark); padding: 120px 32px; text-align: center; position: relative; overflow: hidden; }
+    .btn-tg { background: var(--telegram-blue); color: #fff; padding: 18px 40px; border-radius: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
+    .btn-tg:hover { background: #0077b5; transform: translateY(-3px); }
 
-/* SECTION BASE */
-.section { padding:90px 20px; }
-.container { max-width:1200px; margin:auto; }
-.section-title { text-align:center; font-family:'Cormorant Garamond',serif; font-size:clamp(38px,4vw,56px); color:var(--maroon); margin-bottom:16px; font-weight:700; }
-.section-sub { text-align:center; color:#777; max-width:600px; margin:0 auto 60px; line-height:1.8; font-size:15px; }
-.gold-line { width:80px; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold-light),var(--gold)); margin:16px auto 0; border-radius:4px; }
+    /* ── MUSIC TOGGLE ── */
+    #musicToggle { 
+        position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+        background: #fff; border: 1px solid #e5e7eb; width: 50px; height: 50px;
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: all 0.3s;
+    }
+    #musicToggle:hover { transform: scale(1.1); background: var(--indigo); color: #fff; }
 
-/* COUNTDOWN */
-.section-countdown { background:var(--warm); }
-.countdown { display:flex; justify-content:center; gap:24px; flex-wrap:wrap; }
-.time-box {
-  background:#fff; width:160px; padding:36px 16px; border-radius:24px;
-  text-align:center;
-  border: 1px solid rgba(201,168,76,0.25);
-  box-shadow:0 8px 30px rgba(0,0,0,0.07);
-  transition:all 0.3s;
-  position:relative; overflow:hidden;
-}
-.time-box::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--maroon),var(--gold)); }
-.time-box:hover { transform:translateY(-8px); box-shadow:0 16px 40px rgba(139,0,0,0.1); }
-.time-box h3 { font-family:'Cormorant Garamond',serif; font-size:58px; font-weight:700; color:var(--maroon); line-height:1; margin-bottom:10px; }
-.time-box p { color:#888; font-size:14px; font-weight:500; text-transform:uppercase; letter-spacing:1px; }
-
-/* EVENTS */
-.events { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
-.event-card {
-  background:#fff; padding:40px 28px; border-radius:24px; text-align:center;
-  border:1px solid rgba(201,168,76,0.2);
-  box-shadow:0 6px 24px rgba(0,0,0,0.06);
-  transition:all 0.4s; position:relative; overflow:hidden;
-}
-.event-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--maroon),var(--gold)); transform:scaleX(0); transform-origin:left; transition:0.4s; }
-.event-card:hover { transform:translateY(-12px); box-shadow:0 20px 50px rgba(139,0,0,0.12); }
-.event-card:hover::after { transform:scaleX(1); }
-.event-icon { font-size:42px; margin-bottom:16px; display:block; }
-.event-card h3 { font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--maroon); margin-bottom:12px; font-weight:700; }
-.event-card p { color:#666; font-size:15px; line-height:1.6; }
-.event-time { display:inline-block; margin-top:14px; background:rgba(139,0,0,0.07); color:var(--maroon); font-weight:600; font-size:13px; padding:5px 16px; border-radius:50px; }
-
-/* GALLERY */
-.gallery { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-.gallery-item { overflow:hidden; border-radius:18px; position:relative; cursor:zoom-in; }
-.gallery-item:first-child { grid-column:span 2; grid-row:span 2; }
-.gallery-item img { width:100%; height:100%; object-fit:cover; min-height:200px; transition:transform 0.6s ease; display:block; }
-.gallery-item:hover img { transform:scale(1.08); }
-.gallery-item::after { content:''; position:absolute; inset:0; background:rgba(139,0,0,0); transition:0.4s; }
-.gallery-item:hover::after { background:rgba(139,0,0,0.15); }
-
-/* VENUE */
-.venue-wrap { background:var(--warm); }
-.venue-box { background:#fff; border-radius:28px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.09); border:1px solid rgba(201,168,76,0.2); }
-.venue-info { padding:44px; text-align:center; background:linear-gradient(135deg,rgba(139,0,0,0.03),rgba(201,168,76,0.05)); }
-.venue-info h3 { font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--maroon); margin-bottom:12px; }
-.venue-info p { color:#666; line-height:1.8; max-width:500px; margin:0 auto; }
-.venue-info .venue-pin { display:inline-flex; align-items:center; gap:8px; margin-top:16px; background:rgba(139,0,0,0.08); color:var(--maroon); font-weight:600; padding:10px 24px; border-radius:50px; font-size:14px; }
-iframe { width:100%; height:380px; border:none; display:block; }
-
-/* RSVP */
-.rsvp-box { max-width:680px; margin:auto; background:#fff; padding:56px 48px; border-radius:32px; box-shadow:0 16px 50px rgba(0,0,0,0.09); border:1px solid rgba(201,168,76,0.2); }
-.rsvp-form { display:grid; gap:20px; }
-.rsvp-form input, .rsvp-form select, .rsvp-form textarea {
-  padding:16px 20px; border:none; border-radius:14px;
-  background:#f9f6f0; font-size:15px; font-family:'Poppins',sans-serif;
-  outline:none; transition:all 0.3s; border:2px solid transparent;
-}
-.rsvp-form input:focus, .rsvp-form select:focus, .rsvp-form textarea:focus {
-  background:#fff; border-color:var(--gold); box-shadow:0 0 0 4px rgba(201,168,76,0.1);
-}
-.rsvp-form button {
-  background:linear-gradient(135deg,var(--maroon),var(--maroon-light));
-  color:#fff; border:none; padding:18px; border-radius:14px;
-  font-size:16px; font-weight:600; cursor:pointer;
-  font-family:'Poppins',sans-serif; transition:all 0.3s;
-  box-shadow:0 8px 24px rgba(139,0,0,0.3);
-}
-.rsvp-form button:hover:not(:disabled) { transform:translateY(-3px); box-shadow:0 14px 35px rgba(139,0,0,0.4); }
-.rsvp-form button:disabled { opacity:0.7; cursor:not-allowed; }
-
-/* FOOTER */
-footer { background:linear-gradient(135deg,var(--maroon),#4a0000); color:#fff; text-align:center; padding:50px 20px; }
-footer h3 { font-family:'Cormorant Garamond',serif; font-size:48px; color:var(--gold-light); margin-bottom:10px; }
-footer p { color:rgba(255,255,255,0.6); font-size:14px; }
-
-/* MUSIC BTN */
-#music-btn {
-  position:fixed; bottom:28px; right:28px;
-  width:60px; height:60px; border:none; border-radius:50%;
-  background:linear-gradient(135deg,var(--maroon),var(--maroon-light));
-  color:#fff; font-size:22px; cursor:pointer; z-index:9999;
-  box-shadow:0 8px 24px rgba(139,0,0,0.4); transition:all 0.3s;
-}
-#music-btn:hover { transform:scale(1.1); }
-
-/* MOBILE */
-@media(max-width:900px) {
-  .hero { background-attachment:scroll; }
-  .couple-row { grid-template-columns:1fr; gap:40px; text-align:center; }
-  .couple-row.reverse { display:flex; flex-direction:column-reverse; }
-  .couple-img-inner { max-width:320px; height:320px; margin:0 auto; }
-  .gallery { grid-template-columns:1fr 1fr; }
-  .gallery-item:first-child { grid-column:span 2; }
-  .rsvp-box { padding:36px 24px; }
-  .share-btns { flex-direction:column; align-items:center; }
-}
-@media(max-width:480px) {
-  .gallery { grid-template-columns:1fr; }
-  .gallery-item:first-child { grid-column:span 1; }
-  .couple-img-inner { max-width:280px; height:280px; }
-}
-</style>
+    @media(max-width: 900px) {
+      .hero-section { grid-template-columns: 1fr; text-align: center; padding-top: 100px; }
+      .float-card { display: none; }
+      .grid-cols-3 { grid-template-cols: 1fr !important; }
+      .price-card.popular { transform: scale(1); }
+      .demo-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- MUSIC PLAYER -->
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+<button id="musicToggle" title="Toggle Music">
+  <span id="musicIcon">🔇</span>
+</button>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo serif">Sitenova<span>Studio</span></a>
+    <div class="nav-links">
+      <a href="#demos">Demos</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="nav-cta">Start a Project</a>
+    </div>
+  </div>
+</nav>
+
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="ganesha">॥ श्री गणेशाय नमः ॥</div>
-
-    <!-- GROOM -->
-    <div class="couple-row">
-      <div class="couple-img-wrap">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=500&h=500&fit=crop&crop=face" alt="Rohan Patil" class="couple-img-inner" loading="eager">
-      </div>
-      <div class="couple-details">
-        <h1>Rohan Patil</h1>
-        <p>
-          Son of<br>
-          <strong>Mr. Rajesh Patil</strong> & <strong>Mrs. Sunita Patil</strong><br><br>
-          Shree Ganesh Colony,<br>
-          Pune, Maharashtra
-        </p>
-      </div>
+<section class="hero-section">
+  <div class="hero-left">
+    <div class="hero-badge">Premium Digital Invites</div>
+    <h1 class="hero-title serif">Elegant<br><em>Invitation</em><br>Experiences</h1>
+    <p class="text-gray-500 text-lg mb-10 max-w-lg leading-relaxed">We build high-end digital invitation websites that leave a lasting impression on your guests.</p>
+    <div class="flex gap-4">
+      <a href="#demos" class="bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-600 transition">View Demos</a>
+      <a href="#pricing" class="border border-gray-300 px-8 py-4 rounded-xl font-bold hover:text-indigo-600 transition">Pricing</a>
     </div>
-
-    <div class="heart-divider">❤️</div>
-
-    <!-- BRIDE -->
-    <div class="couple-row reverse">
-      <div class="couple-details">
-        <h1>Sneha Deshmukh</h1>
-        <p>
-          Daughter of<br>
-          <strong>Mr. Mahesh Deshmukh</strong> & <strong>Mrs. Anita Deshmukh</strong><br><br>
-          Sai Nagar,<br>
-          Nashik, Maharashtra
-        </p>
-      </div>
-      <div class="couple-img-wrap">
-        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=500&h=500&fit=crop&crop=face" alt="Sneha Deshmukh" class="couple-img-inner" loading="eager">
-      </div>
+  </div>
+  <div class="hero-right relative">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1400&auto=format&fit=crop" alt="Premium Event Design">
     </div>
+    <div class="float-card float-card-1"><div class="text-4xl font-bold serif text-indigo-600">100+</div><div class="text-sm text-gray-400">Delivered</div></div>
+    <div class="float-card float-card-2"><div class="text-3xl font-bold serif">5★</div><div class="text-xs opacity-80">Rating</div></div>
+  </div>
+</section>
 
-    <div class="hero-btns">
-      <a href="#countdown" class="hero-btn hero-btn-gold">Save The Date 💍</a>
-      <a href="#venue" class="hero-btn hero-btn-outline">📍 Venue</a>
-      <a href="#rsvp" class="hero-btn hero-btn-outline">💌 RSVP</a>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Wedding Invitations</span>
+    <span class="marquee-item">Business Landing Pages</span>
+    <span class="marquee-item">Luxury Events</span>
+    <span class="marquee-item">RSVP Systems</span>
+    <span class="marquee-item">Premium UI Design</span>
+    <!-- Loop -->
+    <span class="marquee-item">Wedding Invitations</span>
+    <span class="marquee-item">Business Landing Pages</span>
+    <span class="marquee-item">Luxury Events</span>
+  </div>
+</div>
+
+<!-- DEMOS SECTION -->
+<div class="bg-white py-24 px-8" id="demos">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-indigo-600 font-bold uppercase tracking-widest text-xs">Portfolio</span>
+      <h2 class="text-5xl serif font-bold mt-4">Featured Demos</h2>
     </div>
     
-    <div class="share-btns">
-      <a href="https://wa.me/?text=Rohan ❤️ Sneha Wedding Invitation! 15 Dec 2026, Pune 💍 %0Ahttps://sitenovastudio.github.io/Sitenovastudio/demos/marathi-wedding.html" class="hero-btn hero-btn-gold" target="_blank">📱 Share on WhatsApp</a>
-      <button onclick="shareWedding()" class="hero-btn hero-btn-outline">📤 Share</button>
-    </div>
-  </div>
-</section>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 demo-grid">
+      <!-- Demo 1 -->
+      <div class="demo-card">
+        <div class="demo-img">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="Marathi Wedding">
+          <div class="demo-img-overlay"><span>Preview Demo</span></div>
+        </div>
+        <div class="demo-body">
+          <span class="bg-pink-100 text-pink-700 px-4 py-1 rounded-full text-xs font-bold inline-block w-fit">Wedding</span>
+          <h3 class="text-xl font-bold mt-4 mb-2">Marathi Wedding</h3>
+          <p class="text-gray-500 text-sm mb-6">Interactive invitation with local culture, RSVP, and map.</p>
+          <a href="demos/marathi-wedding.html" class="demo-btn bg-pink-500 text-white hover:bg-pink-600">View Live Demo</a>
+        </div>
+      </div>
 
-<!-- COUNTDOWN -->
-<section class="section section-countdown" id="countdown">
-  <div class="container">
-    <h2 class="section-title">Save The Date 💍</h2>
-    <div class="gold-line"></div>
-    <p class="section-sub">15 डिसेंबर 2026 • पुणे, महाराष्ट्र</p>
-    <div class="countdown">
-      <div class="time-box"><h3 id="days">00</h3><p>दिवस</p></div>
-      <div class="time-box"><h3 id="hours">00</h3><p>तास</p></div>
-      <div class="time-box"><h3 id="minutes">00</h3><p>मिनिटे</p></div>
-      <div class="time-box"><h3 id="seconds">00</h3><p>सेकंद</p></div>
-    </div>
-  </div>
-</section>
+      <!-- Demo 2 -->
+      <div class="demo-card">
+        <div class="demo-img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" alt="Business Landing">
+          <div class="demo-img-overlay"><span>Preview Demo</span></div>
+        </div>
+        <div class="demo-body">
+          <span class="bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-xs font-bold inline-block w-fit">Business</span>
+          <h3 class="text-xl font-bold mt-4 mb-2">Startup Landing</h3>
+          <p class="text-gray-500 text-sm mb-6">Modern, clean landing pages for brands and agencies.</p>
+          <a href="demos/business-landing.html" class="demo-btn bg-indigo-600 text-white hover:bg-indigo-700">View Live Demo</a>
+        </div>
+      </div>
 
-<!-- FUNCTIONS -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Wedding Functions</h2>
-    <div class="gold-line"></div>
-    <p class="section-sub">Join us in celebrating every precious moment of this beautiful journey.</p>
-    <div class="events">
-      <div class="event-card">
-        <span class="event-icon">💛</span>
-        <h3>Haldi Ceremony</h3>
-        <p>A joyful morning ritual blessing the couple with happiness and prosperity.</p>
-        <span class="event-time">14 Dec 2026 • 10:00 AM</span>
-      </div>
-      <div class="event-card">
-        <span class="event-icon">🎵</span>
-        <h3>Sangeet Night</h3>
-        <p>A magical evening filled with music, dance and unforgettable memories.</p>
-        <span class="event-time">14 Dec 2026 • 7:00 PM</span>
-      </div>
-      <div class="event-card">
-        <span class="event-icon">💍</span>
-        <h3>Wedding Ceremony</h3>
-        <p>The sacred union of two souls and two families in divine celebration.</p>
-        <span class="event-time">15 Dec 2026 • 7:00 PM</span>
-      </div>
-      <div class="event-card">
-        <span class="event-icon">🍽️</span>
-        <h3>Grand Reception</h3>
-        <p>An elegant evening reception welcoming family and friends to celebrate.</p>
-        <span class="event-time">16 Dec 2026 • 8:00 PM</span>
+      <!-- Demo 3 -->
+      <div class="demo-card">
+        <div class="demo-img">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop" alt="Event Website">
+          <div class="demo-img-overlay"><span>Preview Demo</span></div>
+        </div>
+        <div class="demo-body">
+          <span class="bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-xs font-bold inline-block w-fit">Events</span>
+          <h3 class="text-xl font-bold mt-4 mb-2">Luxury Gala</h3>
+          <p class="text-gray-500 text-sm mb-6">Premium event site with schedules and booking info.</p>
+          <a href="demos/event-website.html" class="demo-btn bg-orange-500 text-white hover:bg-orange-600">View Live Demo</a>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- GALLERY -->
-<section class="section" style="background:var(--warm);">
-  <div class="container">
-    <h2 class="section-title">Our Memories ❤️</h2>
-    <div class="gold-line"></div>
-    <p class="section-sub">Cherishing beautiful moments on the journey to forever.</p>
-    <div class="gallery">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="couple" loading="lazy">
+<!-- PRICING -->
+<div class="py-24 px-8 bg-gray-50" id="pricing">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="price-card p-10 bg-white rounded-3xl border border-gray-100">
+        <h3 class="font-bold text-xl">Basic</h3>
+        <div class="text-5xl serif font-bold my-6">₹999</div>
+        <ul class="text-sm space-y-4 mb-8 text-gray-500">
+          <li>✓ Responsive Design</li>
+          <li>✓ RSVP Button</li>
+          <li>✓ Sharing Link</li>
+        </ul>
+        <a href="#contact" class="demo-btn bg-black text-white">Start Now</a>
       </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop" alt="bride" loading="lazy">
+      <div class="price-card popular p-10 rounded-3xl">
+        <div class="bg-white/20 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4">Most Popular</div>
+        <h3 class="font-bold text-xl">Premium</h3>
+        <div class="text-5xl serif font-bold my-6">₹2999</div>
+        <ul class="text-sm space-y-4 mb-8">
+          <li>✓ Custom Animations</li>
+          <li>✓ Background Music</li>
+          <li>✓ RSVP Form & Gallery</li>
+        </ul>
+        <a href="#contact" class="demo-btn bg-white text-indigo-600 font-bold">Start Now</a>
       </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=800&auto=format&fit=crop" alt="groom" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1200&auto=format&fit=crop" alt="wedding" loading="lazy">
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=800&auto=format&fit=crop" alt="wedding ceremony" loading="lazy">
+      <div class="price-card p-10 bg-white rounded-3xl border border-gray-100">
+        <h3 class="font-bold text-xl">Custom</h3>
+        <div class="text-4xl serif font-bold my-6">Quote</div>
+        <ul class="text-sm space-y-4 mb-8 text-gray-500">
+          <li>✓ Full UI/UX Design</li>
+          <li>✓ Custom Branding</li>
+          <li>✓ Domain Support</li>
+        </ul>
+        <a href="#contact" class="demo-btn bg-black text-white">Contact Us</a>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- VENUE -->
-<section class="section venue-wrap" id="venue">
-  <div class="container">
-    <h2 class="section-title">Venue Location 📍</h2>
-    <div class="gold-line"></div>
-    <p class="section-sub">We warmly request your gracious presence to bless the couple on this auspicious occasion.</p>
-    <div class="venue-box">
-      <div class="venue-info">
-        <h3>Shubham Mangal Karyalay, Pune</h3>
-        <p>Near Shivaji Nagar, Pune – 411005, Maharashtra</p>
-        <span class="venue-pin">📍 15 December 2026 • 7:00 PM onwards</span>
-      </div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3787.68!2d73.849955!3d18.52043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDMxJzM3LjMiTiA3M8KwNTEnMDIuNSJF!5e0!3m2!1sen!2sin!4v1699999999999" loading="lazy"></iframe>
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <div class="contact-inner">
+    <h2 class="serif text-white">Let's Build Something Beautiful</h2>
+    <p class="mt-4 mb-10 text-gray-400">Ready to start? Reach out to us via Email or Telegram.</p>
+    <div class="flex gap-6 justify-center flex-wrap">
+      <a href="mailto:hello.sitenovastudio@gmail.com" class="bg-white text-black px-10 py-5 rounded-2xl font-bold hover:scale-105 transition">Email Us</a>
+      <a href="https://t.me/917875134125" target="_blank" class="btn-tg">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        Telegram Chat
+      </a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- RSVP -->
-<section class="section" id="rsvp">
-  <div class="container">
-    <h2 class="section-title">RSVP 💌</h2>
-    <div class="gold-line"></div>
-    <p class="section-sub">कृपया आपल्या उपस्थितीची माहिती आम्हाला द्या • Please confirm your attendance.</p>
-    <div class="rsvp-box">
-      <form class="rsvp-form" id="rsvpForm">
-        <input type="text" placeholder="Your Full Name *" required>
-        <input type="tel" placeholder="Mobile Number">
-        <input type="number" placeholder="Number of Guests" min="1" max="10" required>
-        <select required>
-          <option value="">Will You Attend?</option>
-          <option>Yes, I Will Attend 🎉</option>
-          <option>Yes, With Family 👨‍👩‍👧‍👦</option>
-          <option>Sorry, Can't Attend 😢</option>
-        </select>
-        <textarea rows="4" placeholder="Message for Rohan & Sneha... (Optional)"></textarea>
-        <button type="submit">💌 Submit RSVP</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <h3>Rohan ❤️ Sneha</h3>
-  <p style="color:var(--gold-light);margin-bottom:8px;font-size:18px;font-family:'Cormorant Garamond',serif;font-style:italic;">15 December 2026</p>
-  <p>Made with ❤️ by SiteNova Studio</p>
+<footer class="bg-[#09090f] py-12 text-center text-gray-500 border-t border-white/5">
+  <h3 class="serif text-white text-2xl mb-2">Sitenova<span>Studio</span></h3>
+  <p>© 2026 SitenovaStudio • Crafted with ❤️ in India</p>
 </footer>
 
-<!-- MUSIC (Silent by default - user interaction required) -->
-<audio id="bg-music" loop preload="metadata">
-  <!-- Add your wedding song here -->
-  <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
-</audio>
-<button id="music-btn" title="Toggle Music">🔇</button>
-
 <script>
-// COUNTDOWN
-const weddingDate = new Date("December 15, 2026 19:00:00").getTime();
-function updateCountdown() {
-  const now = new Date().getTime();
-  const d = weddingDate - now;
-  
-  if (d > 0) {
-    document.getElementById("days").innerHTML = Math.floor(d / 86400000).toString().padStart(2, '0');
-    document.getElementById("hours").innerHTML = Math.floor((d % 86400000) / 3600000).toString().padStart(2, '0');
-    document.getElementById("minutes").innerHTML = Math.floor((d % 3600000) / 60000).toString().padStart(2, '0');
-    document.getElementById("seconds").innerHTML = Math.floor((d % 60000) / 1000).toString().padStart(2, '0');
-  } else {
-    document.querySelector('.countdown').innerHTML = '<h2 style="grid-column:1/-1;font-family:Cormorant Garamond,serif;font-size:48px;color:var(--maroon);text-align:center;">Wedding Day! 💍✨</h2>';
-  }
-}
-updateCountdown();
-setInterval(updateCountdown, 1000);
+  // Music Logic
+  const audio = document.getElementById('bgMusic');
+  const musicToggle = document.getElementById('musicToggle');
+  const musicIcon = document.getElementById('musicIcon');
+  let isPlaying = false;
 
-// SHARE FUNCTION
-function shareWedding() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Rohan ❤️ Sneha Wedding Invitation',
-      text: 'Join us for Rohan & Sneha Wedding! 15 Dec 2026, Pune 💍',
-      url: window.location.href
-    });
-  } else {
-    navigator.clipboard.writeText(window.location.href);
-    alert('Link copied to clipboard! 📋');
-  }
-}
-
-// MUSIC
-const music = document.getElementById("bg-music");
-const musicBtn = document.getElementById("music-btn");
-let playing = false;
-
-document.body.addEventListener("click", () => {
-  if(!playing && music.src){ 
-    music.play().then(()=>{ 
-      musicBtn.innerHTML="🔊"; 
-      playing=true; 
-    }).catch(()=>{});
-  }
-}, { once:true });
-
-musicBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  if(playing){ 
-    music.pause(); 
-    musicBtn.innerHTML="🔇"; 
-    playing=false; 
-  } else { 
-    music.play().then(()=>{
-      musicBtn.innerHTML="🔊"; 
-      playing=true; 
-    }).catch(()=>{});
-  }
-});
-
-// RSVP FORM
-document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const submitBtn = e.target.querySelector('button[type="submit"]');
-  submitBtn.disabled = true;
-  submitBtn.innerHTML = 'Sending... ⏳';
-  
-  // Simulate API call
-  setTimeout(() => {
-    e.target.innerHTML = `
-      <div style="text-align:center;padding:50px 20px">
-        <div style="font-size:60px;margin-bottom:20px">🎉</div>
-        <h3 style="font-size:28px;color:var(--maroon);font-family:'Cormorant Garamond',serif;margin-bottom:12px">
-          धन्यवाद! | Thank You!
-        </h3>
-        <p style="color:#666;font-size:16px;line-height:1.6;margin-bottom:20px">
-          Your RSVP has been submitted successfully. We look forward to celebrating with you! 🙏
-        </p>
-        <a href="#rsvp" style="background:var(--gold);color:#1a0a00;padding:12px 30px;border-radius:25px;font-weight:600;text-decoration:none;display:inline-block;">Submit Another</a>
-      </div>
-    `;
-    
-    // Store in localStorage for demo
-    const formData = new FormData(e.target);
-    const rsvps = JSON.parse(localStorage.getItem('rsvps') || '[]');
-    rsvps.push(Object.fromEntries(formData));
-    localStorage.setItem('rsvps', JSON.stringify(rsvps));
-    
-  }, 1500);
-});
-
-// Scroll reveal animations
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      e.target.style.opacity='1';
-      e.target.style.transform='translateY(0)';
+  musicToggle.addEventListener('click', () => {
+    if (isPlaying) {
+      audio.pause();
+      musicIcon.innerText = '🔇';
+    } else {
+      audio.play().catch(e => console.log("Playback blocked"));
+      musicIcon.innerText = '🔊';
     }
+    isPlaying = !isPlaying;
   });
-}, {threshold:0.12});
 
-document.querySelectorAll('.time-box,.event-card,.gallery-item,.venue-box,.rsvp-box').forEach(el => {
-  el.style.opacity='0';
-  el.style.transform='translateY(24px)';
-  el.style.transition='opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s';
-  obs.observe(el);
-});
-
-// PWA Ready
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('data:text/javascript;base64,...');
+  // Navbar Scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
-}
+
+  // Reveal Animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.demo-card, .price-card').forEach((el, index) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = `opacity 0.8s ease ${index % 3 * 0.15}s, transform 0.8s ease ${index % 3 * 0.15}s`;
+    observer.observe(el);
+  });
 </script>
 </body>
 </html>
