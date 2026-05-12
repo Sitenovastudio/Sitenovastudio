@@ -3,628 +3,666 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>SitenovaStudio | Premium Digital Invites</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
+    :root {
+      --indigo: #4f46e5;
+      --indigo-dark: #3730a3;
+      --pink: #ec4899;
+      --gold: #d97706;
+      --dark: #0f0f13;
+      --off-white: #f9f7f4;
     }
 
-    body{
-      font-family:'Inter',sans-serif;
-      color:#111827;
-      overflow-x:hidden;
-
-      background-color:#fafafa;
-
-      background-image:
-      radial-gradient(circle at top left, rgba(99,102,241,0.12), transparent 25%),
-      radial-gradient(circle at bottom right, rgba(236,72,153,0.10), transparent 25%),
-      linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
-
-      background-size:
-      auto,
-      auto,
-      40px 40px,
-      40px 40px;
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1a1a2e;
+      overflow-x: hidden;
+      background: var(--off-white);
     }
 
-    .serif{
-      font-family:'Playfair Display',serif;
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: rgba(249,247,244,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+    .nav-inner { max-width: 1280px; margin: auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-family:'Cormorant Garamond',serif; font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+    .nav-logo span { color: var(--indigo); }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: #444; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--indigo); }
+    .nav-cta {
+      background: var(--dark); color: #fff !important;
+      padding: 10px 26px; border-radius: 50px;
+      font-size: 14px !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--indigo) !important; transform: translateY(-2px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+      padding: 120px 0 60px;
+      max-width: 1280px;
+      margin: auto;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+    .hero-left { padding-right: 48px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; border: 1px solid #e5e7eb;
+      padding: 8px 18px; border-radius: 50px;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+      color: var(--indigo); text-transform: uppercase;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(79,70,229,0.1);
+      animation: fadeSlideUp 0.6s ease both;
+    }
+    .hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--indigo); border-radius: 50%; display: block; animation: blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 5.5vw, 80px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      animation: fadeSlideUp 0.7s 0.1s ease both;
+    }
+    .hero-title em { font-style: italic; color: var(--indigo); }
+    .hero-desc {
+      font-size: 17px; color: #6b7280; line-height: 1.8;
+      max-width: 480px; margin-bottom: 40px;
+      animation: fadeSlideUp 0.7s 0.2s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      animation: fadeSlideUp 0.7s 0.3s ease both;
+    }
+    .btn-primary {
+      background: var(--dark); color: #fff;
+      padding: 16px 36px; border-radius: 14px;
+      font-weight: 600; font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s; display: inline-block;
+      box-shadow: 0 8px 20px rgba(15,15,19,0.2);
+    }
+    .btn-primary:hover { background: var(--indigo); transform: translateY(-3px); box-shadow: 0 14px 30px rgba(79,70,229,0.3); }
+    .btn-outline {
+      border: 1.5px solid #d1d5db; color: #374151;
+      padding: 16px 36px; border-radius: 14px;
+      font-weight: 600; font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s; display: inline-block;
+      background: #fff;
+    }
+    .btn-outline:hover { border-color: var(--indigo); color: var(--indigo); transform: translateY(-3px); }
+
+    /* hero right */
+    .hero-right {
+      position: relative;
+      animation: fadeSlideUp 0.8s 0.2s ease both;
+    }
+    .hero-img-wrap {
+      border-radius: 32px; overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.18);
+      position: relative;
+    }
+    .hero-img-wrap img { width: 100%; height: 580px; object-fit: cover; display: block; transition: transform 0.7s ease; }
+    .hero-img-wrap:hover img { transform: scale(1.04); }
+    .hero-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(236,72,153,0.06));
+      border-radius: 32px;
     }
 
-    .glass{
-      background:rgba(255,255,255,0.75);
-      backdrop-filter:blur(14px);
+    .float-card {
+      position: absolute; background: #fff;
+      border-radius: 20px; padding: 20px 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      border: 1px solid rgba(255,255,255,0.8);
     }
+    .float-card-1 { bottom: -20px; left: -40px; }
+    .float-card-1 .num { font-size: 42px; font-weight: 800; color: var(--indigo); font-family:'Cormorant Garamond',serif; }
+    .float-card-1 .label { font-size: 13px; color: #9ca3af; font-weight: 500; }
+    .float-card-2 { top: 24px; right: -24px; background: var(--indigo); color: #fff; text-align: center; }
+    .float-card-2 .num { font-size: 34px; font-weight: 800; font-family:'Cormorant Garamond',serif; }
+    .float-card-2 .label { font-size: 12px; opacity: 0.85; }
 
-    .hero-gradient{
-      background:
-      radial-gradient(circle at top left, rgba(99,102,241,0.15), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(236,72,153,0.12), transparent 30%);
+    @keyframes fadeSlideUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--dark); padding: 18px 0; overflow: hidden;
+      position: relative; margin: 60px 0 0;
     }
-
-    .hover-card{
-      transition:0.4s ease;
+    .marquee-track {
+      display: flex; gap: 60px; white-space: nowrap;
+      animation: marquee 20s linear infinite;
     }
+    .marquee-item { color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 16px; }
+    .marquee-dot { width: 5px; height: 5px; background: var(--indigo); border-radius: 50%; }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
-    .hover-card:hover{
-      transform:translateY(-12px);
+    /* ── SERVICES ── */
+    .section { padding: 100px 32px; max-width: 1280px; margin: auto; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--indigo); background: rgba(79,70,229,0.08); padding: 6px 16px; border-radius: 50px; margin-bottom: 16px; }
+    .section-title { font-family:'Cormorant Garamond',serif; font-size: clamp(36px,4vw,58px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .section-sub { color: #6b7280; font-size: 16px; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .service-card {
+      background: #fff; border-radius: 28px; padding: 44px 36px;
+      border: 1px solid #f0f0f0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: all 0.4s ease;
+      position: relative; overflow: hidden;
     }
-
-    .image-hover{
-      overflow:hidden;
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--indigo), var(--pink));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
     }
+    .service-card:hover { transform: translateY(-12px); box-shadow: 0 24px 50px rgba(0,0,0,0.1); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon { font-size: 44px; margin-bottom: 24px; display: block; }
+    .service-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 14px; }
+    .service-card p { color: #6b7280; line-height: 1.7; font-size: 15px; }
 
-    .image-hover img{
-      transition:0.6s ease;
+    /* ── DEMOS ── */
+    .demos-section { background: #fff; padding: 100px 32px; }
+    .demos-inner { max-width: 1280px; margin: auto; }
+    .demos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 64px; }
+    .demo-card {
+      border-radius: 28px; overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      border: 1px solid #f0f0f0;
+      background: #fff;
+      transition: all 0.4s ease;
     }
-
-    .image-hover:hover img{
-      transform:scale(1.08);
+    .demo-card:hover { transform: translateY(-14px); box-shadow: 0 28px 60px rgba(0,0,0,0.14); }
+    .demo-img { overflow: hidden; height: 260px; position: relative; }
+    .demo-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+    .demo-card:hover .demo-img img { transform: scale(1.08); }
+    .demo-img-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: 0.4s; display: flex; align-items: center; justify-content: center; }
+    .demo-card:hover .demo-img-overlay { background: rgba(0,0,0,0.25); }
+    .demo-img-overlay span { background: #fff; color: #111; font-weight: 700; font-size: 14px; padding: 10px 24px; border-radius: 50px; opacity: 0; transform: translateY(10px); transition: 0.3s 0.1s; }
+    .demo-card:hover .demo-img-overlay span { opacity: 1; transform: translateY(0); }
+    .demo-body { padding: 32px; }
+    .demo-tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 50px; margin-bottom: 14px; }
+    .tag-pink { background: #fce7f3; color: #be185d; }
+    .tag-indigo { background: #ede9fe; color: #5b21b6; }
+    .tag-orange { background: #fff7ed; color: #c2410c; }
+    .demo-body h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
+    .demo-body p { color: #6b7280; font-size: 14px; line-height: 1.7; margin-bottom: 24px; }
+    .demo-btn {
+      display: block; text-align: center;
+      padding: 14px; border-radius: 14px;
+      font-weight: 600; font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s;
     }
+    .demo-btn-pink { background: #ec4899; color: #fff; }
+    .demo-btn-pink:hover { background: #db2777; }
+    .demo-btn-indigo { background: var(--indigo); color: #fff; }
+    .demo-btn-indigo:hover { background: var(--indigo-dark); }
+    .demo-btn-orange { background: #f97316; color: #fff; }
+    .demo-btn-orange:hover { background: #ea580c; }
 
-    @media(max-width:768px){
-
-      .hero-title{
-        font-size:42px !important;
-        line-height:1.3;
-        text-align:center;
-      }
-
-      .hero-description{
-        text-align:center;
-      }
-
-      .hero-buttons{
-        justify-content:center;
-      }
-
-      .hero-image{
-        height:420px !important;
-        margin-top:20px;
-      }
-
-      .floating-card{
-        display:none;
-      }
-
-      .section-title{
-        font-size:36px !important;
-      }
-
+    /* ── PROCESS ── */
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .process-step {
+      text-align: center; padding: 36px 24px;
+      background: #fff; border-radius: 24px;
+      border: 1px solid #f0f0f0;
+      position: relative;
+      transition: all 0.3s;
     }
-
-    @media(max-width:480px){
-
-      .hero-title{
-        font-size:34px !important;
-      }
-
-      .section-title{
-        font-size:30px !important;
-      }
-
-      .hero-image{
-        height:320px !important;
-      }
-
+    .process-step:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--indigo), var(--pink));
+      color: #fff; font-weight: 800; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-family: 'Cormorant Garamond', serif;
     }
+    .process-step h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .process-step p { font-size: 14px; color: #6b7280; line-height: 1.6; }
 
+    /* ── PRICING ── */
+    .pricing-wrap { background: var(--off-white); padding: 100px 32px; }
+    .pricing-inner { max-width: 1100px; margin: auto; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 64px; }
+    .price-card {
+      background: #fff; border-radius: 28px; padding: 44px 36px;
+      border: 1px solid #f0f0f0;
+      transition: all 0.4s;
+    }
+    .price-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+    .price-card.popular {
+      background: var(--indigo); color: #fff;
+      border: none; transform: scale(1.03);
+      box-shadow: 0 20px 50px rgba(79,70,229,0.3);
+    }
+    .price-card.popular:hover { transform: scale(1.03) translateY(-8px); }
+    .popular-badge { display: inline-block; background: rgba(255,255,255,0.2); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 16px; }
+    .price-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .price-num { font-family:'Cormorant Garamond',serif; font-size: 58px; font-weight: 700; line-height: 1; margin: 20px 0 28px; }
+    .price-card ul { list-style: none; margin-bottom: 36px; }
+    .price-card li { padding: 10px 0; font-size: 15px; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; align-items: center; gap: 10px; }
+    .price-card.popular li { border-color: rgba(255,255,255,0.12); }
+    .check { color: var(--indigo); font-weight: 700; }
+    .price-card.popular .check { color: #a5f3fc; }
+    .price-btn {
+      display: block; text-align: center;
+      padding: 15px; border-radius: 14px;
+      font-weight: 700; font-size: 15px;
+      cursor: pointer; border: none; width: 100%;
+      transition: all 0.3s; text-decoration: none;
+    }
+    .price-btn-dark { background: var(--dark); color: #fff; }
+    .price-btn-dark:hover { background: var(--indigo); }
+    .price-btn-white { background: #fff; color: var(--indigo); }
+    .price-btn-white:hover { background: #f0f0ff; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-wrap { background: #fff; padding: 100px 32px; }
+    .testimonials-inner { max-width: 1280px; margin: auto; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 64px; }
+    .testi-card {
+      background: var(--off-white); border-radius: 24px; padding: 36px;
+      border: 1px solid #ece8e1;
+      transition: all 0.4s;
+      position: relative;
+    }
+    .testi-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.08); background: #fff; }
+    .testi-quote { font-size: 40px; color: var(--indigo); line-height: 1; margin-bottom: 16px; font-family:'Cormorant Garamond',serif; }
+    .testi-text { color: #374151; font-size: 15px; line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--indigo); }
+    .testi-name { font-weight: 700; font-size: 14px; }
+    .testi-role { font-size: 13px; color: #9ca3af; }
+    .testi-stars { color: #f59e0b; font-size: 14px; margin-top: 2px; }
+
+    /* ── CONTACT ── */
+    .contact-wrap { background: var(--dark); padding: 100px 32px; text-align: center; position: relative; overflow: hidden; }
+    .contact-wrap::before {
+      content: ''; position: absolute; top: -50%; left: -10%; width: 50%; height: 200%;
+      background: radial-gradient(circle, rgba(79,70,229,0.15), transparent 60%);
+    }
+    .contact-wrap::after {
+      content: ''; position: absolute; bottom: -50%; right: -10%; width: 50%; height: 200%;
+      background: radial-gradient(circle, rgba(236,72,153,0.1), transparent 60%);
+    }
+    .contact-inner { max-width: 700px; margin: auto; position: relative; z-index: 2; }
+    .contact-inner h2 { font-family:'Cormorant Garamond',serif; font-size: clamp(36px,4vw,60px); font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: -1px; }
+    .contact-inner p { color: rgba(255,255,255,0.6); font-size: 17px; line-height: 1.7; margin-bottom: 40px; }
+    .contact-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-email { background: var(--indigo); color: #fff; padding: 16px 36px; border-radius: 14px; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+    .btn-email:hover { background: #4338ca; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(79,70,229,0.4); }
+    .btn-wa { background: #22c55e; color: #fff; padding: 16px 36px; border-radius: 14px; font-weight: 700; text-decoration: none; transition: all 0.3s; }
+    .btn-wa:hover { background: #16a34a; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(34,197,94,0.4); }
+
+    /* ── FOOTER ── */
+    footer { background: #09090f; color: rgba(255,255,255,0.5); text-align: center; padding: 40px 32px; }
+    footer h3 { font-family:'Cormorant Garamond',serif; font-size: 28px; color: #fff; margin-bottom: 8px; }
+    footer h3 span { color: var(--indigo); }
+    footer p { font-size: 14px; }
+
+    /* ── MOBILE ── */
+    @media(max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 100px; }
+      .hero-left { padding-right: 0; text-align: center; }
+      .hero-btns { justify-content: center; }
+      .hero-desc { margin: 0 auto 40px; }
+      .hero-right { margin-top: 40px; }
+      .float-card { display: none; }
+      .services-grid, .demos-grid, .pricing-grid, .testimonials-grid, .process-grid { grid-template-columns: 1fr; }
+      .price-card.popular { transform: scale(1); }
+    }
+    @media(max-width: 640px) {
+      .nav-links { display: none; }
+    }
   </style>
-
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="fixed top-0 left-0 w-full z-50 glass border-b border-gray-100">
-
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-      <h1 class="serif text-2xl md:text-3xl font-bold">
-        Sitenova<span class="text-indigo-600">Studio</span>
-      </h1>
-
-      <div class="hidden md:flex items-center gap-8">
-
-        <a href="#portfolio" class="hover:text-indigo-600 transition">
-          Demos
-        </a>
-
-        <a href="#pricing" class="hover:text-indigo-600 transition">
-          Pricing
-        </a>
-
-        <a href="#contact"
-           class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition shadow-lg">
-
-          Contact
-
-        </a>
-
-      </div>
-
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo serif">Sitenova<span>Studio</span></div>
+    <div class="nav-links">
+      <a href="#demos">Demos</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">Process</a>
+      <a href="#contact" class="nav-cta">Contact Us</a>
     </div>
-
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero-gradient pt-40 pb-28 px-6">
-
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-
-      <!-- LEFT -->
-      <div>
-
-        <div class="inline-block px-5 py-2 rounded-full bg-white shadow text-indigo-600 text-sm font-semibold mb-6">
-          DIGITAL INVITATION STUDIO
-        </div>
-
-        <h2 class="hero-title serif text-5xl md:text-7xl leading-tight mb-6">
-
-          Premium
-          <span class="text-indigo-600 italic">
-            Invitation
-          </span>
-          Websites
-
-        </h2>
-
-        <p class="hero-description text-gray-600 text-lg leading-relaxed mb-10 max-w-xl">
-
-          We create elegant digital invitation websites,
-          landing pages and luxury event experiences
-          for modern brands and celebrations.
-
-        </p>
-
-        <div class="hero-buttons flex flex-wrap gap-4">
-
-          <a href="#portfolio"
-             class="bg-gray-900 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-black transition shadow-xl">
-
-            Explore Demos
-
-          </a>
-
-          <a href="#pricing"
-             class="bg-white border border-gray-200 px-8 py-4 rounded-2xl font-semibold hover:bg-gray-50 transition">
-
-            Pricing Plans
-
-          </a>
-
-        </div>
-
-      </div>
-
-      <!-- RIGHT -->
-      <div class="relative">
-
-        <div class="image-hover rounded-[40px] shadow-2xl">
-
-          <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop"
-            class="hero-image w-full h-[650px] object-cover rounded-[40px]"
-          >
-
-        </div>
-
-        <!-- FLOATING CARD -->
-        <div class="floating-card absolute -bottom-10 -left-8 bg-white p-6 rounded-[25px] shadow-2xl border border-gray-100">
-
-          <h3 class="text-4xl font-bold text-indigo-600 mb-2">
-            100+
-          </h3>
-
-          <p class="text-gray-500">
-            Premium Websites Delivered
-          </p>
-
-        </div>
-
-        <!-- FLOATING MINI CARD -->
-        <div class="floating-card absolute top-8 -right-6 bg-indigo-600 text-white p-5 rounded-[20px] shadow-2xl">
-
-          <h3 class="text-3xl font-bold">
-            5★
-          </h3>
-
-          <p class="text-sm opacity-90">
-            Client Rating
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- SERVICES -->
-  <section class="py-24 px-6">
-
-    <div class="max-w-7xl mx-auto">
-
-      <div class="text-center mb-16">
-
-        <h2 class="section-title serif text-5xl mb-5">
-          Our Services
-        </h2>
-
-        <p class="text-gray-500 max-w-2xl mx-auto">
-          Premium digital experiences crafted for weddings,
-          startups and luxury events.
-        </p>
-
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-10">
-
-        <div class="hover-card bg-white rounded-[30px] p-10 shadow-lg border border-gray-100">
-
-          <div class="text-5xl mb-6">
-            💍
-          </div>
-
-          <h3 class="text-2xl font-bold mb-4">
-            Wedding Invites
-          </h3>
-
-          <p class="text-gray-500 leading-relaxed">
-            Interactive wedding invitation websites with RSVP,
-            countdown and gallery features.
-          </p>
-
-        </div>
-
-        <div class="hover-card bg-white rounded-[30px] p-10 shadow-lg border border-gray-100">
-
-          <div class="text-5xl mb-6">
-            🚀
-          </div>
-
-          <h3 class="text-2xl font-bold mb-4">
-            Business Landing
-          </h3>
-
-          <p class="text-gray-500 leading-relaxed">
-            Professional landing pages for startups,
-            agencies and modern businesses.
-          </p>
-
-        </div>
-
-        <div class="hover-card bg-white rounded-[30px] p-10 shadow-lg border border-gray-100">
-
-          <div class="text-5xl mb-6">
-            🎉
-          </div>
-
-          <h3 class="text-2xl font-bold mb-4">
-            Event Websites
-          </h3>
-
-          <p class="text-gray-500 leading-relaxed">
-            Stylish event websites for concerts,
-            launches and premium celebrations.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- DEMOS -->
-  <section id="portfolio" class="py-24 px-6 bg-white">
-
-    <div class="max-w-7xl mx-auto">
-
-      <div class="text-center mb-16">
-
-        <h2 class="section-title serif text-5xl mb-5">
-          Featured Demos
-        </h2>
-
-        <p class="text-gray-500 max-w-2xl mx-auto">
-          Explore our premium digital invitation demo collection.
-        </p>
-
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-        <!-- DEMO 1 -->
-        <div class="hover-card bg-white rounded-[30px] overflow-hidden shadow-xl border border-gray-100">
-
-          <div class="image-hover">
-
-            <img
-              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop"
-              class="w-full h-80 object-cover"
-            >
-
-          </div>
-
-          <div class="p-8">
-
-            <div class="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              Wedding Invite
-            </div>
-
-            <h3 class="text-2xl font-bold mb-4">
-              Marathi Wedding
-            </h3>
-
-            <p class="text-gray-500 mb-8 leading-relaxed">
-              Elegant Marathi wedding invitation website with RSVP,
-              countdown timer and gallery.
-            </p>
-
-            <a href="demos/marathi-wedding.html"
-               target="_blank"
-               class="block text-center bg-pink-500 text-white py-4 rounded-2xl font-semibold hover:bg-pink-600 transition">
-
-              View Demo
-
-            </a>
-
-          </div>
-
-        </div>
-
-        <!-- DEMO 2 -->
-        <div class="hover-card bg-white rounded-[30px] overflow-hidden shadow-xl border border-gray-100">
-
-          <div class="image-hover">
-
-            <img
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
-              class="w-full h-80 object-cover"
-            >
-
-          </div>
-
-          <div class="p-8">
-
-            <div class="inline-block bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              Business Landing
-            </div>
-
-            <h3 class="text-2xl font-bold mb-4">
-              Startup Landing
-            </h3>
-
-            <p class="text-gray-500 mb-8 leading-relaxed">
-              Modern business landing page for startups,
-              agencies and growing brands.
-            </p>
-
-            <a href="demos/business-landing.html"
-               target="_blank"
-               class="block text-center bg-indigo-600 text-white py-4 rounded-2xl font-semibold hover:bg-indigo-700 transition">
-
-              View Demo
-
-            </a>
-
-          </div>
-
-        </div>
-
-        <!-- DEMO 3 -->
-        <div class="hover-card bg-white rounded-[30px] overflow-hidden shadow-xl border border-gray-100">
-
-          <div class="image-hover">
-
-            <img
-              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1200&auto=format&fit=crop"
-              class="w-full h-80 object-cover"
-            >
-
-          </div>
-
-          <div class="p-8">
-
-            <div class="inline-block bg-orange-100 text-orange-500 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              Event Website
-            </div>
-
-            <h3 class="text-2xl font-bold mb-4">
-              Luxury Event
-            </h3>
-
-            <p class="text-gray-500 mb-8 leading-relaxed">
-              Premium event website for concerts,
-              launches and luxury celebrations.
-            </p>
-
-            <a href="demos/event-website.html"
-               target="_blank"
-               class="block text-center bg-orange-500 text-white py-4 rounded-2xl font-semibold hover:bg-orange-600 transition">
-
-              View Demo
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing" class="py-24 px-6">
-
-    <div class="max-w-7xl mx-auto text-center">
-
-      <h2 class="section-title serif text-5xl mb-5">
-        Pricing Plans
-      </h2>
-
-      <p class="text-gray-500 mb-16">
-        Affordable premium invitation website packages.
-      </p>
-
-      <div class="grid lg:grid-cols-3 gap-10">
-
-        <!-- BASIC -->
-        <div class="hover-card bg-white rounded-[30px] p-10 shadow-lg border border-gray-100">
-
-          <h3 class="text-2xl font-bold mb-4">
-            Basic Invite
-          </h3>
-
-          <div class="text-5xl font-bold mb-8">
-            ₹999
-          </div>
-
-          <ul class="space-y-4 text-gray-500 mb-10">
-
-            <li>✔ Mobile Responsive</li>
-            <li>✔ RSVP Button</li>
-            <li>✔ Simple Invite</li>
-
-          </ul>
-
-          <button class="w-full bg-indigo-600 text-white py-4 rounded-2xl font-semibold">
-            Choose Plan
-          </button>
-
-        </div>
-
-        <!-- PREMIUM -->
-        <div class="hover-card bg-indigo-600 text-white rounded-[30px] p-10 shadow-2xl scale-105">
-
-          <div class="bg-white/20 inline-block px-4 py-2 rounded-full text-sm mb-5">
-            MOST POPULAR
-          </div>
-
-          <h3 class="text-2xl font-bold mb-4">
-            Premium Invite
-          </h3>
-
-          <div class="text-5xl font-bold mb-8">
-            ₹2999
-          </div>
-
-          <ul class="space-y-4 opacity-90 mb-10">
-
-            <li>✔ Premium Animations</li>
-            <li>✔ Countdown Timer</li>
-            <li>✔ RSVP Form</li>
-            <li>✔ Gallery Section</li>
-
-          </ul>
-
-          <button class="w-full bg-white text-indigo-600 py-4 rounded-2xl font-semibold">
-            Choose Plan
-          </button>
-
-        </div>
-
-        <!-- CUSTOM -->
-        <div class="hover-card bg-white rounded-[30px] p-10 shadow-lg border border-gray-100">
-
-          <h3 class="text-2xl font-bold mb-4">
-            Luxury Custom
-          </h3>
-
-          <div class="text-5xl font-bold mb-8">
-            Custom
-          </div>
-
-          <ul class="space-y-4 text-gray-500 mb-10">
-
-            <li>✔ Fully Custom Website</li>
-            <li>✔ Premium UI/UX</li>
-            <li>✔ Custom Branding</li>
-
-          </ul>
-
-          <button class="w-full bg-gray-900 text-white py-4 rounded-2xl font-semibold">
-            Contact Us
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6 bg-white">
-
-    <div class="max-w-4xl mx-auto text-center">
-
-      <h2 class="section-title serif text-5xl mb-6">
-        Let's Build Something Beautiful
-      </h2>
-
-      <p class="text-gray-500 text-lg mb-10">
-        Contact SitenovaStudio for premium invitation
-        websites and landing pages.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-5">
-
-        <a href="mailto:hello.sitenovastudio@gmail.com"
-           class="bg-indigo-600 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-indigo-700 transition">
-
-          Email Us
-
-        </a>
-
-        <a href="https://wa.me/919999999999"
-           target="_blank"
-           class="bg-green-500 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-green-600 transition">
-
-          WhatsApp
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-10 text-center border-t border-gray-100 bg-white">
-
-    <h3 class="serif text-3xl font-bold mb-3">
-      Sitenova<span class="text-indigo-600">Studio</span>
-    </h3>
-
-    <p class="text-gray-400">
-      © 2026 SitenovaStudio • Crafted in India 🇮🇳
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="max-width:1280px;margin:auto;padding:130px 32px 60px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="hero-section">
+  <div class="hero-left">
+    <div class="hero-badge">Digital Invitation Studio</div>
+    <h1 class="hero-title serif">
+      Premium<br><em>Invitation</em><br>Websites
+    </h1>
+    <p class="hero-desc">
+      We craft elegant digital invitation websites, luxury landing pages and
+      unforgettable event experiences for modern brands and celebrations.
     </p>
+    <div class="hero-btns">
+      <a href="#demos" class="btn-primary">Explore Demos</a>
+      <a href="#pricing" class="btn-outline">View Pricing</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1400&auto=format&fit=crop" alt="Wedding Couple">
+      <div class="hero-img-overlay"></div>
+    </div>
+    <div class="float-card float-card-1">
+      <div class="num serif">100+</div>
+      <div class="label">Websites Delivered</div>
+    </div>
+    <div class="float-card float-card-2">
+      <div class="num serif">5★</div>
+      <div class="label">Client Rating</div>
+    </div>
+  </div>
+</section>
 
-  </footer>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot"></span> Wedding Invitations</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Business Landing Pages</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Luxury Event Websites</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> RSVP Systems</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Digital Experiences</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Premium UI Design</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Wedding Invitations</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Business Landing Pages</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Luxury Event Websites</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> RSVP Systems</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Digital Experiences</span>
+    <span class="marquee-item"><span class="marquee-dot"></span> Premium UI Design</span>
+  </div>
+</div>
 
+<!-- SERVICES -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-tag">What We Do</div>
+    <h2 class="section-title serif">Our Services</h2>
+    <p class="section-sub">Premium digital experiences crafted for weddings, startups and luxury events across India.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">💍</span>
+      <h3>Wedding Invites</h3>
+      <p>Interactive wedding invitation websites with RSVP forms, live countdowns, gallery sections and beautiful animations tailored to your culture.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🚀</span>
+      <h3>Business Landing</h3>
+      <p>Professional landing pages for startups, agencies and growing businesses. Convert visitors into clients with stunning modern design.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎉</span>
+      <h3>Event Websites</h3>
+      <p>Stylish event websites for concerts, product launches and premium celebrations — complete with ticket booking and schedules.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DEMOS -->
+<div class="demos-section" id="demos">
+  <div class="demos-inner">
+    <div class="section-header">
+      <div class="section-tag">Portfolio</div>
+      <h2 class="section-title serif">Featured Demos</h2>
+      <p class="section-sub">Explore our premium digital invitation demo collection — each one hand-crafted.</p>
+    </div>
+    <div class="demos-grid">
+      <!-- DEMO 1 -->
+      <div class="demo-card">
+        <div class="demo-img">
+          <img src="https://images.unsplash.com/photo-1617606002806-94e279c22567?q=80&w=1200&auto=format&fit=crop" alt="Marathi Wedding">
+          <div class="demo-img-overlay"><span>Preview →</span></div>
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag tag-pink">Wedding Invite</span>
+          <h3>Marathi Wedding</h3>
+          <p>Elegant Marathi wedding invitation with RSVP, countdown timer, venue map and photo gallery.</p>
+          <a href="demos/marathi-wedding.html" target="_blank" class="demo-btn demo-btn-pink">View Demo</a>
+        </div>
+      </div>
+      <!-- DEMO 2 -->
+      <div class="demo-card">
+        <div class="demo-img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" alt="Business Landing">
+          <div class="demo-img-overlay"><span>Preview →</span></div>
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag tag-indigo">Business Landing</span>
+          <h3>Startup Landing</h3>
+          <p>Modern business landing page for startups, agencies and growing brands — built to convert.</p>
+          <a href="demos/business-landing.html" target="_blank" class="demo-btn demo-btn-indigo">View Demo</a>
+        </div>
+      </div>
+      <!-- DEMO 3 -->
+      <div class="demo-card">
+        <div class="demo-img">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop" alt="Luxury Event">
+          <div class="demo-img-overlay"><span>Preview →</span></div>
+        </div>
+        <div class="demo-body">
+          <span class="demo-tag tag-orange">Event Website</span>
+          <h3>Luxury Event</h3>
+          <p>Premium event website for concerts, launches and luxury celebrations with ticket booking.</p>
+          <a href="demos/event-website.html" target="_blank" class="demo-btn demo-btn-orange">View Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section" id="process">
+  <div class="section-header">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title serif">Simple Process</h2>
+    <p class="section-sub">From idea to live website in just a few days.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">1</div>
+      <h4>Share Your Vision</h4>
+      <p>Tell us about your event, style preferences and any details you want included.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">2</div>
+      <h4>We Design & Build</h4>
+      <p>Our team crafts your custom website with premium UI, animations and all features.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">3</div>
+      <h4>Review & Refine</h4>
+      <p>You review the design and we make revisions until you're completely satisfied.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <h4>Go Live & Share</h4>
+      <p>We publish your website and you share the link with your guests instantly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="pricing-wrap" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-header">
+      <div class="section-tag">Pricing</div>
+      <h2 class="section-title serif">Transparent Plans</h2>
+      <p class="section-sub">Affordable premium invitation website packages with no hidden charges.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Basic Invite</h3>
+        <p style="color:#9ca3af;font-size:14px;margin-top:6px;">For simple occasions</p>
+        <div class="price-num serif">₹999</div>
+        <ul>
+          <li><span class="check">✓</span> Mobile Responsive</li>
+          <li><span class="check">✓</span> RSVP Button</li>
+          <li><span class="check">✓</span> Simple Design</li>
+          <li><span class="check">✓</span> WhatsApp Sharing</li>
+        </ul>
+        <a href="#contact" class="price-btn price-btn-dark">Choose Plan</a>
+      </div>
+      <div class="price-card popular">
+        <div class="popular-badge">Most Popular</div>
+        <h3>Premium Invite</h3>
+        <p style="color:rgba(255,255,255,0.6);font-size:14px;margin-top:6px;">For weddings & events</p>
+        <div class="price-num serif">₹2999</div>
+        <ul>
+          <li><span class="check">✓</span> Premium Animations</li>
+          <li><span class="check">✓</span> Live Countdown Timer</li>
+          <li><span class="check">✓</span> RSVP Form</li>
+          <li><span class="check">✓</span> Photo Gallery</li>
+          <li><span class="check">✓</span> Background Music</li>
+          <li><span class="check">✓</span> Google Maps Embed</li>
+        </ul>
+        <a href="#contact" class="price-btn price-btn-white">Choose Plan</a>
+      </div>
+      <div class="price-card">
+        <h3>Luxury Custom</h3>
+        <p style="color:#9ca3af;font-size:14px;margin-top:6px;">For brands & businesses</p>
+        <div class="price-num serif" style="font-size:42px;">Custom</div>
+        <ul>
+          <li><span class="check">✓</span> Fully Custom Website</li>
+          <li><span class="check">✓</span> Premium UI/UX Design</li>
+          <li><span class="check">✓</span> Custom Branding</li>
+          <li><span class="check">✓</span> Domain & Hosting</li>
+        </ul>
+        <a href="#contact" class="price-btn price-btn-dark">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonials-wrap">
+  <div class="testimonials-inner">
+    <div class="section-header">
+      <div class="section-tag">Testimonials</div>
+      <h2 class="section-title serif">Happy Clients</h2>
+      <p class="section-sub">What our clients say about their SitenovaStudio experience.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <div class="testi-quote serif">"</div>
+        <p class="testi-text">The wedding invitation website they made for us was absolutely stunning. All our guests loved it and the RSVP form saved us so much time!</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" alt="Priya" class="testi-avatar">
+          <div>
+            <div class="testi-name">Priya Sharma</div>
+            <div class="testi-role">Bride, Pune</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote serif">"</div>
+        <p class="testi-text">SitenovaStudio built our startup landing page in 3 days. The design is modern, clean and professional. We saw a 40% increase in leads.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" alt="Rahul" class="testi-avatar">
+          <div>
+            <div class="testi-name">Rahul Mehta</div>
+            <div class="testi-role">Founder, TechVenture</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote serif">"</div>
+        <p class="testi-text">We used them for our annual gala event website. The ticket booking and gallery sections were perfect. Will definitely use again next year!</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop" alt="Anita" class="testi-avatar">
+          <div>
+            <div class="testi-name">Anita Joshi</div>
+            <div class="testi-role">Event Organizer, Mumbai</div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <div class="contact-inner">
+    <h2 class="serif">Let's Build Something Beautiful</h2>
+    <p>Contact SitenovaStudio today for premium invitation websites, landing pages and digital experiences crafted with love in India.</p>
+    <div class="contact-btns">
+      <a href="mailto:hello.sitenovastudio@gmail.com" class="btn-email">✉ Email Us</a>
+      <a href="https://wa.me/919999999999" target="_blank" class="btn-wa">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <h3 class="serif">Sitenova<span>Studio</span></h3>
+  <p>© 2026 SitenovaStudio • Crafted with ❤️ in India 🇮🇳</p>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .demo-card, .price-card, .testi-card, .process-step').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s, border 0.4s';
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
