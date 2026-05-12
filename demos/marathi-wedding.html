@@ -6,7 +6,8 @@
 <title>Rohan ❤️ Sneha | Wedding Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
 
@@ -26,7 +27,7 @@ body { font-family:'Poppins',sans-serif; background:var(--cream); color:#333; ov
   min-height: 100vh;
   background:
     linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),
-    url('https://images.unsplash.com/photo-1617606002806-94e279c22567?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat fixed;
+    url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat fixed;
   display: flex; align-items: center; justify-content: center;
   padding: 80px 20px;
   color: white; position: relative;
@@ -51,7 +52,8 @@ body { font-family:'Poppins',sans-serif; background:var(--cream); color:#333; ov
   animation: fadeLeft 1s 0.2s ease both;
 }
 .couple-img-inner {
-  width:100%; max-width:400px; height:440px; object-fit:cover;
+  width:100%; max-width:380px; height:380px; /* SAME 1:1 ASPECT RATIO */
+  object-fit:cover; object-position:center;
   border-radius:28px;
   border: 4px solid var(--gold);
   box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 8px rgba(201,168,76,0.15);
@@ -82,6 +84,9 @@ body { font-family:'Poppins',sans-serif; background:var(--cream); color:#333; ov
 .hero-btn-gold:hover { background:var(--gold-light); transform:translateY(-3px); }
 .hero-btn-outline { border:2px solid rgba(255,255,255,0.7); color:#fff; }
 .hero-btn-outline:hover { background:rgba(255,255,255,0.15); transform:translateY(-3px); }
+
+.share-btns { text-align:center; margin:30px 0 0 0; gap:15px; display:flex; justify-content:center; flex-wrap:wrap; }
+.share-btns .hero-btn { padding:12px 28px; font-size:14px; }
 
 @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
 @keyframes fadeLeft { from{opacity:0;transform:translateX(-30px)} to{opacity:1;transform:translateX(0)} }
@@ -163,7 +168,8 @@ iframe { width:100%; height:380px; border:none; display:block; }
   font-family:'Poppins',sans-serif; transition:all 0.3s;
   box-shadow:0 8px 24px rgba(139,0,0,0.3);
 }
-.rsvp-form button:hover { transform:translateY(-3px); box-shadow:0 14px 35px rgba(139,0,0,0.4); }
+.rsvp-form button:hover:not(:disabled) { transform:translateY(-3px); box-shadow:0 14px 35px rgba(139,0,0,0.4); }
+.rsvp-form button:disabled { opacity:0.7; cursor:not-allowed; }
 
 /* FOOTER */
 footer { background:linear-gradient(135deg,var(--maroon),#4a0000); color:#fff; text-align:center; padding:50px 20px; }
@@ -185,14 +191,16 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
   .hero { background-attachment:scroll; }
   .couple-row { grid-template-columns:1fr; gap:40px; text-align:center; }
   .couple-row.reverse { display:flex; flex-direction:column-reverse; }
-  .couple-img-inner { max-width:100%; height:300px; }
+  .couple-img-inner { max-width:320px; height:320px; margin:0 auto; }
   .gallery { grid-template-columns:1fr 1fr; }
   .gallery-item:first-child { grid-column:span 2; }
   .rsvp-box { padding:36px 24px; }
+  .share-btns { flex-direction:column; align-items:center; }
 }
 @media(max-width:480px) {
   .gallery { grid-template-columns:1fr; }
   .gallery-item:first-child { grid-column:span 1; }
+  .couple-img-inner { max-width:280px; height:280px; }
 }
 </style>
 </head>
@@ -206,7 +214,7 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
     <!-- GROOM -->
     <div class="couple-row">
       <div class="couple-img-wrap">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=900&auto=format&fit=crop" alt="Groom" class="couple-img-inner">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=500&h=500&fit=crop&crop=face" alt="Rohan Patil" class="couple-img-inner" loading="eager">
       </div>
       <div class="couple-details">
         <h1>Rohan Patil</h1>
@@ -233,7 +241,7 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
         </p>
       </div>
       <div class="couple-img-wrap">
-        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=900&auto=format&fit=crop" alt="Bride" class="couple-img-inner">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=500&h=500&fit=crop&crop=face" alt="Sneha Deshmukh" class="couple-img-inner" loading="eager">
       </div>
     </div>
 
@@ -241,6 +249,11 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
       <a href="#countdown" class="hero-btn hero-btn-gold">Save The Date 💍</a>
       <a href="#venue" class="hero-btn hero-btn-outline">📍 Venue</a>
       <a href="#rsvp" class="hero-btn hero-btn-outline">💌 RSVP</a>
+    </div>
+    
+    <div class="share-btns">
+      <a href="https://wa.me/?text=Rohan ❤️ Sneha Wedding Invitation! 15 Dec 2026, Pune 💍 %0Ahttp://bit.ly/4uGcBdt" class="hero-btn hero-btn-gold" target="_blank">📱 Share on WhatsApp</a>
+      <button onclick="shareWedding()" class="hero-btn hero-btn-outline">📤 Share</button>
     </div>
   </div>
 </section>
@@ -250,12 +263,12 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
   <div class="container">
     <h2 class="section-title">Save The Date 💍</h2>
     <div class="gold-line"></div>
-    <p class="section-sub">15 December 2026 • Pune, Maharashtra</p>
+    <p class="section-sub">15 डिसेंबर 2026 • पुणे, महाराष्ट्र</p>
     <div class="countdown">
-      <div class="time-box"><h3 id="days">00</h3><p>Days</p></div>
-      <div class="time-box"><h3 id="hours">00</h3><p>Hours</p></div>
-      <div class="time-box"><h3 id="minutes">00</h3><p>Minutes</p></div>
-      <div class="time-box"><h3 id="seconds">00</h3><p>Seconds</p></div>
+      <div class="time-box"><h3 id="days">00</h3><p>दिवस</p></div>
+      <div class="time-box"><h3 id="hours">00</h3><p>तास</p></div>
+      <div class="time-box"><h3 id="minutes">00</h3><p>मिनिटे</p></div>
+      <div class="time-box"><h3 id="seconds">00</h3><p>सेकंद</p></div>
     </div>
   </div>
 </section>
@@ -303,19 +316,19 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
     <p class="section-sub">Cherishing beautiful moments on the journey to forever.</p>
     <div class="gallery">
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="couple">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="couple" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop" alt="bride">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop" alt="bride" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=800&auto=format&fit=crop" alt="groom">
+        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?q=80&w=800&auto=format&fit=crop" alt="groom" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1200&auto=format&fit=crop" alt="wedding">
+        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1200&auto=format&fit=crop" alt="wedding" loading="lazy">
       </div>
       <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1617606002806-94e279c22567?q=80&w=800&auto=format&fit=crop" alt="wedding ceremony">
+        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=800&auto=format&fit=crop" alt="wedding ceremony" loading="lazy">
       </div>
     </div>
   </div>
@@ -333,7 +346,7 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
         <p>Near Shivaji Nagar, Pune – 411005, Maharashtra</p>
         <span class="venue-pin">📍 15 December 2026 • 7:00 PM onwards</span>
       </div>
-      <iframe src="https://maps.google.com/maps?q=pune+maharashtra&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3787.68!2d73.849955!3d18.52043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDMxJzM3LjMiTiA3M8KwNTEnMDIuNSJF!5e0!3m2!1sen!2sin!4v1699999999999" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -345,17 +358,17 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
     <div class="gold-line"></div>
     <p class="section-sub">कृपया आपल्या उपस्थितीची माहिती आम्हाला द्या • Please confirm your attendance.</p>
     <div class="rsvp-box">
-      <form class="rsvp-form" onsubmit="submitRsvp(event)">
-        <input type="text" placeholder="Your Full Name" required>
+      <form class="rsvp-form" id="rsvpForm">
+        <input type="text" placeholder="Your Full Name *" required>
         <input type="tel" placeholder="Mobile Number">
-        <input type="number" placeholder="Number of Guests" min="1" required>
+        <input type="number" placeholder="Number of Guests" min="1" max="10" required>
         <select required>
           <option value="">Will You Attend?</option>
           <option>Yes, I Will Attend 🎉</option>
           <option>Yes, With Family 👨‍👩‍👧‍👦</option>
           <option>Sorry, Can't Attend 😢</option>
         </select>
-        <textarea rows="4" placeholder="Message for Rohan & Sneha..."></textarea>
+        <textarea rows="4" placeholder="Message for Rohan & Sneha... (Optional)"></textarea>
         <button type="submit">💌 Submit RSVP</button>
       </form>
     </div>
@@ -369,9 +382,10 @@ footer p { color:rgba(255,255,255,0.6); font-size:14px; }
   <p>Made with ❤️ by SiteNova Studio</p>
 </footer>
 
-<!-- MUSIC -->
-<audio id="bg-music" loop>
-  <source src="../music/song.mp3" type="audio/mp3">
+<!-- MUSIC (Silent by default - user interaction required) -->
+<audio id="bg-music" loop preload="metadata">
+  <!-- Add your wedding song here -->
+  <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
 </audio>
 <button id="music-btn" title="Toggle Music">🔇</button>
 
@@ -381,42 +395,115 @@ const weddingDate = new Date("December 15, 2026 19:00:00").getTime();
 function updateCountdown() {
   const now = new Date().getTime();
   const d = weddingDate - now;
-  document.getElementById("days").innerHTML = Math.floor(d / 86400000);
-  document.getElementById("hours").innerHTML = Math.floor((d % 86400000) / 3600000);
-  document.getElementById("minutes").innerHTML = Math.floor((d % 3600000) / 60000);
-  document.getElementById("seconds").innerHTML = Math.floor((d % 60000) / 1000);
+  
+  if (d > 0) {
+    document.getElementById("days").innerHTML = Math.floor(d / 86400000).toString().padStart(2, '0');
+    document.getElementById("hours").innerHTML = Math.floor((d % 86400000) / 3600000).toString().padStart(2, '0');
+    document.getElementById("minutes").innerHTML = Math.floor((d % 3600000) / 60000).toString().padStart(2, '0');
+    document.getElementById("seconds").innerHTML = Math.floor((d % 60000) / 1000).toString().padStart(2, '0');
+  } else {
+    document.querySelector('.countdown').innerHTML = '<h2 style="grid-column:1/-1;font-family:Cormorant Garamond,serif;font-size:48px;color:var(--maroon);text-align:center;">Wedding Day! 💍✨</h2>';
+  }
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// SHARE FUNCTION
+function shareWedding() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Rohan ❤️ Sneha Wedding Invitation',
+      text: 'Join us for Rohan & Sneha Wedding! 15 Dec 2026, Pune 💍',
+      url: window.location.href
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.href);
+    alert('Link copied to clipboard! 📋');
+  }
+}
 
 // MUSIC
 const music = document.getElementById("bg-music");
 const musicBtn = document.getElementById("music-btn");
 let playing = false;
+
 document.body.addEventListener("click", () => {
-  if(!playing){ music.play().then(()=>{ musicBtn.innerHTML="🔊"; playing=true; }).catch(()=>{}); }
+  if(!playing && music.src){ 
+    music.play().then(()=>{ 
+      musicBtn.innerHTML="🔊"; 
+      playing=true; 
+    }).catch(()=>{});
+  }
 }, { once:true });
+
 musicBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  if(playing){ music.pause(); musicBtn.innerHTML="🔇"; playing=false; }
-  else { music.play(); musicBtn.innerHTML="🔊"; playing=true; }
+  if(playing){ 
+    music.pause(); 
+    musicBtn.innerHTML="🔇"; 
+    playing=false; 
+  } else { 
+    music.play().then(()=>{
+      musicBtn.innerHTML="🔊"; 
+      playing=true; 
+    }).catch(()=>{});
+  }
 });
 
-// RSVP
-function submitRsvp(e) {
+// RSVP FORM
+document.getElementById('rsvpForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  e.target.innerHTML = '<div style="text-align:center;padding:30px"><div style="font-size:50px;margin-bottom:16px">🎉</div><h3 style="font-size:24px;color:var(--maroon);font-family:Cormorant Garamond,serif">Thank You!</h3><p style="color:#666;margin-top:8px">Your RSVP has been submitted. We look forward to celebrating with you!</p></div>';
-}
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Sending... ⏳';
+  
+  // Simulate API call
+  setTimeout(() => {
+    e.target.innerHTML = `
+      <div style="text-align:center;padding:50px 20px">
+        <div style="font-size:60px;margin-bottom:20px">🎉</div>
+        <h3 style="font-size:28px;color:var(--maroon);font-family:'Cormorant Garamond',serif;margin-bottom:12px">
+          धन्यवाद! | Thank You!
+        </h3>
+        <p style="color:#666;font-size:16px;line-height:1.6;margin-bottom:20px">
+          Your RSVP has been submitted successfully. We look forward to celebrating with you! 🙏
+        </p>
+        <a href="#rsvp" style="background:var(--gold);color:#1a0a00;padding:12px 30px;border-radius:25px;font-weight:600;text-decoration:none;display:inline-block;">Submit Another</a>
+      </div>
+    `;
+    
+    // Store in localStorage for demo
+    const formData = new FormData(e.target);
+    const rsvps = JSON.parse(localStorage.getItem('rsvps') || '[]');
+    rsvps.push(Object.fromEntries(formData));
+    localStorage.setItem('rsvps', JSON.stringify(rsvps));
+    
+  }, 1500);
+});
 
-// Scroll reveal
-const obs = new IntersectionObserver(entries => entries.forEach(e => {
-  if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
-}), {threshold:0.12});
+// Scroll reveal animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+}, {threshold:0.12});
+
 document.querySelectorAll('.time-box,.event-card,.gallery-item,.venue-box,.rsvp-box').forEach(el => {
-  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.opacity='0';
+  el.style.transform='translateY(24px)';
   el.style.transition='opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s';
   obs.observe(el);
 });
+
+// PWA Ready
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('data:text/javascript;base64,...');
+  });
+}
 </script>
 </body>
 </html>
