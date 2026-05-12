@@ -36,69 +36,74 @@
       background: rgba(249,247,244,0.85);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(0,0,0,0.06);
-      transition: all 0.3s;
+      transition: all 0.3s ease;
     }
     nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); background: #fff; }
     .nav-inner { max-width: 1280px; margin: auto; padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
     .nav-logo { font-family:'Cormorant Garamond',serif; font-size: 26px; font-weight: 700; text-decoration: none; color: inherit; }
     .nav-logo span { color: var(--indigo); }
     .nav-links { display: flex; align-items: center; gap: 36px; }
-    .nav-links a { font-size: 15px; font-weight: 500; color: #444; text-decoration: none; }
+    .nav-links a { font-size: 15px; font-weight: 500; color: #444; text-decoration: none; transition: color 0.3s; }
     .nav-links a:hover { color: var(--indigo); }
     .nav-cta { background: var(--dark); color: #fff !important; padding: 10px 26px; border-radius: 50px; font-size: 14px !important; transition: all 0.3s !important; }
-    .nav-cta:hover { background: var(--indigo) !important; transform: translateY(-2px); }
 
     /* ── HERO ── */
     .hero-section { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 64px; padding: 130px 32px 60px; max-width: 1280px; margin: auto; }
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 5.5vw, 80px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; animation: fadeSlideUp 0.7s 0.1s ease both; }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 5.5vw, 80px); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
     .hero-title em { font-style: italic; color: var(--indigo); }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e5e7eb; padding: 8px 18px; border-radius: 50px; font-size: 12px; font-weight: 600; color: var(--indigo); text-transform: uppercase; margin-bottom: 28px; box-shadow: 0 2px 12px rgba(79,70,229,0.1); animation: fadeSlideUp 0.6s ease both; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #e5e7eb; padding: 8px 18px; border-radius: 50px; font-size: 12px; font-weight: 600; color: var(--indigo); text-transform: uppercase; margin-bottom: 28px; box-shadow: 0 2px 12px rgba(79,70,229,0.1); }
     .hero-img-wrap { border-radius: 32px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.18); position: relative; }
     .hero-img-wrap img { width: 100%; height: 580px; object-fit: cover; transition: transform 0.7s ease; }
-    .hero-img-wrap:hover img { transform: scale(1.04); }
 
-    .float-card { position: absolute; background: #fff; border-radius: 20px; padding: 20px 28px; box-shadow: 0 20px 50px rgba(0,0,0,0.12); z-index: 10; }
-    .float-card-1 { bottom: -20px; left: -40px; }
-    .float-card-2 { top: 24px; right: -24px; background: var(--indigo); color: #fff; text-align: center; }
-
-    @keyframes fadeSlideUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-
-    /* ── MARQUEE ── */
-    .marquee-wrap { background: var(--dark); padding: 18px 0; overflow: hidden; margin-top: 60px; }
-    .marquee-track { display: flex; gap: 60px; white-space: nowrap; animation: marquee 30s linear infinite; }
-    .marquee-item { color: rgba(255,255,255,0.7); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 16px; }
-    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-    /* ── DEMO CARD FIXES ── */
-    .demo-card { border-radius: 28px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; background: #fff; transition: all 0.4s ease; display: flex; flex-direction: column; }
+    /* ── DEMO CARDS FIX ── */
+    .demo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .demo-card { border-radius: 28px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; background: #fff; transition: all 0.4s ease; height: 100%; display: flex; flex-direction: column; position: relative; z-index: 1; }
     .demo-card:hover { transform: translateY(-14px); box-shadow: 0 28px 60px rgba(0,0,0,0.14); }
     .demo-img { overflow: hidden; height: 260px; position: relative; }
     .demo-img img { width: 100%; height: 100%; object-fit: cover; }
     .demo-img-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: 0.4s; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-    .demo-card:hover .demo-img-overlay { background: rgba(0,0,0,0.25); }
+    .demo-card:hover .demo-img-overlay { background: rgba(0,0,0,0.2); }
     .demo-img-overlay span { background: #fff; color: #111; font-weight: 700; padding: 10px 24px; border-radius: 50px; opacity: 0; transform: translateY(10px); transition: 0.3s; }
     .demo-card:hover .demo-img-overlay span { opacity: 1; transform: translateY(0); }
-    .demo-body { padding: 32px; flex-grow: 1; }
-    .demo-btn { display: block; text-align: center; padding: 14px; border-radius: 14px; font-weight: 600; text-decoration: none; transition: all 0.3s; margin-top: auto; }
+    .demo-body { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+    .demo-btn { display: block; text-align: center; padding: 14px; border-radius: 14px; font-weight: 700; text-decoration: none; transition: all 0.3s; margin-top: auto; position: relative; z-index: 10; }
 
     /* ── PRICING ── */
-    .price-card.popular { background: var(--indigo); color: #fff; border: none; transform: scale(1.05); z-index: 5; }
+    .price-card.popular { background: var(--indigo); color: #fff; border: none; transform: scale(1.05); z-index: 5; box-shadow: 0 25px 50px rgba(79, 70, 229, 0.4); }
 
     /* ── CONTACT ── */
     .contact-wrap { background: var(--dark); padding: 120px 32px; text-align: center; position: relative; overflow: hidden; }
-    .btn-tg { background: var(--telegram-blue); color: #fff; padding: 18px 40px; border-radius: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-tg { background: var(--telegram-blue); color: #fff; padding: 18px 40px; border-radius: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s; }
 
-    /* ── RESPONSIVE ── */
+    /* ── MUSIC TOGGLE ── */
+    #musicToggle { 
+        position: fixed; bottom: 30px; right: 30px; z-index: 999;
+        background: #fff; border: 1px solid #e5e7eb; width: 55px; height: 55px;
+        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15); cursor: pointer; transition: all 0.3s; font-size: 20px;
+    }
+    #musicToggle.playing { background: var(--indigo); color: #fff; border-color: var(--indigo); animation: pulse 2s infinite; }
+    
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); } 100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); } }
+
     @media(max-width: 900px) {
       .hero-section { grid-template-columns: 1fr; text-align: center; padding-top: 100px; }
-      .hero-title { margin: 0 auto 24px; }
-      .float-card { display: none; }
-      .services-grid, .demos-grid, .pricing-grid, .process-grid { grid-template-columns: 1fr !important; }
+      .demo-grid { grid-template-columns: 1fr; }
       .price-card.popular { transform: scale(1); }
     }
   </style>
 </head>
 <body>
+
+<!-- AUDIO ELEMENT -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MUSIC BUTTON -->
+<button id="musicToggle">
+  <span id="musicIcon">🔇</span>
+</button>
 
 <nav id="navbar">
   <div class="nav-inner">
@@ -106,32 +111,30 @@
     <div class="nav-links">
       <a href="#demos">Demos</a>
       <a href="#pricing">Pricing</a>
-      <a href="#process">Process</a>
       <a href="#contact" class="nav-cta">Start a Project</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero-section">
   <div class="hero-left">
-    <div class="hero-badge">Digital Invitation Studio</div>
-    <h1 class="hero-title serif">Premium<br><em>Invitation</em><br>Websites</h1>
-    <p class="text-gray-500 text-lg mb-10 max-w-lg leading-relaxed">Elegant digital invitation websites and luxury landing pages crafted for modern celebrations.</p>
+    <div class="hero-badge">Premium Digital Invites</div>
+    <h1 class="hero-title serif">Elegant<br><em>Invitation</em><br>Experiences</h1>
+    <p class="text-gray-500 text-lg mb-10 max-w-lg leading-relaxed">High-end digital invitation websites designed to make your celebrations unforgettable.</p>
     <div class="flex gap-4">
-      <a href="#demos" class="bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-600 transition">Explore Demos</a>
-      <a href="#pricing" class="border border-gray-300 px-8 py-4 rounded-xl font-bold hover:border-indigo-600 hover:text-indigo-600 transition">View Pricing</a>
+      <a href="#demos" class="bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-600 transition">View Demos</a>
+      <a href="#pricing" class="border border-gray-300 px-8 py-4 rounded-xl font-bold hover:text-indigo-600 transition">Pricing</a>
     </div>
   </div>
   <div class="hero-right relative">
     <div class="hero-img-wrap">
       <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?q=80&w=1400&auto=format&fit=crop" alt="Premium Design">
     </div>
-    <div class="float-card float-card-1"><div class="text-4xl font-bold serif text-indigo-600">100+</div><div class="text-sm text-gray-400">Delivered</div></div>
-    <div class="float-card float-card-2"><div class="text-3xl font-bold serif">5★</div><div class="text-xs opacity-80">Rating</div></div>
   </div>
 </section>
 
-<!-- DEMOS SECTION (FIXED) -->
+<!-- DEMOS SECTION -->
 <div class="bg-white py-24 px-8" id="demos">
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16">
@@ -139,18 +142,18 @@
       <h2 class="text-5xl serif font-bold mt-4">Featured Demos</h2>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 demos-grid">
+    <div class="demo-grid">
       <!-- Demo 1 -->
       <div class="demo-card">
         <div class="demo-img">
           <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop" alt="Marathi Wedding">
-          <div class="demo-img-overlay"><span>Preview →</span></div>
+          <div class="demo-img-overlay"><span>Live Preview →</span></div>
         </div>
         <div class="demo-body">
-          <span class="bg-pink-100 text-pink-700 px-4 py-1 rounded-full text-xs font-bold">Wedding</span>
+          <span class="bg-pink-100 text-pink-700 px-4 py-1 rounded-full text-xs font-bold w-fit">Wedding</span>
           <h3 class="text-xl font-bold mt-4 mb-2">Marathi Wedding</h3>
-          <p class="text-gray-500 text-sm mb-6">RSVP, countdown timer, venue map, and gallery.</p>
-          <a href="demos/marathi-wedding.html" class="demo-btn bg-pink-500 text-white hover:bg-pink-600">View Live Demo</a>
+          <p class="text-gray-500 text-sm mb-6">Traditional motifs meets modern UI. Includes RSVP and Google Maps integration.</p>
+          <a href="demos/marathi-wedding.html" target="_blank" class="demo-btn bg-pink-500 text-white hover:bg-pink-600">Explore Demo</a>
         </div>
       </div>
 
@@ -158,13 +161,13 @@
       <div class="demo-card">
         <div class="demo-img">
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" alt="Business Landing">
-          <div class="demo-img-overlay"><span>Preview →</span></div>
+          <div class="demo-img-overlay"><span>Live Preview →</span></div>
         </div>
         <div class="demo-body">
-          <span class="bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-xs font-bold">Business</span>
+          <span class="bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-xs font-bold w-fit">Business</span>
           <h3 class="text-xl font-bold mt-4 mb-2">Startup Landing</h3>
-          <p class="text-gray-500 text-sm mb-6">Clean, modern conversion-focused landing page.</p>
-          <a href="demos/business-landing.html" class="demo-btn bg-indigo-600 text-white hover:bg-indigo-700">View Live Demo</a>
+          <p class="text-gray-500 text-sm mb-6">Clean, high-conversion landing page optimized for startups and professional agencies.</p>
+          <a href="demos/business-landing.html" target="_blank" class="demo-btn bg-indigo-600 text-white hover:bg-indigo-700">Explore Demo</a>
         </div>
       </div>
 
@@ -172,13 +175,13 @@
       <div class="demo-card">
         <div class="demo-img">
           <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop" alt="Event Website">
-          <div class="demo-img-overlay"><span>Preview →</span></div>
+          <div class="demo-img-overlay"><span>Live Preview →</span></div>
         </div>
         <div class="demo-body">
-          <span class="bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-xs font-bold">Luxury Event</span>
-          <h3 class="text-xl font-bold mt-4 mb-2">Gala Event</h3>
-          <p class="text-gray-500 text-sm mb-6">Premium site for launches and celebrations.</p>
-          <a href="demos/event-website.html" class="demo-btn bg-orange-500 text-white hover:bg-orange-600">View Live Demo</a>
+          <span class="bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-xs font-bold w-fit">Events</span>
+          <h3 class="text-xl font-bold mt-4 mb-2">Luxury Gala</h3>
+          <p class="text-gray-500 text-sm mb-6">A sophisticated site for high-profile launches, charity galas, and corporate events.</p>
+          <a href="demos/event-website.html" target="_blank" class="demo-btn bg-orange-500 text-white hover:bg-orange-600">Explore Demo</a>
         </div>
       </div>
     </div>
@@ -187,64 +190,92 @@
 
 <!-- PRICING -->
 <div class="py-24 px-8 bg-gray-50" id="pricing">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pricing-grid">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="price-card p-10 bg-white rounded-3xl border border-gray-100">
         <h3 class="font-bold text-xl">Basic</h3>
         <div class="text-5xl serif font-bold my-6">₹999</div>
         <ul class="text-sm space-y-4 mb-8 text-gray-500">
-          <li>✓ Mobile Responsive</li>
+          <li>✓ Responsive Design</li>
           <li>✓ RSVP Button</li>
-          <li>✓ WhatsApp Sharing</li>
+          <li>✓ Digital Sharing</li>
         </ul>
-        <a href="#contact" class="demo-btn bg-black text-white">Start Now</a>
+        <a href="#contact" class="demo-btn bg-black text-white">Choose Plan</a>
       </div>
-      <div class="price-card popular p-10 rounded-3xl relative overflow-hidden">
-        <div class="bg-white/20 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4">Best Value</div>
+      <div class="price-card popular p-10 rounded-3xl">
+        <div class="bg-white/20 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4">Most Popular</div>
         <h3 class="font-bold text-xl">Premium</h3>
         <div class="text-5xl serif font-bold my-6">₹2999</div>
         <ul class="text-sm space-y-4 mb-8">
-          <li>✓ Premium Animations</li>
-          <li>✓ Countdown Timer</li>
-          <li>✓ RSVP Form & Gallery</li>
+          <li>✓ Custom Music & Animations</li>
+          <li>✓ RSVP Form Tracking</li>
+          <li>✓ Photo Gallery</li>
         </ul>
-        <a href="#contact" class="demo-btn bg-white text-indigo-600 font-bold">Start Now</a>
+        <a href="#contact" class="demo-btn bg-white text-indigo-600">Choose Plan</a>
       </div>
       <div class="price-card p-10 bg-white rounded-3xl border border-gray-100">
         <h3 class="font-bold text-xl">Custom</h3>
         <div class="text-4xl serif font-bold my-6">Quote</div>
         <ul class="text-sm space-y-4 mb-8 text-gray-500">
           <li>✓ Full UI/UX Design</li>
-          <li>✓ Custom Branding</li>
-          <li>✓ Domain & Hosting</li>
+          <li>✓ Custom Domains</li>
+          <li>✓ Priority Support</li>
         </ul>
         <a href="#contact" class="demo-btn bg-black text-white">Contact Us</a>
       </div>
-    </div>
   </div>
 </div>
 
-<!-- CONTACT (Telegram) -->
+<!-- CONTACT -->
 <div class="contact-wrap" id="contact">
   <div class="contact-inner">
-    <h2 class="serif text-white">Let's Build Something Beautiful</h2>
-    <p class="mt-4 mb-10 text-gray-400">Reach out via Email or Telegram to discuss your custom project.</p>
+    <h2 class="serif text-white text-4xl">Let's Build Something Beautiful</h2>
+    <p class="mt-4 mb-10 text-gray-400">Reach out today for a custom quote or a consultation.</p>
     <div class="flex gap-6 justify-center flex-wrap">
       <a href="mailto:hello.sitenovastudio@gmail.com" class="bg-white text-black px-10 py-5 rounded-2xl font-bold hover:scale-105 transition">Email Us</a>
-      <a href="https://t.me/917875134125" target="_blank" class="btn-tg hover:scale-105 transition">
+      <a href="https://t.me/917875134125" target="_blank" class="btn-tg">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-        Chat on Telegram
+        Telegram Chat
       </a>
     </div>
   </div>
 </div>
 
 <footer class="bg-[#09090f] py-12 text-center text-gray-500">
-  <h3 class="serif text-white text-2xl mb-2">Sitenova<span>Studio</span></h3>
-  <p>© 2026 SitenovaStudio • Crafted with ❤️ in India</p>
+  <h3 class="serif text-white text-2xl">Sitenova<span>Studio</span></h3>
+  <p class="mt-2">© 2026 SitenovaStudio • Crafted with ❤️ in India</p>
 </footer>
 
 <script>
+  // --- Music Handling ---
+  const audio = document.getElementById('bgMusic');
+  const musicToggle = document.getElementById('musicToggle');
+  const musicIcon = document.getElementById('musicIcon');
+  let isPlaying = false;
+
+  function toggleMusic() {
+    if (isPlaying) {
+      audio.pause();
+      musicIcon.innerText = '🔇';
+      musicToggle.classList.remove('playing');
+    } else {
+      audio.play().catch(e => console.log("User must interact first"));
+      musicIcon.innerText = '🔊';
+      musicToggle.classList.add('playing');
+    }
+    isPlaying = !isPlaying;
+  }
+
+  musicToggle.addEventListener('click', toggleMusic);
+
+  // Auto-play attempt on first click of the page
+  document.body.addEventListener('click', () => {
+    if(!isPlaying) {
+        // Optional: Toggle below if you want it to start immediately on first click
+        // toggleMusic(); 
+    }
+  }, { once: true });
+
+  // --- UI Logic ---
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
   });
