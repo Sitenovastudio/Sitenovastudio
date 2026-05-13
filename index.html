@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -183,10 +184,6 @@
       color:var(--indigo);
     }
 
-    .hero-image{
-      position:relative;
-    }
-
     .hero-image img{
       width:100%;
       height:600px;
@@ -307,18 +304,28 @@
     .demo-content p{
       color:#6b7280;
       line-height:1.8;
-      margin-bottom:20px;
+      margin-bottom:25px;
     }
 
+    /* DEMO BUTTON */
+
     .demo-btn{
-      display:block;
-      text-align:center;
-      background:var(--indigo);
-      color:#fff;
-      padding:14px;
-      border-radius:14px;
+      display:inline-block;
+      background:linear-gradient(135deg,#ff6b6b,#ff8e53);
+      color:white;
+      padding:14px 28px;
+      border-radius:12px;
       text-decoration:none;
+      font-size:16px;
       font-weight:700;
+      transition:0.3s ease;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .demo-btn:hover{
+      transform:translateY(-5px) scale(1.05);
+      background:linear-gradient(135deg,#ff8e53,#ff6b6b);
+      color:white;
     }
 
     /* CONTACT */
@@ -464,13 +471,12 @@
 
       <h1 class="serif">
         Luxury <br>
-        <em>Invitation,landing page,Event</em><br>
+        <em>Invitation, Landing Page, Event</em><br>
         Websites
       </h1>
 
       <p>
-        We craft elegant wedding invitation websites, premium landing pages and
-        unforgettable event experiences for modern brands and celebrations.
+        We craft elegant wedding invitation websites, premium landing pages and unforgettable event experiences for modern brands and celebrations.
       </p>
 
       <div class="hero-btns">
@@ -519,8 +525,7 @@
         <div class="service-icon">💍</div>
         <h3>Wedding Invitations</h3>
         <p>
-          Beautiful wedding invitation websites with RSVP forms,
-          countdown timers, galleries and animations.
+          Beautiful wedding invitation websites with RSVP forms, countdown timers, galleries and animations.
         </p>
       </div>
 
@@ -528,8 +533,7 @@
         <div class="service-icon">🚀</div>
         <h3>Business Landing Pages</h3>
         <p>
-          Professional landing pages for startups and businesses
-          designed to convert visitors into clients.
+          Professional landing pages for startups and businesses designed to convert visitors into clients.
         </p>
       </div>
 
@@ -537,8 +541,7 @@
         <div class="service-icon">🎉</div>
         <h3>Event Websites</h3>
         <p>
-          Stunning event websites for concerts, launches and
-          premium celebrations with modern UI design.
+          Stunning event websites for concerts, launches and premium celebrations with modern UI design.
         </p>
       </div>
 
@@ -568,26 +571,31 @@
 
     <div class="demos">
 
+      <!-- Wedding Demo -->
+
       <div class="demo-card">
 
         <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop">
 
         <div class="demo-content">
 
-          <h3>Wedding invitation</h3>
+          <h3>Wedding Invitation</h3>
 
           <p>
-            Elegant wedding invitation with countdown,
-            RSVP and photo gallery.
+            Elegant wedding invitation with countdown, RSVP and photo gallery.
           </p>
 
-          <a href="./demos/marathi-wedding.html" target="_blank">
-   Wedding Invitation Demo
-</a>
+          <a href="./demos/marathi-wedding.html"
+             target="_blank"
+             class="demo-btn">
+             Live Demo
+          </a>
 
         </div>
 
       </div>
+
+      <!-- Business Demo -->
 
       <div class="demo-card">
 
@@ -598,17 +606,20 @@
           <h3>Startup Landing</h3>
 
           <p>
-            Modern startup landing page for agencies,
-            startups and digital businesses.
+            Modern startup landing page for agencies, startups and digital businesses.
           </p>
 
-          <a href="./demos/business-landing.html" target="_blank">
-   Business Demo
-</a>
+          <a href="./demos/business-landing.html"
+             target="_blank"
+             class="demo-btn">
+             Live Demo
+          </a>
 
         </div>
 
       </div>
+
+      <!-- Event Demo -->
 
       <div class="demo-card">
 
@@ -619,13 +630,14 @@
           <h3>Luxury Event</h3>
 
           <p>
-            Premium event website with booking,
-            gallery and animated sections.
+            Premium event website with booking, gallery and animated sections.
           </p>
 
-          <a href="./demos/event-website.html" target="_blank">
-   Event Website Demo
-</a>
+          <a href="./demos/event-website.html"
+             target="_blank"
+             class="demo-btn">
+             Live Demo
+          </a>
 
         </div>
 
@@ -644,8 +656,7 @@
     </h2>
 
     <p>
-      Contact SitenovaStudio today for premium invitation websites,
-      landing pages and digital experiences crafted with love in India.
+      Contact SitenovaStudio today for premium invitation websites, landing pages and digital experiences crafted with love in India.
     </p>
 
     <div class="contact-btns">
