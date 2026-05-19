@@ -1,733 +1,827 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SitenovaStudio | Premium Digital Invites</title>
+<html lang="en"><head><style>
+  .imageye-selected {
+    outline: 2px solid black !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+  }
+</style><style type="text/css" id="mytempCss">._8mqQwQ { display: none; } ._1TWLMK.icF5zO { opacity: 0.01; }</style></head><body data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0"># SiteNova Studio — Premium Startup Website Code
 
-<script src="https://cdn.tailwindcss.com"></script>
+Save this file as `index.html`
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+```html
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiteNova Studio | Modern Websites That Convert</title>
 
-html{
-scroll-behavior:smooth;
-}
+  <!-- SEO -->
+  <meta name="description" content="SiteNova Studio builds premium business websites, invitation websites, landing pages and event websites.">
+  <meta name="keywords" content="Website Developer, Invitation Website, Landing Page, Portfolio Website, Business Website">
 
-:root{
---indigo:#4f46e5;
---dark:#0f0f13;
---off:#f9f7f4;
-}
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-body{
-font-family:'DM Sans',sans-serif;
-background:var(--off);
-color:#111827;
-overflow-x:hidden;
-}
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-.serif{
-font-family:'Cormorant Garamond',serif;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:1000;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(16px);
-border-bottom:1px solid rgba(0,0,0,0.05);
-}
-
-.nav-inner{
-max-width:1280px;
-margin:auto;
-padding:18px 32px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-size:30px;
-font-weight:700;
-}
-
-.logo span{
-color:var(--indigo);
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-align-items:center;
-}
-
-.nav-links a{
-text-decoration:none;
-color:#374151;
-font-weight:500;
-transition:0.3s;
-}
-
-.nav-links a:hover{
-color:var(--indigo);
-}
-
-.nav-btn{
-background:var(--dark);
-color:#fff !important;
-padding:10px 22px;
-border-radius:50px;
-}
-
-.nav-btn:hover{
-background:var(--indigo);
-}
-
-/* HERO */
-
-.hero{
-min-height:100vh;
-max-width:1280px;
-margin:auto;
-padding:140px 32px 80px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-align-items:center;
-}
-
-.hero-badge{
-display:inline-block;
-padding:8px 18px;
-border-radius:50px;
-background:#fff;
-border:1px solid #e5e7eb;
-color:var(--indigo);
-font-size:12px;
-font-weight:700;
-letter-spacing:2px;
-margin-bottom:24px;
-text-transform:uppercase;
-}
-
-.hero h1{
-font-size:78px;
-line-height:1;
-margin-bottom:24px;
-font-weight:700;
-}
-
-.hero h1 em{
-color:var(--indigo);
-font-style:italic;
-}
-
-.hero p{
-color:#6b7280;
-line-height:1.8;
-font-size:17px;
-margin-bottom:36px;
-max-width:520px;
-}
-
-.hero-btns{
-display:flex;
-gap:16px;
-flex-wrap:wrap;
-}
-
-.btn-primary{
-background:var(--dark);
-color:#fff;
-padding:16px 34px;
-border-radius:14px;
-text-decoration:none;
-font-weight:700;
-transition:0.3s;
-}
-
-.btn-primary:hover{
-background:var(--indigo);
-transform:translateY(-3px);
-}
-
-.btn-outline{
-border:1px solid #d1d5db;
-padding:16px 34px;
-border-radius:14px;
-text-decoration:none;
-color:#111827;
-font-weight:700;
-background:#fff;
-transition:0.3s;
-}
-
-.btn-outline:hover{
-border-color:var(--indigo);
-color:var(--indigo);
-}
-
-    .hero-image{
-      position:relative;
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
     }
 
-.hero-image img{
-width:100%;
-height:600px;
-object-fit:cover;
-border-radius:30px;
-box-shadow:0 25px 60px rgba(0,0,0,0.15);
-}
+    body{
+      font-family:'Outfit',sans-serif;
+      background:#0b0b12;
+      color:white;
+      overflow-x:hidden;
+    }
 
-/* SECTION */
+    ::selection{
+      background:#7c3aed;
+      color:white;
+    }
 
-.section{
-max-width:1280px;
-margin:auto;
-padding:100px 32px;
-}
+    /* Scrollbar */
+    ::-webkit-scrollbar{
+      width:10px;
+    }
 
-.section-header{
-text-align:center;
-margin-bottom:60px;
-}
+    ::-webkit-scrollbar-thumb{
+      background:linear-gradient(#7c3aed,#06b6d4);
+      border-radius:20px;
+    }
 
-.section-tag{
-display:inline-block;
-padding:6px 16px;
-border-radius:50px;
-background:rgba(79,70,229,0.08);
-color:var(--indigo);
-font-size:12px;
-font-weight:700;
-letter-spacing:2px;
-margin-bottom:16px;
-text-transform:uppercase;
-}
+    /* Loading Screen */
+    #loader{
+      position:fixed;
+      width:100%;
+      height:100vh;
+      background:#0b0b12;
+      z-index:9999;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      transition:0.8s;
+    }
 
-.section-title{
-font-size:58px;
-margin-bottom:16px;
-font-weight:700;
-}
+    .loader-logo{
+      font-size:40px;
+      font-weight:800;
+      background:linear-gradient(90deg,#7c3aed,#06b6d4);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
 
-.section-sub{
-color:#6b7280;
-max-width:620px;
-margin:auto;
-line-height:1.8;
-}
+    /* Navbar */
+    nav{
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(20px);
+      background:rgba(10,10,15,0.7);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
 
-/* SERVICES */
+    .nav-container{
+      max-width:1200px;
+      margin:auto;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
 
-.services{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:28px;
-}
+    .logo{
+      font-size:28px;
+      font-weight:800;
+    }
 
-.service-card{
-background:#fff;
-border-radius:28px;
-padding:40px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-transition:0.3s;
-}
+    .logo span{
+      color:#06b6d4;
+    }
 
-.service-card:hover{
-transform:translateY(-10px);
-}
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
 
-.service-icon{
-font-size:46px;
-margin-bottom:20px;
-}
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      font-size:15px;
+      transition:0.3s;
+    }
 
-.service-card h3{
-font-size:24px;
-margin-bottom:14px;
-}
+    .nav-links a:hover{
+      color:#06b6d4;
+    }
 
-.service-card p{
-color:#6b7280;
-line-height:1.8;
-}
-
-/* DEMOS */
-
-.demos{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:28px;
-}
-
-.demo-card{
-background:#fff;
-border-radius:28px;
-overflow:hidden;
-box-shadow:0 5px 25px rgba(0,0,0,0.07);
-transition:0.3s;
-}
-
-.demo-card:hover{
-transform:translateY(-10px);
-}
-
-.demo-card img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-.demo-content{
-padding:30px;
-}
-
-.demo-content h3{
-margin-bottom:14px;
-font-size:24px;
-}
-
-.demo-content p{
-color:#6b7280;
-line-height:1.8;
-      margin-bottom:20px;
-      margin-bottom:25px;
-}
-
-    /* DEMO BUTTON */
-
-.demo-btn{
-      display:block;
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       text-align:center;
-      background:var(--indigo);
-      color:#fff;
-      padding:14px;
-      border-radius:14px;
-      display:inline-block;
-      background:linear-gradient(135deg,#ff6b6b,#ff8e53);
-      color:white;
-      padding:14px 28px;
-      border-radius:12px;
-text-decoration:none;
-      font-size:16px;
-font-weight:700;
-      transition:0.3s ease;
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+      padding:120px 20px;
+      position:relative;
+      overflow:hidden;
     }
 
-    .demo-btn:hover{
-      transform:translateY(-5px) scale(1.05);
-      background:linear-gradient(135deg,#ff8e53,#ff6b6b);
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:600px;
+      height:600px;
+      background:#7c3aed;
+      filter:blur(180px);
+      opacity:0.25;
+      top:-100px;
+      left:-100px;
+    }
+
+    .hero::after{
+      content:'';
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#06b6d4;
+      filter:blur(180px);
+      opacity:0.2;
+      bottom:-100px;
+      right:-100px;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:900px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:50px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      margin-bottom:25px;
+      font-size:14px;
+    }
+
+    .hero h1{
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    .gradient-text{
+      background:linear-gradient(90deg,#7c3aed,#06b6d4);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      color:#b8b8c5;
+      font-size:18px;
+      line-height:1.8;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 34px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:linear-gradient(90deg,#7c3aed,#06b6d4);
       color:white;
-}
-
-/* CONTACT */
-
-.contact{
-background:var(--dark);
-color:#fff;
-text-align:center;
-padding:100px 32px;
-}
-
-.contact h2{
-font-size:60px;
-margin-bottom:20px;
-}
-
-.contact p{
-color:rgba(255,255,255,0.7);
-max-width:700px;
-margin:auto auto 40px;
-line-height:1.8;
-font-size:17px;
-}
-
-.contact-btns{
-display:flex;
-justify-content:center;
-gap:18px;
-flex-wrap:wrap;
-}
-
-.btn-email{
-background:var(--indigo);
-color:#fff;
-padding:16px 36px;
-border-radius:14px;
-text-decoration:none;
-font-weight:700;
-transition:0.3s;
-}
-
-.btn-email:hover{
-transform:translateY(-3px);
-}
-
-.btn-telegram{
-background:#229ED9;
-color:#fff;
-padding:16px 36px;
-border-radius:14px;
-text-decoration:none;
-font-weight:700;
-transition:0.3s;
-}
-
-.btn-telegram:hover{
-background:#1b8bc2;
-transform:translateY(-3px);
-box-shadow:0 12px 30px rgba(34,158,217,0.4);
-}
-
-/* FOOTER */
-
-footer{
-background:#09090f;
-text-align:center;
-padding:40px 20px;
-color:rgba(255,255,255,0.6);
-}
-
-footer h3{
-color:#fff;
-font-size:30px;
-margin-bottom:10px;
-}
-
-footer h3 span{
-color:var(--indigo);
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.hero{
-grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:56px;
-}
-
-.services,
-.demos{
-grid-template-columns:1fr;
-}
-
-.section-title{
-font-size:42px;
-}
-
-.contact h2{
-font-size:42px;
-}
-
-.nav-links{
-display:none;
-}
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-
-<nav>
-<div class="nav-inner">
-
-<div class="logo serif">
-Sitenova<span>Studio</span>
-</div>
-
-<div class="nav-links">
-<a href="#services">Services</a>
-<a href="#demos">Demos</a>
-<a href="#contact" class="nav-btn">Contact</a>
-</div>
-
-</div>
-</nav>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div>
-
-<div class="hero-badge">
-Premium Digital Website Studio
-</div>
-
-<h1 class="serif">
-Luxury <br>
-        <em>Invitation,landing page,Event</em><br>
-        <em>Invitation, Landing Page, Event</em><br>
-Websites
-</h1>
-
-<p>
-        We craft elegant wedding invitation websites, premium landing pages and
-        unforgettable event experiences for modern brands and celebrations.
-        We craft elegant wedding invitation websites, premium landing pages and unforgettable event experiences for modern brands and celebrations.
-</p>
-
-<div class="hero-btns">
-
-<a href="#demos" class="btn-primary">
-Explore Demos
-</a>
-
-<a href="#contact" class="btn-outline">
-Contact Us
-</a>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-<img src="https://cdn.corenexis.com/files/c/5396875720.webp?q=80&w=1400&auto=format&fit=crop" alt="">
-</div>
-
-</section>
-
-<!-- SERVICES -->
-
-<section class="section" id="services">
-
-<div class="section-header">
-
-<div class="section-tag">
-What We Do
-</div>
-
-<h2 class="section-title serif">
-Our Services
-</h2>
-
-<p class="section-sub">
-Premium digital experiences crafted for weddings, startups and luxury events.
-</p>
-
-</div>
-
-<div class="services">
-
-<div class="service-card">
-<div class="service-icon">💍</div>
-<h3>Wedding Invitations</h3>
-<p>
-          Beautiful wedding invitation websites with RSVP forms,
-          countdown timers, galleries and animations.
-          Beautiful wedding invitation websites with RSVP forms, countdown timers, galleries and animations.
-</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">🚀</div>
-<h3>Business Landing Pages</h3>
-<p>
-          Professional landing pages for startups and businesses
-          designed to convert visitors into clients.
-          Professional landing pages for startups and businesses designed to convert visitors into clients.
-</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">🎉</div>
-<h3>Event Websites</h3>
-<p>
-          Stunning event websites for concerts, launches and
-          premium celebrations with modern UI design.
-          Stunning event websites for concerts, launches and premium celebrations with modern UI design.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- DEMOS -->
-
-<section class="section" id="demos">
-
-<div class="section-header">
-
-<div class="section-tag">
-Portfolio
-</div>
-
-<h2 class="section-title serif">
-Featured Demos
-</h2>
-
-<p class="section-sub">
-Explore our latest premium invitation website collection.
-</p>
-
-</div>
-
-<div class="demos">
-
-      <!-- Wedding Demo -->
-
-<div class="demo-card">
-
-<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop">
-
-<div class="demo-content">
-
-          <h3>Wedding invitation</h3>
+      box-shadow:0 10px 30px rgba(124,58,237,0.4);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-5px);
+    }
+
+    .btn-outline{
+      border:1px solid rgba(255,255,255,0.2);
+      color:white;
+    }
+
+    .btn-outline:hover{
+      background:white;
+      color:black;
+    }
+
+    section{
+      padding:100px 20px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:52px;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:#9ca3af;
+      max-width:700px;
+      margin:0 auto 60px;
+      line-height:1.8;
+    }
+
+    /* Services */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
+
+    .service-card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:35px;
+      border-radius:24px;
+      transition:0.4s;
+      backdrop-filter:blur(20px);
+    }
+
+    .service-card:hover{
+      transform:translateY(-10px);
+      border-color:#7c3aed;
+      box-shadow:0 15px 40px rgba(124,58,237,0.2);
+    }
+
+    .service-card i{
+      font-size:42px;
+      margin-bottom:20px;
+      color:#06b6d4;
+    }
+
+    .service-card h3{
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .service-card p{
+      color:#9ca3af;
+      line-height:1.7;
+    }
+
+    /* Portfolio */
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+    }
+
+    .portfolio-card{
+      background:#12121b;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+    }
+
+    .portfolio-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .portfolio-card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+    }
+
+    .portfolio-content{
+      padding:25px;
+    }
+
+    .portfolio-content h3{
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    .portfolio-content p{
+      color:#9ca3af;
+      margin-bottom:25px;
+      line-height:1.7;
+    }
+
+    /* Why Choose Us */
+    .features-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .feature-box{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature-box h3{
+      margin:15px 0;
+    }
+
+    /* Pricing */
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .pricing-card{
+      background:#12121b;
+      border-radius:24px;
+      padding:40px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.4s;
+    }
+
+    .pricing-card:hover{
+      transform:translateY(-10px);
+      border-color:#06b6d4;
+    }
+
+    .pricing-card h3{
+      font-size:28px;
+      margin-bottom:15px;
+    }
+
+    .price{
+      font-size:52px;
+      font-weight:800;
+      margin-bottom:20px;
+      color:#06b6d4;
+    }
+
+    .pricing-card ul{
+      list-style:none;
+      margin-bottom:30px;
+    }
+
+    .pricing-card ul li{
+      margin:14px 0;
+      color:#9ca3af;
+    }
+
+    /* Testimonials */
+    .testimonials-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:25px;
+    }
+
+    .testimonial-card{
+      background:rgba(255,255,255,0.05);
+      border-radius:24px;
+      padding:35px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .testimonial-card p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:20px;
+    }
+
+    /* Contact */
+    .contact-box{
+      background:linear-gradient(135deg,#7c3aed,#06b6d4);
+      padding:70px 40px;
+      border-radius:30px;
+      text-align:center;
+    }
+
+    .contact-box h2{
+      font-size:52px;
+      margin-bottom:20px;
+    }
+
+    .contact-box p{
+      margin-bottom:30px;
+      font-size:18px;
+    }
+
+    /* Footer */
+    footer{
+      padding:40px 20px;
+      text-align:center;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#9ca3af;
+    }
+
+    .social-icons{
+      margin-top:20px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
+
+    .social-icons a{
+      color:white;
+      font-size:20px;
+      transition:0.3s;
+    }
+
+    .social-icons a:hover{
+      color:#06b6d4;
+      transform:translateY(-4px);
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .section-title{
+        font-size:38px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .contact-box h2{
+        font-size:38px;
+      }
+
+    }
+  </style>
+
+
+
+  <!-- Loading -->
+  <div id="loader" style="opacity: 0; visibility: hidden;">
+    <div class="loader-logo">SiteNova Studio</div>
+  </div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">SiteNova <span>Studio</span></div>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content aos-init aos-animate" data-aos="fade-up">
+
+      <div class="badge">
+        Premium Website Design Studio
+      </div>
+
+      <h1>
+        Modern Websites <br>
+        <span class="gradient-text">That Convert</span>
+      </h1>
+
+      <p>
+        We build premium business websites, invitation websites, landing pages,
+        event websites and digital experiences for modern brands.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+
+        <a href="https://t.me/Official_Sahil_007" target="_blank" class="btn btn-outline">
+          Contact on Telegram
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">
+        Premium web solutions designed for startups, businesses and events.
+      </p>
+
+      <div class="services-grid">
+
+        <div class="service-card aos-init aos-animate" data-aos="fade-up">
+          <i class="fa-solid fa-globe"></i>
+          <h3>Business Websites</h3>
+          <p>Modern websites for startups and local businesses.</p>
+        </div>
+
+        <div class="service-card aos-init aos-animate" data-aos="fade-up">
+          <i class="fa-solid fa-heart"></i>
           <h3>Wedding Invitation</h3>
+          <p>Elegant digital invitation websites with RSVP system.</p>
+        </div>
 
-<p>
-            Elegant wedding invitation with countdown,
-            RSVP and photo gallery.
-            Elegant wedding invitation with countdown, RSVP and photo gallery.
-</p>
+        <div class="service-card aos-init aos-animate" data-aos="fade-up">
+          <i class="fa-solid fa-chart-line"></i>
+          <h3>Landing Pages</h3>
+          <p>High converting landing pages for marketing campaigns.</p>
+        </div>
 
-          <a href="./demos/marathi-wedding.html" target="_blank">
-   Wedding Invitation Demo
-</a>
-          <a href="./demos/marathi-wedding.html"
-             target="_blank"
-             class="demo-btn">
-             Live Demo
+        <div class="service-card aos-init aos-animate" data-aos="fade-up">
+          <i class="fa-solid fa-utensils"></i>
+          <h3>Restaurant Websites</h3>
+          <p>Beautiful restaurant and café websites with booking system.</p>
+        </div>
+
+        <div class="service-card aos-init aos-animate" data-aos="fade-up">
+          <i class="fa-solid fa-briefcase"></i>
+          <h3>Portfolio Websites</h3>
+          <p>Professional portfolio websites for creators and freelancers.</p>
+        </div>
+
+        <div class="service-card aos-init aos-animate" data-aos="fade-up">
+          <i class="fa-solid fa-calendar-days"></i>
+          <h3>Event Websites</h3>
+          <p>Luxury event websites with animations and ticket systems.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <div class="container">
+
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        Explore our premium modern website designs.
+      </p>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-card aos-init aos-animate" data-aos="zoom-in">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Wedding Website">
+
+          <div class="portfolio-content">
+            <h3>Wedding Invitation</h3>
+            <p>Elegant invitation website with RSVP and countdown timer.</p>
+            <a href="./demos/marathi-wedding.html" target="_blank" class="btn btn-primary">Live Preview</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card aos-init aos-animate" data-aos="zoom-in">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Business Website">
+
+          <div class="portfolio-content">
+            <h3>Business Landing</h3>
+            <p>Professional startup website with premium UI design.</p>
+            <a href="./demos/business-landing.html" target="_blank" class="btn btn-primary">Live Preview</a>
+          </div>
+        </div>
+
+        <div class="portfolio-card aos-init aos-animate" data-aos="zoom-in">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Event Website">
+
+          <div class="portfolio-content">
+            <h3>Luxury Event</h3>
+            <p>Modern event website with booking and gallery system.</p>
+            <a href="./demos/event-website.html" target="_blank" class="btn btn-primary">Live Preview</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">Why Choose Us</h2>
+
+      <div class="features-grid">
+
+        <div class="feature-box aos-init aos-animate" data-aos="fade-up">
+          <h3>⚡ Fast Delivery</h3>
+          <p>Quick turnaround with premium quality.</p>
+        </div>
+
+        <div class="feature-box aos-init aos-animate" data-aos="fade-up">
+          <h3>📱 Mobile Responsive</h3>
+          <p>Perfect design on every device.</p>
+        </div>
+
+        <div class="feature-box aos-init aos-animate" data-aos="fade-up">
+          <h3>🚀 SEO Friendly</h3>
+          <p>Optimized for search engines and speed.</p>
+        </div>
+
+        <div class="feature-box aos-init aos-animate" data-aos="fade-up">
+          <h3>🎨 Modern UI Design</h3>
+          <p>Premium dark theme and animations.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+
+      <h2 class="section-title">Pricing Plans</h2>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card aos-init aos-animate" data-aos="flip-left">
+          <h3>Basic</h3>
+          <div class="price">₹999</div>
+
+          <ul>
+            <li>Responsive Website</li>
+            <li>Basic Design</li>
+            <li>Contact Form</li>
+            <li>SEO Setup</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <div class="pricing-card aos-init aos-animate" data-aos="flip-left">
+          <h3>Standard</h3>
+          <div class="price">₹2999</div>
+
+          <ul>
+            <li>Premium Design</li>
+            <li>Animations</li>
+            <li>Booking System</li>
+            <li>Admin Panel</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-primary">Get Started</a>
+        </div>
+
+        <div class="pricing-card aos-init aos-animate" data-aos="flip-left">
+          <h3>Premium</h3>
+          <div class="price">Custom</div>
+
+          <ul>
+            <li>Fully Custom UI</li>
+            <li>Advanced Features</li>
+            <li>SEO Optimization</li>
+            <li>Priority Support</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-primary">Contact Us</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <div class="container">
+
+      <h2 class="section-title">Testimonials</h2>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card aos-init aos-animate" data-aos="fade-up">
+          <p>
+            “Amazing website design and fast service. Highly recommended.”
+          </p>
+          <h4>— Rahul Sharma</h4>
+        </div>
+
+        <div class="testimonial-card aos-init aos-animate" data-aos="fade-up">
+          <p>
+            “Very professional design and premium animations.”
+          </p>
+          <h4>— Priya Patel</h4>
+        </div>
+
+        <div class="testimonial-card aos-init aos-animate" data-aos="fade-up">
+          <p>
+            “The landing page increased our business leads instantly.”
+          </p>
+          <h4>— Amit Verma</h4>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="contact-box aos-init aos-animate" data-aos="zoom-in">
+
+        <h2>Let's Build Something Amazing</h2>
+
+        <p>
+          Contact SiteNova Studio for premium websites and digital experiences.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a href="https://t.me/Official_Sahil_007" target="_blank" class="btn btn-outline">
+            Telegram
           </a>
 
-</div>
-
-</div>
-
-      <!-- Business Demo -->
-
-<div class="demo-card">
-
-<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop">
-
-<div class="demo-content">
-
-<h3>Startup Landing</h3>
-
-<p>
-            Modern startup landing page for agencies,
-            startups and digital businesses.
-            Modern startup landing page for agencies, startups and digital businesses.
-</p>
-
-          <a href="./demos/business-landing.html" target="_blank">
-   Business Demo
-</a>
-          <a href="./demos/business-landing.html"
-             target="_blank"
-             class="demo-btn">
-             Live Demo
+          <a href="mailto:sitenovastudio@gmail.com" class="btn btn-outline">
+            Email Us
           </a>
 
-</div>
+        </div>
 
-</div>
+      </div>
 
-      <!-- Event Demo -->
+    </div>
+  </section>
 
-<div class="demo-card">
+  <!-- Footer -->
+  <footer>
 
-<img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop">
+    <h2 class="logo">SiteNova <span>Studio</span></h2>
 
-<div class="demo-content">
+    <p>
+      © 2026 SiteNova Studio. All Rights Reserved.
+    </p>
 
-<h3>Luxury Event</h3>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/Official_Sahil_007"><i class="fab fa-telegram"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+    </div>
 
-<p>
-            Premium event website with booking,
-            gallery and animated sections.
-            Premium event website with booking, gallery and animated sections.
-</p>
+  </footer>
 
-          <a href="./demos/event-website.html" target="_blank">
-   Event Website Demo
-</a>
-          <a href="./demos/event-website.html"
-             target="_blank"
-             class="demo-btn">
-             Live Demo
-          </a>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-</div>
+  <script>
 
-</div>
+    // AOS Animation
+    AOS.init({
+      duration:1000,
+      once:true
+    });
 
-</div>
+    // Loading Screen
+    window.addEventListener('load',()=>{
+      document.getElementById('loader').style.opacity='0';
+      document.getElementById('loader').style.visibility='hidden';
+    });
 
-</section>
+  </script>
 
-<!-- CONTACT -->
 
-<section class="contact" id="contact">
 
-<h2 class="serif">
-Let's Build Something Beautiful
-</h2>
+```
 
-<p>
-      Contact SitenovaStudio today for premium invitation websites,
-      landing pages and digital experiences crafted with love in India.
-      Contact SitenovaStudio today for premium invitation websites, landing pages and digital experiences crafted with love in India.
-</p>
 
-<div class="contact-btns">
-
-<a href="mailto:hello.sitenovastudio@gmail.com" class="btn-email">
-✉ Email Us
-</a>
-
-<a
-href="https://t.me/Official_Sahil_007"
-target="_blank"
-class="btn-telegram"
->
-✈ Telegram
-</a>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<h3 class="serif">
-Sitenova<span>Studio</span>
-</h3>
-
-<p>
-© 2026 SitenovaStudio • Crafted with ❤️ in India
-</p>
-
-</footer>
-
-</body>
-</html>
+</body></html>
