@@ -1,325 +1,334 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SitenovaStudio | Premium Digital Invites</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SitenovaStudio | Premium Digital Invites</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SiteNova Studio</title>
+<script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+:root{
+--indigo:#4f46e5;
+--dark:#0f0f13;
+--off:#f9f7f4;
+}
+
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--off);
+color:#111827;
+overflow-x:hidden;
+}
+
+.serif{
+font-family:'Cormorant Garamond',serif;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.nav-inner{
+max-width:1280px;
+margin:auto;
+padding:18px 32px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+}
+
+.logo span{
+color:var(--indigo);
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+align-items:center;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#374151;
+font-weight:500;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:var(--indigo);
+}
+
+.nav-btn{
+background:var(--dark);
+color:#fff !important;
+padding:10px 22px;
+border-radius:50px;
+}
+
+.nav-btn:hover{
+background:var(--indigo);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+max-width:1280px;
+margin:auto;
+padding:140px 32px 80px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center;
+}
+
+.hero-badge{
+display:inline-block;
+padding:8px 18px;
+border-radius:50px;
+background:#fff;
+border:1px solid #e5e7eb;
+color:var(--indigo);
+font-size:12px;
+font-weight:700;
+letter-spacing:2px;
+margin-bottom:24px;
+text-transform:uppercase;
+}
+
+.hero h1{
+font-size:78px;
+line-height:1;
+margin-bottom:24px;
+font-weight:700;
+}
+
+.hero h1 em{
+color:var(--indigo);
+font-style:italic;
+}
+
+.hero p{
+color:#6b7280;
+line-height:1.8;
+font-size:17px;
+margin-bottom:36px;
+max-width:520px;
+}
+
+.hero-btns{
+display:flex;
+gap:16px;
+flex-wrap:wrap;
+}
+
+.btn-primary{
+background:var(--dark);
+color:#fff;
+padding:16px 34px;
+border-radius:14px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
+
+.btn-primary:hover{
+background:var(--indigo);
+transform:translateY(-3px);
+}
+
+.btn-outline{
+border:1px solid #d1d5db;
+padding:16px 34px;
+border-radius:14px;
+text-decoration:none;
+color:#111827;
+font-weight:700;
+background:#fff;
+transition:0.3s;
+}
+
+.btn-outline:hover{
+border-color:var(--indigo);
+color:var(--indigo);
+}
+
+    .hero-image{
+      position:relative;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
+.hero-image img{
+width:100%;
+height:600px;
+object-fit:cover;
+border-radius:30px;
+box-shadow:0 25px 60px rgba(0,0,0,0.15);
+}
 
-    :root{
-      --indigo:#4f46e5;
-      --dark:#0f0f13;
-      --off:#f9f7f4;
-    }
+/* SECTION */
 
-    body{
-      font-family:'DM Sans',sans-serif;
-      background:var(--off);
-      color:#111827;
-      overflow-x:hidden;
-    }
+.section{
+max-width:1280px;
+margin:auto;
+padding:100px 32px;
+}
 
-    .serif{
-      font-family:'Cormorant Garamond',serif;
-    }
+.section-header{
+text-align:center;
+margin-bottom:60px;
+}
 
-    /* NAVBAR */
+.section-tag{
+display:inline-block;
+padding:6px 16px;
+border-radius:50px;
+background:rgba(79,70,229,0.08);
+color:var(--indigo);
+font-size:12px;
+font-weight:700;
+letter-spacing:2px;
+margin-bottom:16px;
+text-transform:uppercase;
+}
 
-    nav{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      z-index:1000;
-      background:rgba(255,255,255,0.85);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid rgba(0,0,0,0.05);
-    }
+.section-title{
+font-size:58px;
+margin-bottom:16px;
+font-weight:700;
+}
 
-    .nav-inner{
-      max-width:1280px;
-      margin:auto;
-      padding:18px 32px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+.section-sub{
+color:#6b7280;
+max-width:620px;
+margin:auto;
+line-height:1.8;
+}
 
-    .logo{
-      font-size:30px;
-      font-weight:700;
-    }
+/* SERVICES */
 
-    .logo span{
-      color:var(--indigo);
-    }
+.services{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+}
 
-    .nav-links{
-      display:flex;
-      gap:30px;
-      align-items:center;
-    }
+.service-card{
+background:#fff;
+border-radius:28px;
+padding:40px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+transition:0.3s;
+}
 
-    .nav-links a{
-      text-decoration:none;
-      color:#374151;
-      font-weight:500;
-      transition:0.3s;
-    }
+.service-card:hover{
+transform:translateY(-10px);
+}
 
-    .nav-links a:hover{
-      color:var(--indigo);
-    }
+.service-icon{
+font-size:46px;
+margin-bottom:20px;
+}
 
-    .nav-btn{
-      background:var(--dark);
-      color:#fff !important;
-      padding:10px 22px;
-      border-radius:50px;
-    }
+.service-card h3{
+font-size:24px;
+margin-bottom:14px;
+}
 
-    .nav-btn:hover{
-      background:var(--indigo);
-    }
+.service-card p{
+color:#6b7280;
+line-height:1.8;
+}
 
-    /* HERO */
+/* DEMOS */
 
-    .hero{
-      min-height:100vh;
-      max-width:1280px;
-      margin:auto;
-      padding:140px 32px 80px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:70px;
-      align-items:center;
-    }
+.demos{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:28px;
+}
 
-    .hero-badge{
-      display:inline-block;
-      padding:8px 18px;
-      border-radius:50px;
-      background:#fff;
-      border:1px solid #e5e7eb;
-      color:var(--indigo);
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:2px;
-      margin-bottom:24px;
-      text-transform:uppercase;
-    }
+.demo-card{
+background:#fff;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 5px 25px rgba(0,0,0,0.07);
+transition:0.3s;
+}
 
-    .hero h1{
-      font-size:78px;
-      line-height:1;
-      margin-bottom:24px;
-      font-weight:700;
-    }
+.demo-card:hover{
+transform:translateY(-10px);
+}
 
-    .hero h1 em{
-      color:var(--indigo);
-      font-style:italic;
-    }
+.demo-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
 
-    .hero p{
-      color:#6b7280;
-      line-height:1.8;
-      font-size:17px;
-      margin-bottom:36px;
-      max-width:520px;
-    }
+.demo-content{
+padding:30px;
+}
 
-    .hero-btns{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-    }
+.demo-content h3{
+margin-bottom:14px;
+font-size:24px;
+}
 
-    .btn-primary{
-      background:var(--dark);
-      color:#fff;
-      padding:16px 34px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.3s;
-    }
-
-    .btn-primary:hover{
-      background:var(--indigo);
-      transform:translateY(-3px);
-    }
-
-    .btn-outline{
-      border:1px solid #d1d5db;
-      padding:16px 34px;
-      border-radius:14px;
-      text-decoration:none;
-      color:#111827;
-      font-weight:700;
-      background:#fff;
-      transition:0.3s;
-    }
-
-    .btn-outline:hover{
-      border-color:var(--indigo);
-      color:var(--indigo);
-    }
-
-    .hero-image img{
-      width:100%;
-      height:600px;
-      object-fit:cover;
-      border-radius:30px;
-      box-shadow:0 25px 60px rgba(0,0,0,0.15);
-    }
-
-    /* SECTION */
-
-    .section{
-      max-width:1280px;
-      margin:auto;
-      padding:100px 32px;
-    }
-
-    .section-header{
-      text-align:center;
-      margin-bottom:60px;
-    }
-
-    .section-tag{
-      display:inline-block;
-      padding:6px 16px;
-      border-radius:50px;
-      background:rgba(79,70,229,0.08);
-      color:var(--indigo);
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:2px;
-      margin-bottom:16px;
-      text-transform:uppercase;
-    }
-
-    .section-title{
-      font-size:58px;
-      margin-bottom:16px;
-      font-weight:700;
-    }
-
-    .section-sub{
-      color:#6b7280;
-      max-width:620px;
-      margin:auto;
-      line-height:1.8;
-    }
-
-    /* SERVICES */
-
-    .services{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:28px;
-    }
-
-    .service-card{
-      background:#fff;
-      border-radius:28px;
-      padding:40px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.05);
-      transition:0.3s;
-    }
-
-    .service-card:hover{
-      transform:translateY(-10px);
-    }
-
-    .service-icon{
-      font-size:46px;
+.demo-content p{
+color:#6b7280;
+line-height:1.8;
       margin-bottom:20px;
-    }
-
-    .service-card h3{
-      font-size:24px;
-      margin-bottom:14px;
-    }
-
-    .service-card p{
-      color:#6b7280;
-      line-height:1.8;
-    }
-
-    /* DEMOS */
-
-    .demos{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:28px;
-    }
-
-    .demo-card{
-      background:#fff;
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:0 5px 25px rgba(0,0,0,0.07);
-      transition:0.3s;
-    }
-
-    .demo-card:hover{
-      transform:translateY(-10px);
-    }
-
-    .demo-card img{
-      width:100%;
-      height:250px;
-      object-fit:cover;
-    }
-
-    .demo-content{
-      padding:30px;
-    }
-
-    .demo-content h3{
-      margin-bottom:14px;
-      font-size:24px;
-    }
-
-    .demo-content p{
-      color:#6b7280;
-      line-height:1.8;
       margin-bottom:25px;
-    }
+}
 
     /* DEMO BUTTON */
 
-    .demo-btn{
+.demo-btn{
+      display:block;
+      text-align:center;
+      background:var(--indigo);
+      color:#fff;
+      padding:14px;
+      border-radius:14px;
       display:inline-block;
       background:linear-gradient(135deg,#ff6b6b,#ff8e53);
       color:white;
       padding:14px 28px;
       border-radius:12px;
-      text-decoration:none;
+text-decoration:none;
       font-size:16px;
-      font-weight:700;
+font-weight:700;
       transition:0.3s ease;
       box-shadow:0 5px 15px rgba(0,0,0,0.2);
     }
@@ -328,401 +337,397 @@
       transform:translateY(-5px) scale(1.05);
       background:linear-gradient(135deg,#ff8e53,#ff6b6b);
       color:white;
-    }
+}
 
-    /* CONTACT */
+/* CONTACT */
 
-    .contact{
-      background:var(--dark);
-      color:#fff;
-      text-align:center;
-      padding:100px 32px;
-    }
+.contact{
+background:var(--dark);
+color:#fff;
+text-align:center;
+padding:100px 32px;
+}
 
-    .contact h2{
-      font-size:60px;
-      margin-bottom:20px;
-    }
+.contact h2{
+font-size:60px;
+margin-bottom:20px;
+}
 
-    .contact p{
-      color:rgba(255,255,255,0.7);
-      max-width:700px;
-      margin:auto auto 40px;
-      line-height:1.8;
-      font-size:17px;
-    }
+.contact p{
+color:rgba(255,255,255,0.7);
+max-width:700px;
+margin:auto auto 40px;
+line-height:1.8;
+font-size:17px;
+}
 
-    .contact-btns{
-      display:flex;
-      justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
-    }
+.contact-btns{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+}
 
-    .btn-email{
-      background:var(--indigo);
-      color:#fff;
-      padding:16px 36px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.3s;
-    }
+.btn-email{
+background:var(--indigo);
+color:#fff;
+padding:16px 36px;
+border-radius:14px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
 
-    .btn-email:hover{
-      transform:translateY(-3px);
-    }
+.btn-email:hover{
+transform:translateY(-3px);
+}
 
-    .btn-telegram{
-      background:#229ED9;
-      color:#fff;
-      padding:16px 36px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.3s;
-    }
+.btn-telegram{
+background:#229ED9;
+color:#fff;
+padding:16px 36px;
+border-radius:14px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+}
 
-    .btn-telegram:hover{
-      background:#1b8bc2;
-      transform:translateY(-3px);
-      box-shadow:0 12px 30px rgba(34,158,217,0.4);
-    }
+.btn-telegram:hover{
+background:#1b8bc2;
+transform:translateY(-3px);
+box-shadow:0 12px 30px rgba(34,158,217,0.4);
+}
 
-    /* FOOTER */
+/* FOOTER */
 
-    footer{
-      background:#09090f;
-      text-align:center;
-      padding:40px 20px;
-      color:rgba(255,255,255,0.6);
-    }
+footer{
+background:#09090f;
+text-align:center;
+padding:40px 20px;
+color:rgba(255,255,255,0.6);
+}
 
-    footer h3{
-      color:#fff;
-      font-size:30px;
-      margin-bottom:10px;
-    }
+footer h3{
+color:#fff;
+font-size:30px;
+margin-bottom:10px;
+}
 
-    footer h3 span{
-      color:var(--indigo);
-    }
+footer h3 span{
+color:var(--indigo);
+}
 
-    /* MOBILE */
+/* MOBILE */
 
-    @media(max-width:900px){
+@media(max-width:900px){
 
-      .hero{
-        grid-template-columns:1fr;
-      }
+.hero{
+grid-template-columns:1fr;
+}
 
-      .hero h1{
-        font-size:56px;
-      }
+.hero h1{
+font-size:56px;
+}
 
-      .services,
-      .demos{
-        grid-template-columns:1fr;
-      }
+.services,
+.demos{
+grid-template-columns:1fr;
+}
 
-      .section-title{
-        font-size:42px;
-      }
+.section-title{
+font-size:42px;
+}
 
-      .contact h2{
-        font-size:42px;
-      }
+.contact h2{
+font-size:42px;
+}
 
-      .nav-links{
-        display:none;
-      }
-    }
+.nav-links{
+display:none;
+}
+}
 
-  </style>
-  <link rel="stylesheet" href="style.css">
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <!-- Background Music -->
-  <audio id="bgMusic" loop>
-    <source src="music/song.mp3" type="audio/mpeg">
-  </audio>
+<!-- NAVBAR -->
 
-  <nav>
-    <div class="nav-inner">
-  <button class="music-btn" id="musicBtn">🔊</button>
+<nav>
+<div class="nav-inner">
 
-      <div class="logo serif">
-        Sitenova<span>Studio</span>
-      </div>
-
-      <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#demos">Demos</a>
-        <a href="#contact" class="nav-btn">Contact</a>
-      </div>
-
-    </div>
-  </nav>
-  <!-- Navbar -->
-  <header>
-    <div class="logo">SiteNova Studio</div>
-
-  <!-- HERO -->
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-
-    <div>
-    <div class="overlay"></div>
-
-      <div class="hero-badge">
-        Premium Digital Website Studio
-      </div>
-
-      <h1 class="serif">
-        Luxury <br>
-        <em>Invitation, Landing Page, Event</em><br>
-        Websites
-      </h1>
-    <div class="hero-content">
-      <h1>Luxury Digital Experiences</h1>
-
-<p>
-        We craft elegant wedding invitation websites, premium landing pages and unforgettable event experiences for modern brands and celebrations.
-        We create premium websites, wedding invitations,
-        landing pages, event experiences and digital brands.
-</p>
-
-      <div class="hero-btns">
-
-        <a href="#demos" class="btn-primary">
-          Explore Demos
-        </a>
-
-        <a href="#contact" class="btn-outline">
-          Contact Us
-        </a>
-
-      <div class="hero-buttons">
-        <a href="#portfolio" class="btn primary">View Portfolio</a>
-        <a href="https://t.me" class="btn secondary">Contact on Telegram</a>
+<div class="logo serif">
+Sitenova<span>Studio</span>
 </div>
 
-    </div>
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#demos">Demos</a>
+<a href="#contact" class="nav-btn">Contact</a>
+</div>
 
-    <div class="hero-image">
-      <img src="https://cdn.corenexis.com/files/c/5396875720.webp?q=80&w=1400&auto=format&fit=crop" alt="">
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<div class="hero-badge">
+Premium Digital Website Studio
+</div>
+
+<h1 class="serif">
+Luxury <br>
+        <em>Invitation,landing page,Event</em><br>
+        <em>Invitation, Landing Page, Event</em><br>
+Websites
+</h1>
+
+<p>
+        We craft elegant wedding invitation websites, premium landing pages and
+        unforgettable event experiences for modern brands and celebrations.
+        We craft elegant wedding invitation websites, premium landing pages and unforgettable event experiences for modern brands and celebrations.
+</p>
+
+<div class="hero-btns">
+
+<a href="#demos" class="btn-primary">
+Explore Demos
+</a>
+
+<a href="#contact" class="btn-outline">
+Contact Us
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+<img src="https://cdn.corenexis.com/files/c/5396875720.webp?q=80&w=1400&auto=format&fit=crop" alt="">
 </div>
 
 </section>
 
-  <!-- SERVICES -->
+<!-- SERVICES -->
 
-  <section class="section" id="services">
+<section class="section" id="services">
 
-    <div class="section-header">
+<div class="section-header">
 
-      <div class="section-tag">
-        What We Do
-      </div>
+<div class="section-tag">
+What We Do
+</div>
 
-      <h2 class="section-title serif">
-        Our Services
-      </h2>
+<h2 class="section-title serif">
+Our Services
+</h2>
 
-      <p class="section-sub">
-        Premium digital experiences crafted for weddings, startups and luxury events.
-      </p>
+<p class="section-sub">
+Premium digital experiences crafted for weddings, startups and luxury events.
+</p>
 
-    </div>
+</div>
 
-    <div class="services">
+<div class="services">
 
-      <div class="service-card">
-        <div class="service-icon">💍</div>
-        <h3>Wedding Invitations</h3>
-        <p>
+<div class="service-card">
+<div class="service-icon">💍</div>
+<h3>Wedding Invitations</h3>
+<p>
+          Beautiful wedding invitation websites with RSVP forms,
+          countdown timers, galleries and animations.
           Beautiful wedding invitation websites with RSVP forms, countdown timers, galleries and animations.
-        </p>
-      </div>
+</p>
+</div>
 
-      <div class="service-card">
-        <div class="service-icon">🚀</div>
-        <h3>Business Landing Pages</h3>
-        <p>
+<div class="service-card">
+<div class="service-icon">🚀</div>
+<h3>Business Landing Pages</h3>
+<p>
+          Professional landing pages for startups and businesses
+          designed to convert visitors into clients.
           Professional landing pages for startups and businesses designed to convert visitors into clients.
-        </p>
-      </div>
+</p>
+</div>
 
-      <div class="service-card">
-        <div class="service-icon">🎉</div>
-        <h3>Event Websites</h3>
-        <p>
+<div class="service-card">
+<div class="service-icon">🎉</div>
+<h3>Event Websites</h3>
+<p>
+          Stunning event websites for concerts, launches and
+          premium celebrations with modern UI design.
           Stunning event websites for concerts, launches and premium celebrations with modern UI design.
-        </p>
-      </div>
+</p>
+</div>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
-  <!-- DEMOS -->
+<!-- DEMOS -->
 
-  <section class="section" id="demos">
+<section class="section" id="demos">
 
-    <div class="section-header">
+<div class="section-header">
 
-      <div class="section-tag">
-        Portfolio
-      </div>
+<div class="section-tag">
+Portfolio
+</div>
 
-      <h2 class="section-title serif">
-        Featured Demos
-      </h2>
+<h2 class="section-title serif">
+Featured Demos
+</h2>
 
-      <p class="section-sub">
-        Explore our latest premium invitation website collection.
-      </p>
+<p class="section-sub">
+Explore our latest premium invitation website collection.
+</p>
 
-    </div>
+</div>
 
-    <div class="demos">
+<div class="demos">
 
       <!-- Wedding Demo -->
 
-      <div class="demo-card">
+<div class="demo-card">
 
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop">
 
-        <div class="demo-content">
+<div class="demo-content">
 
+          <h3>Wedding invitation</h3>
           <h3>Wedding Invitation</h3>
 
-          <p>
+<p>
+            Elegant wedding invitation with countdown,
+            RSVP and photo gallery.
             Elegant wedding invitation with countdown, RSVP and photo gallery.
-          </p>
+</p>
 
+          <a href="./demos/marathi-wedding.html" target="_blank">
+   Wedding Invitation Demo
+</a>
           <a href="./demos/marathi-wedding.html"
              target="_blank"
              class="demo-btn">
              Live Demo
           </a>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
       <!-- Business Demo -->
 
-      <div class="demo-card">
+<div class="demo-card">
 
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop">
 
-        <div class="demo-content">
+<div class="demo-content">
 
-          <h3>Startup Landing</h3>
+<h3>Startup Landing</h3>
 
-          <p>
+<p>
+            Modern startup landing page for agencies,
+            startups and digital businesses.
             Modern startup landing page for agencies, startups and digital businesses.
-          </p>
+</p>
 
+          <a href="./demos/business-landing.html" target="_blank">
+   Business Demo
+</a>
           <a href="./demos/business-landing.html"
              target="_blank"
              class="demo-btn">
              Live Demo
           </a>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
       <!-- Event Demo -->
 
-      <div class="demo-card">
+<div class="demo-card">
 
-        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop">
 
-        <div class="demo-content">
+<div class="demo-content">
 
-          <h3>Luxury Event</h3>
+<h3>Luxury Event</h3>
 
-          <p>
+<p>
+            Premium event website with booking,
+            gallery and animated sections.
             Premium event website with booking, gallery and animated sections.
-          </p>
+</p>
 
+          <a href="./demos/event-website.html" target="_blank">
+   Event Website Demo
+</a>
           <a href="./demos/event-website.html"
              target="_blank"
              class="demo-btn">
              Live Demo
           </a>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
-  <!-- CONTACT -->
+<!-- CONTACT -->
 
-  <section class="contact" id="contact">
+<section class="contact" id="contact">
 
-    <h2 class="serif">
-      Let's Build Something Beautiful
-    </h2>
+<h2 class="serif">
+Let's Build Something Beautiful
+</h2>
 
-    <p>
+<p>
+      Contact SitenovaStudio today for premium invitation websites,
+      landing pages and digital experiences crafted with love in India.
       Contact SitenovaStudio today for premium invitation websites, landing pages and digital experiences crafted with love in India.
-    </p>
+</p>
 
-    <div class="contact-btns">
+<div class="contact-btns">
 
-      <a href="mailto:hello.sitenovastudio@gmail.com" class="btn-email">
-        ✉ Email Us
-      </a>
+<a href="mailto:hello.sitenovastudio@gmail.com" class="btn-email">
+✉ Email Us
+</a>
 
-      <a
-        href="https://t.me/Official_Sahil_007"
-        target="_blank"
-        class="btn-telegram"
-      >
-        ✈ Telegram
-      </a>
+<a
+href="https://t.me/Official_Sahil_007"
+target="_blank"
+class="btn-telegram"
+>
+✈ Telegram
+</a>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
-  <!-- FOOTER -->
+<!-- FOOTER -->
 
-  <footer>
+<footer>
 
-    <h3 class="serif">
-      Sitenova<span>Studio</span>
-    </h3>
+<h3 class="serif">
+Sitenova<span>Studio</span>
+</h3>
 
-    <p>
-      © 2026 SitenovaStudio • Crafted with ❤️ in India
-    </p>
+<p>
+© 2026 SitenovaStudio • Crafted with ❤️ in India
+</p>
 
-  </footer>
-  <!-- Services -->
-  <section class="services" id="services">
+</footer>
 
 </body>
-    <div class="section-title">
-      <h2>Our Services</h2>
 </html>
