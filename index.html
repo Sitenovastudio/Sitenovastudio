@@ -1,11 +1,6 @@
-<html lang="en"><head><style>
-  .imageye-selected {
-    outline: 2px solid black !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
-  }
-</style><style type="text/css" id="mytempCss">._8mqQwQ { display: none; } ._1TWLMK.icF5zO { opacity: 0.01; }</style></head><body data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0"># SiteNova Studio — Premium Startup Website Code
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SiteNova Studio | Modern Websites That Convert</title>
@@ -14,816 +9,685 @@
   <meta name="description" content="SiteNova Studio builds premium business websites, invitation websites, landing pages and event websites.">
   <meta name="keywords" content="Website Developer, Invitation Website, Landing Page, Portfolio Website, Business Website">
 
-  <!-- AOS Animation -->
+  <!-- AOS Animation & Icons -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
+    /* BASE STYLES */
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+    body{font-family:'Outfit',sans-serif;background:#0b0b12;color:white;overflow-x:hidden;}
+    ::selection{background:#7c3aed;color:white;}
+    ::-webkit-scrollbar{width:10px;}
+    ::-webkit-scrollbar-thumb{background:linear-gradient(#7c3aed,#06b6d4);border-radius:20px;}
+
+    #loader{position:fixed;width:100%;height:100vh;background:#0b0b12;z-index:9999;display:flex;justify-content:center;align-items:center;flex-direction:column;transition:0.8s;}
+    .loader-logo{font-size:40px;font-weight:800;background:linear-gradient(90deg,#7c3aed,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+    /* NAVBAR */
+    nav{position:fixed;width:100%;top:0;z-index:1000;backdrop-filter:blur(20px);background:rgba(10,10,15,0.7);border-bottom:1px solid rgba(255,255,255,0.08);}
+    .nav-container{max-width:1200px;margin:auto;padding:20px;display:flex;justify-content:space-between;align-items:center;}
+    .logo{font-size:28px;font-weight:800;cursor:pointer;}
+    .logo span{color:#06b6d4;}
+    .nav-links{display:flex;gap:30px;align-items:center;}
+    .nav-links a{color:white;text-decoration:none;font-size:15px;transition:0.3s;cursor:pointer;}
+    .nav-links a:hover{color:#06b6d4;}
+
+    /* HERO SECTION */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px;position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;width:600px;height:600px;background:#7c3aed;filter:blur(180px);opacity:0.25;top:-100px;left:-100px;}
+    .hero::after{content:'';position:absolute;width:500px;height:500px;background:#06b6d4;filter:blur(180px);opacity:0.2;bottom:-100px;right:-100px;}
+    .hero-content{position:relative;z-index:2;max-width:900px;}
+    .badge{display:inline-block;padding:10px 18px;border-radius:50px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);margin-bottom:25px;font-size:14px;}
+    .hero h1{font-size:72px;line-height:1.1;margin-bottom:20px;font-weight:800;}
+    .gradient-text{background:linear-gradient(90deg,#7c3aed,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .hero p{color:#b8b8c5;font-size:18px;line-height:1.8;margin-bottom:40px;}
+    .hero-buttons{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+
+    /* BUTTONS */
+    .btn{padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:600;transition:0.3s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none;font-family:inherit;font-size:15px;}
+    .btn-primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);color:white;box-shadow:0 10px 30px rgba(124,58,237,0.3);}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(124,58,237,0.5);}
+    .btn-outline{border:1px solid rgba(255,255,255,0.2);color:white;background:transparent;}
+    .btn-outline:hover{background:white;color:black;}
+    .btn-danger{background:rgba(239, 68, 68, 0.1);color:#ef4444;border:1px solid rgba(239, 68, 68, 0.3);padding:8px 16px;}
+    .btn-danger:hover{background:#ef4444;color:white;}
+    .btn-warning{background:rgba(245, 158, 11, 0.1);color:#f59e0b;border:1px solid rgba(245, 158, 11, 0.3);padding:8px 16px;}
+    .btn-warning:hover{background:#f59e0b;color:white;}
+    .btn-secondary{background:rgba(255,255,255,0.1);color:white;}
+    .btn-secondary:hover{background:rgba(255,255,255,0.2);}
+
+    /* SECTIONS */
+    section{padding:100px 20px;}
+    .container{max-width:1200px;margin:auto;}
+    .section-title{text-align:center;font-size:48px;margin-bottom:15px;font-weight:800;}
+    .section-subtitle{text-align:center;color:#9ca3af;max-width:700px;margin:0 auto 60px;line-height:1.8;}
+
+    .grid-layout{display:grid;gap:30px;}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+    .grid-4{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+
+    /* CARDS */
+    .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:35px;border-radius:24px;transition:0.4s;backdrop-filter:blur(20px);}
+    .card:hover{transform:translateY(-10px);border-color:#7c3aed;box-shadow:0 15px 40px rgba(124,58,237,0.15);}
+    .card i{font-size:40px;margin-bottom:20px;color:#06b6d4;}
+    .card h3{margin-bottom:15px;font-size:22px;}
+    .card p{color:#9ca3af;line-height:1.7;}
+
+    .portfolio-card{background:#12121b;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);transition:0.4s;}
+    .portfolio-card:hover{transform:translateY(-10px);border-color:rgba(255,255,255,0.2);}
+    .portfolio-card img{width:100%;height:240px;object-fit:cover;}
+    .portfolio-content{padding:25px;}
+    .portfolio-content h3{margin-bottom:10px;font-size:22px;}
+    .portfolio-content p{color:#9ca3af;margin-bottom:25px;line-height:1.7;}
+
+    .pricing-card{background:#12121b;border-radius:24px;padding:40px;text-align:center;border:1px solid rgba(255,255,255,0.08);transition:0.4s;}
+    .pricing-card:hover{transform:translateY(-10px);border-color:#06b6d4;}
+    .pricing-card h3{font-size:24px;margin-bottom:15px;color:#cbd5e1;}
+    .price{font-size:48px;font-weight:800;margin-bottom:20px;color:#06b6d4;}
+    .pricing-card ul{list-style:none;margin-bottom:30px;text-align:left;}
+    .pricing-card ul li{margin:14px 0;color:#9ca3af;display:flex;align-items:center;gap:10px;}
+    .pricing-card ul li::before{content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;color:#06b6d4;font-size:14px;}
+
+    .contact-box{background:linear-gradient(135deg,rgba(124,58,237,0.2),rgba(6,182,212,0.2));border:1px solid rgba(255,255,255,0.1);padding:70px 40px;border-radius:30px;text-align:center;backdrop-filter:blur(10px);}
+    .contact-box h2{font-size:42px;margin-bottom:20px;}
+    .contact-box p{margin-bottom:30px;font-size:18px;color:#cbd5e1;}
+
+    footer{padding:40px 20px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);color:#9ca3af;}
+    .social-icons{margin-top:20px;display:flex;justify-content:center;gap:20px;}
+    .social-icons a{color:white;font-size:20px;transition:0.3s;}
+    .social-icons a:hover{color:#06b6d4;transform:translateY(-4px);}
+    .footer-admin-link { margin-top: 30px; display: inline-block; font-size: 13px; color: #475569; text-decoration: none; cursor: pointer; transition:0.3s;}
+    .footer-admin-link:hover { color: #06b6d4; }
+
+    /* AUTH & ADMIN UI STYLES */
+    .view-section {display: none;}
+    .view-section.active {display: block; animation: fadeIn 0.4s ease forwards;}
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);} }
+    
+    .auth-overlay {position: fixed;top: 0; left: 0; width: 100%; height: 100%;background: rgba(11, 11, 18, 0.95);z-index: 2000;display: flex;justify-content: center;align-items: center;padding: 20px;backdrop-filter: blur(10px);}
+    .auth-wrapper {position: relative;width: 100%;max-width: 450px;padding: 50px 40px;border: 1px solid rgba(255,255,255,0.1);box-shadow: 0 20px 50px rgba(0,0,0,0.5);background: #12121b;border-radius: 20px;}
+    .auth-wrapper h2 {font-size: 28px;text-align: center;color: #fff;margin-bottom: 30px;}
+    
+    .field-wrapper {position: relative;width: 100%;height: 50px;margin-top: 25px;}
+    .field-wrapper input {width: 100%;height: 100%;background: transparent;border: none;outline: none;font-size: 16px;color: #fff;font-weight: 500;border-bottom: 2px solid rgba(255,255,255,0.2);padding-right: 23px;transition:0.3s;}
+    .field-wrapper input:focus, .field-wrapper input:valid {border-bottom: 2px solid #06b6d4;}
+    .field-wrapper label {position: absolute;top: 50%;left: 0;transform: translateY(-50%);font-size: 15px;color: #9ca3af;transition: .4s;pointer-events: none;}
+    .field-wrapper input:focus~label, .field-wrapper input:valid~label {top: -10px;color: #06b6d4;font-size: 12px;font-weight:600;}
+    .field-wrapper i {position: absolute;top: 50%;right: 0;font-size: 18px;transform: translateY(-50%);color: #9ca3af;transition:0.3s;}
+    .field-wrapper input:focus~i, .field-wrapper input:valid~i {color: #06b6d4;}
+    
+    .submit-button {width: 100%;height: 50px;background: linear-gradient(90deg,#7c3aed,#06b6d4);border-radius: 12px;cursor: pointer;font-size: 16px;font-weight: 600;border: none;color: white;transition: 0.3s; margin-top: 35px; display:flex; justify-content:center; align-items:center; gap:10px;}
+    .submit-button:hover:not(:disabled) {box-shadow: 0 10px 20px rgba(124,58,237,0.3); transform: translateY(-2px);}
+    .submit-button:disabled {opacity: 0.7; cursor: not-allowed;}
+
+    .admin-container {max-width: 1200px;margin: 120px auto 50px auto;background: #12121b;border: 1px solid rgba(255,255,255,0.08);border-radius: 24px;padding: 40px;}
+    .admin-header {display: flex;justify-content: space-between;align-items: center;margin-bottom: 40px;border-bottom: 1px solid rgba(255,255,255,0.05);padding-bottom: 20px;}
+    .admin-header h1 {font-size: 32px; background: linear-gradient(90deg,#7c3aed,#06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+    
+    .admin-section {margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.02); border-radius: 16px; border: 1px solid rgba(255,255,255,0.04);}
+    .admin-section h2 {margin-bottom: 25px; color: white; font-size:22px; display:flex; align-items:center; gap:10px;}
+    .admin-section h2 i {color: #06b6d4;}
+    
+    .admin-form {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 25px;}
+    .admin-form input, .admin-form textarea {background: rgba(0,0,0,0.2);border: 1px solid rgba(255,255,255,0.1);padding: 14px;border-radius: 10px;color: white;outline: none;font-family: inherit;font-size:15px;transition:0.3s;}
+    .admin-form input:focus, .admin-form textarea:focus {border-color:#06b6d4; background: rgba(0,0,0,0.4);}
+    .admin-form textarea { resize: vertical; min-height: 80px; }
+    
+    .form-actions { display: flex; gap: 15px; grid-column: 1 / -1; margin-top: 10px; }
+    
+    .table-container {overflow-x: auto;}
+    .admin-table {width: 100%;border-collapse: collapse;margin-top: 10px;}
+    .admin-table th, .admin-table td {padding: 16px;text-align: left;border-bottom: 1px solid rgba(255,255,255,0.05); font-size:15px;}
+    .admin-table th {color: #9ca3af; font-weight:600; text-transform:uppercase; font-size:13px; letter-spacing:1px;}
+    .admin-table tr:hover td {background: rgba(255,255,255,0.01);}
+    
+    .admin-project-thumb { width: 60px; height: 40px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
+    .action-btns {display:flex; gap:8px;}
+
+    /* TOAST NOTIFICATION */
+    .toast {position:fixed; bottom:30px; right:30px; background:white; color:#0b0b12; padding:16px 24px; border-radius:12px; font-weight:600; font-size:15px; box-shadow:0 20px 40px rgba(0,0,0,0.4); transform:translateX(150%); transition:transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index:9999; display:flex; align-items:center; gap:12px;}
+    .toast i {color:#06b6d4; font-size:20px;}
+    .toast.error i {color:#ef4444;}
+    .toast.show {transform:translateX(0);}
 
-    body{
-      font-family:'Outfit',sans-serif;
-      background:#0b0b12;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    ::selection{
-      background:#7c3aed;
-      color:white;
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar{
-      width:10px;
-    }
-
-    ::-webkit-scrollbar-thumb{
-      background:linear-gradient(#7c3aed,#06b6d4);
-      border-radius:20px;
-    }
-
-    /* Loading Screen */
-    #loader{
-      position:fixed;
-      width:100%;
-      height:100vh;
-      background:#0b0b12;
-      z-index:9999;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-      transition:0.8s;
-    }
-
-    .loader-logo{
-      font-size:40px;
-      font-weight:800;
-      background:linear-gradient(90deg,#7c3aed,#06b6d4);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    /* Navbar */
-    nav{
-      position:fixed;
-      width:100%;
-      top:0;
-      z-index:1000;
-      backdrop-filter:blur(20px);
-      background:rgba(10,10,15,0.7);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-container{
-      max-width:1200px;
-      margin:auto;
-      padding:20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .logo{
-      font-size:28px;
-      font-weight:800;
-    }
-
-    .logo span{
-      color:#06b6d4;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:30px;
-    }
-
-    .nav-links a{
-      color:white;
-      text-decoration:none;
-      font-size:15px;
-      transition:0.3s;
-    }
-
-    .nav-links a:hover{
-      color:#06b6d4;
-    }
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:120px 20px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero::before{
-      content:'';
-      position:absolute;
-      width:600px;
-      height:600px;
-      background:#7c3aed;
-      filter:blur(180px);
-      opacity:0.25;
-      top:-100px;
-      left:-100px;
-    }
-
-    .hero::after{
-      content:'';
-      position:absolute;
-      width:500px;
-      height:500px;
-      background:#06b6d4;
-      filter:blur(180px);
-      opacity:0.2;
-      bottom:-100px;
-      right:-100px;
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      max-width:900px;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:10px 18px;
-      border-radius:50px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.1);
-      margin-bottom:25px;
-      font-size:14px;
-    }
-
-    .hero h1{
-      font-size:72px;
-      line-height:1.1;
-      margin-bottom:20px;
-      font-weight:800;
-    }
-
-    .gradient-text{
-      background:linear-gradient(90deg,#7c3aed,#06b6d4);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .hero p{
-      color:#b8b8c5;
-      font-size:18px;
-      line-height:1.8;
-      margin-bottom:40px;
-    }
-
-    .hero-buttons{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:16px 34px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:600;
-      transition:0.3s;
-      display:inline-block;
-    }
-
-    .btn-primary{
-      background:linear-gradient(90deg,#7c3aed,#06b6d4);
-      color:white;
-      box-shadow:0 10px 30px rgba(124,58,237,0.4);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-5px);
-    }
-
-    .btn-outline{
-      border:1px solid rgba(255,255,255,0.2);
-      color:white;
-    }
-
-    .btn-outline:hover{
-      background:white;
-      color:black;
-    }
-
-    section{
-      padding:100px 20px;
-    }
-
-    .container{
-      max-width:1200px;
-      margin:auto;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:52px;
-      margin-bottom:20px;
-      font-weight:800;
-    }
-
-    .section-subtitle{
-      text-align:center;
-      color:#9ca3af;
-      max-width:700px;
-      margin:0 auto 60px;
-      line-height:1.8;
-    }
-
-    /* Services */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:25px;
-    }
-
-    .service-card{
-      background:rgba(255,255,255,0.05);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:35px;
-      border-radius:24px;
-      transition:0.4s;
-      backdrop-filter:blur(20px);
-    }
-
-    .service-card:hover{
-      transform:translateY(-10px);
-      border-color:#7c3aed;
-      box-shadow:0 15px 40px rgba(124,58,237,0.2);
-    }
-
-    .service-card i{
-      font-size:42px;
-      margin-bottom:20px;
-      color:#06b6d4;
-    }
-
-    .service-card h3{
-      margin-bottom:15px;
-      font-size:24px;
-    }
-
-    .service-card p{
-      color:#9ca3af;
-      line-height:1.7;
-    }
-
-    /* Portfolio */
-    .portfolio-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:30px;
-    }
-
-    .portfolio-card{
-      background:#12121b;
-      border-radius:24px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.08);
-      transition:0.4s;
-    }
-
-    .portfolio-card:hover{
-      transform:translateY(-10px);
-    }
-
-    .portfolio-card img{
-      width:100%;
-      height:240px;
-      object-fit:cover;
-    }
-
-    .portfolio-content{
-      padding:25px;
-    }
-
-    .portfolio-content h3{
-      margin-bottom:10px;
-      font-size:24px;
-    }
-
-    .portfolio-content p{
-      color:#9ca3af;
-      margin-bottom:25px;
-      line-height:1.7;
-    }
-
-    /* Why Choose Us */
-    .features-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .feature-box{
-      background:rgba(255,255,255,0.05);
-      padding:30px;
-      border-radius:20px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .feature-box h3{
-      margin:15px 0;
-    }
-
-    /* Pricing */
-    .pricing-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
-    }
-
-    .pricing-card{
-      background:#12121b;
-      border-radius:24px;
-      padding:40px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.08);
-      transition:0.4s;
-    }
-
-    .pricing-card:hover{
-      transform:translateY(-10px);
-      border-color:#06b6d4;
-    }
-
-    .pricing-card h3{
-      font-size:28px;
-      margin-bottom:15px;
-    }
-
-    .price{
-      font-size:52px;
-      font-weight:800;
-      margin-bottom:20px;
-      color:#06b6d4;
-    }
-
-    .pricing-card ul{
-      list-style:none;
-      margin-bottom:30px;
-    }
-
-    .pricing-card ul li{
-      margin:14px 0;
-      color:#9ca3af;
-    }
-
-    /* Testimonials */
-    .testimonials-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:25px;
-    }
-
-    .testimonial-card{
-      background:rgba(255,255,255,0.05);
-      border-radius:24px;
-      padding:35px;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .testimonial-card p{
-      color:#cbd5e1;
-      line-height:1.8;
-      margin-bottom:20px;
-    }
-
-    /* Contact */
-    .contact-box{
-      background:linear-gradient(135deg,#7c3aed,#06b6d4);
-      padding:70px 40px;
-      border-radius:30px;
-      text-align:center;
-    }
-
-    .contact-box h2{
-      font-size:52px;
-      margin-bottom:20px;
-    }
-
-    .contact-box p{
-      margin-bottom:30px;
-      font-size:18px;
-    }
-
-    /* Footer */
-    footer{
-      padding:40px 20px;
-      text-align:center;
-      border-top:1px solid rgba(255,255,255,0.08);
-      color:#9ca3af;
-    }
-
-    .social-icons{
-      margin-top:20px;
-      display:flex;
-      justify-content:center;
-      gap:20px;
-    }
-
-    .social-icons a{
-      color:white;
-      font-size:20px;
-      transition:0.3s;
-    }
-
-    .social-icons a:hover{
-      color:#06b6d4;
-      transform:translateY(-4px);
-    }
-
-    /* Responsive */
     @media(max-width:768px){
-
-      .hero h1{
-        font-size:48px;
-      }
-
-      .section-title{
-        font-size:38px;
-      }
-
-      .nav-links{
-        display:none;
-      }
-
-      .contact-box h2{
-        font-size:38px;
-      }
-
+      .hero h1{font-size:42px;}
+      .section-title{font-size:36px;}
+      .nav-links{display:none;}
+      .admin-form {grid-template-columns: 1fr;}
+      .admin-header {flex-direction:column; gap:20px; align-items:flex-start;}
     }
   </style>
+</head>
+<body>
 
+  <!-- TOAST COMPONENT -->
+  <div id="toast" class="toast">
+    <i id="toast-icon" class="fa-solid fa-circle-check"></i>
+    <span id="toast-msg">Success!</span>
+  </div>
 
-
-  <!-- Loading -->
-  <div id="loader" style="opacity: 0; visibility: hidden;">
+  <!-- LOADER -->
+  <div id="loader">
     <div class="loader-logo">SiteNova Studio</div>
   </div>
 
-  <!-- Navbar -->
+  <!-- NAVBAR -->
   <nav>
     <div class="nav-container">
-      <div class="logo">SiteNova <span>Studio</span></div>
-
+      <div class="logo" onclick="switchView('portfolio')">SiteNova <span>Studio</span></div>
       <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+        <a href="#services" onclick="switchView('portfolio')">Services</a>
+        <a href="#portfolio" onclick="switchView('portfolio')">Portfolio</a>
+        <a href="#pricing" onclick="switchView('portfolio')">Pricing</a>
+        <a href="#contact" onclick="switchView('portfolio')">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content aos-init aos-animate" data-aos="fade-up">
-
-      <div class="badge">
-        Premium Website Design Studio
-      </div>
-
-      <h1>
-        Modern Websites <br>
-        <span class="gradient-text">That Convert</span>
-      </h1>
-
-      <p>
-        We build premium business websites, invitation websites, landing pages,
-        event websites and digital experiences for modern brands.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
-
-        <a href="https://t.me/Official_Sahil_007" target="_blank" class="btn btn-outline">
-          Contact 
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-
-      <h2 class="section-title">Our Services</h2>
-      <p class="section-subtitle">
-        Premium web solutions designed for startups, businesses and events.
-      </p>
-
-      <div class="services-grid">
-
-        <div class="service-card aos-init aos-animate" data-aos="fade-up">
-          <i class="fa-solid fa-globe"></i>
-          <h3>Business Websites</h3>
-          <p>Modern websites for startups and local businesses.</p>
-        </div>
-
-        <div class="service-card aos-init aos-animate" data-aos="fade-up">
-          <i class="fa-solid fa-heart"></i>
-          <h3>Wedding Invitation</h3>
-          <p>Elegant digital invitation websites with RSVP system.</p>
-        </div>
-
-        <div class="service-card aos-init aos-animate" data-aos="fade-up">
-          <i class="fa-solid fa-chart-line"></i>
-          <h3>Landing Pages</h3>
-          <p>High converting landing pages for marketing campaigns.</p>
-        </div>
-
-        <div class="service-card aos-init aos-animate" data-aos="fade-up">
-          <i class="fa-solid fa-utensils"></i>
-          <h3>Restaurant Websites</h3>
-          <p>Beautiful restaurant and café websites with booking system.</p>
-        </div>
-
-        <div class="service-card aos-init aos-animate" data-aos="fade-up">
-          <i class="fa-solid fa-briefcase"></i>
-          <h3>Portfolio Websites</h3>
-          <p>Professional portfolio websites for creators and freelancers.</p>
-        </div>
-
-        <div class="service-card aos-init aos-animate" data-aos="fade-up">
-          <i class="fa-solid fa-calendar-days"></i>
-          <h3>Event Websites</h3>
-          <p>Luxury event websites with animations and ticket systems.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section id="portfolio">
-    <div class="container">
-
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-subtitle">
-        Explore our premium modern website designs.
-      </p>
-
-      <div class="portfolio-grid">
-
-        <div class="portfolio-card aos-init aos-animate" data-aos="zoom-in">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Wedding Website">
-
-          <div class="portfolio-content">
-            <h3>Wedding Invitation</h3>
-            <p>Elegant invitation website with RSVP and countdown timer.</p>
-            <a href="./demos/marathi-wedding.html" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-
-        <div class="portfolio-card aos-init aos-animate" data-aos="zoom-in">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Business Website">
-
-          <div class="portfolio-content">
-            <h3>Business Landing</h3>
-            <p>Professional startup website with premium UI design.</p>
-            <a href="./demos/business-landing.html" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-
-        <div class="portfolio-card aos-init aos-animate" data-aos="zoom-in">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Event Website">
-
-          <div class="portfolio-content">
-            <h3>Luxury Event</h3>
-            <p>Modern event website with booking and gallery system.</p>
-            <a href="./demos/event-website.html" target="_blank" class="btn btn-primary">Live Preview</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section>
-    <div class="container">
-
-      <h2 class="section-title">Why Choose Us</h2>
-
-      <div class="features-grid">
-
-        <div class="feature-box aos-init aos-animate" data-aos="fade-up">
-          <h3>⚡ Fast Delivery</h3>
-          <p>Quick turnaround with premium quality.</p>
-        </div>
-
-        <div class="feature-box aos-init aos-animate" data-aos="fade-up">
-          <h3>📱 Mobile Responsive</h3>
-          <p>Perfect design on every device.</p>
-        </div>
-
-        <div class="feature-box aos-init aos-animate" data-aos="fade-up">
-          <h3>🚀 SEO Friendly</h3>
-          <p>Optimized for search engines and speed.</p>
-        </div>
-
-        <div class="feature-box aos-init aos-animate" data-aos="fade-up">
-          <h3>🎨 Modern UI Design</h3>
-          <p>Premium dark theme and animations.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section id="pricing">
-    <div class="container">
-
-      <h2 class="section-title">Pricing Plans</h2>
-
-      <div class="pricing-grid">
-
-        <div class="pricing-card aos-init aos-animate" data-aos="flip-left">
-          <h3>Basic</h3>
-          <div class="price">₹999</div>
-
-          <ul>
-            <li>Responsive Website</li>
-            <li>Basic Design</li>
-            <li>Contact Form</li>
-            <li>SEO Setup</li>
-          </ul>
-
-          <a href="#contact" class="btn btn-primary">Get Started</a>
-        </div>
-
-        <div class="pricing-card aos-init aos-animate" data-aos="flip-left">
-          <h3>Standard</h3>
-          <div class="price">₹2999</div>
-
-          <ul>
-            <li>Premium Design</li>
-            <li>Animations</li>
-            <li>Booking System</li>
-            <li>Admin Panel</li>
-          </ul>
-
-          <a href="#contact" class="btn btn-primary">Get Started</a>
-        </div>
-
-        <div class="pricing-card aos-init aos-animate" data-aos="flip-left">
-          <h3>Premium</h3>
-          <div class="price">Custom</div>
-
-          <ul>
-            <li>Fully Custom UI</li>
-            <li>Advanced Features</li>
-            <li>SEO Optimization</li>
-            <li>Priority Support</li>
-          </ul>
-
-          <a href="#contact" class="btn btn-primary">Contact Us</a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section>
-    <div class="container">
-
-      <h2 class="section-title">Testimonials</h2>
-
-      <div class="testimonials-grid">
-
-        <div class="testimonial-card aos-init aos-animate" data-aos="fade-up">
-          <p>
-            “Amazing website design and fast service. Highly recommended.”
-          </p>
-          <h4>— Rahul Sharma</h4>
-        </div>
-
-        <div class="testimonial-card aos-init aos-animate" data-aos="fade-up">
-          <p>
-            “Very professional design and premium animations.”
-          </p>
-          <h4>— Priya Patel</h4>
-        </div>
-
-        <div class="testimonial-card aos-init aos-animate" data-aos="fade-up">
-          <p>
-            “The landing page increased our business leads instantly.”
-          </p>
-          <h4>— Amit Verma</h4>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-
-      <div class="contact-box aos-init aos-animate" data-aos="zoom-in">
-
-        <h2>Let's Build Something Amazing</h2>
-
-        <p>
-          Contact SiteNova Studio for premium websites and digital experiences.
-        </p>
-
+  <!-- VIEW 1: LIVE SITE -->
+  <div id="view-portfolio" class="view-section active">
+    <section class="hero">
+      <div class="hero-content" data-aos="fade-up">
+        <div class="badge"><i class="fa-solid fa-sparkles"></i> Premium Website Design Studio</div>
+        <h1>Modern Websites <br><span class="gradient-text">That Convert</span></h1>
+        <p>We build premium business websites, invitation websites, landing pages, event websites and digital experiences for modern brands.</p>
         <div class="hero-buttons">
-
-             <a href="https://wa.me/917875134104?text=Hello%20SiteNova%20Studio,%20I%20want%20a%20website."
-     target="_blank"
-     class="btn btn-outline">
-    <i class="fab fa-whatsapp"></i>  WhatsApp
-  </a>
-          <a href="https://t.me/Official_Sahil_007" target="_blank" class="btn btn-outline">
-            <i class="fab fa-telegram"></i>
-            Telegram
-          </a>
-
-          <a href="mailto:sitenovastudio@gmail.com" class="btn btn-outline">
-            <i class="fab fa-email"></i>
-            Email Us
-          </a>
-
+          <a href="#portfolio" class="btn btn-primary"><i class="fa-solid fa-layer-group"></i> View Portfolio</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
         </div>
+      </div>
+    </section>
 
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Premium web solutions designed for startups, businesses and events.</p>
+        <div class="grid-layout grid-4" id="dynamic-services-grid"></div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Explore our premium modern website designs.</p>
+        <div class="grid-layout grid-3" id="dynamic-portfolio-grid"></div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <h2 class="section-title">Pricing Plans</h2>
+        <p class="section-subtitle">Transparent pricing for premium quality results.</p>
+        <div class="grid-layout grid-3" id="dynamic-pricing-grid"></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box" data-aos="zoom-in">
+          <h2>Let's Build Something Amazing</h2>
+          <p>Contact SiteNova Studio today to discuss your next digital experience.</p>
+          <div class="hero-buttons" id="dynamic-contact-buttons"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <h2 class="logo">SiteNova <span>Studio</span></h2>
+      <p>© 2026 SiteNova Studio. All Rights Reserved.</p>
+      <div class="social-icons" id="dynamic-social-icons"></div>
+      <!-- Admin Link -->
+      <a class="footer-admin-link" onclick="handleAdminNav()"><i class="fa-solid fa-lock"></i> Admin Console</a>
+    </footer>
+  </div>
+
+  <!-- VIEW 2: AUTH MODAL -->
+  <div id="auth-modal" class="auth-overlay" style="display: none;">
+    <div class="auth-wrapper">
+      <h2>Admin Login</h2>
+      <form id="login-form">
+        <div class="field-wrapper">
+          <input type="email" id="login-email" required>
+          <label>Admin Email</label>
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="field-wrapper">
+          <input type="password" id="login-pass" required>
+          <label>Password</label>
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <button class="submit-button" id="login-btn" type="submit">Access Dashboard</button>
+        <div style="text-align: center; margin-top: 20px;">
+          <a onclick="closeAuthModal()" style="color: #64748b; cursor: pointer; font-size: 14px; text-decoration:none; transition:0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='#64748b'"><i class="fa-solid fa-arrow-left"></i> Return to Site</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- VIEW 3: ADMIN DASHBOARD -->
+  <div id="view-admin" class="view-section">
+    <div class="admin-container">
+      <div class="admin-header">
+        <h1>Admin Control Panel</h1>
+        <div style="display:flex; gap:10px;">
+          <button class="btn btn-secondary" onclick="switchView('portfolio')"><i class="fa-solid fa-globe"></i> View Site</button>
+          <button class="btn btn-danger" onclick="adminLogout()" style="background:rgba(239, 68, 68, 0.15); border-color:transparent;"><i class="fa-solid fa-power-off"></i> Logout</button>
+        </div>
+      </div>
+
+      <!-- Manage Services -->
+      <div class="admin-section">
+        <h2><i class="fa-solid fa-layer-group"></i> Manage Services</h2>
+        <form id="admin-service-form" class="admin-form">
+          <input type="hidden" id="s-edit-index" value="-1">
+          <input type="text" id="s-icon" placeholder="FontAwesome Icon (e.g. fa-globe)" required>
+          <input type="text" id="s-title" placeholder="Service Title" required>
+          <input type="text" id="s-desc" placeholder="Service Description" required>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="s-submit-btn"><i class="fa-solid fa-plus"></i> Add Service</button>
+            <button type="button" class="btn btn-secondary" id="s-cancel-btn" style="display:none;" onclick="resetServiceForm()">Cancel</button>
+          </div>
+        </form>
+        <div class="table-container">
+          <table class="admin-table">
+            <thead><tr><th>Icon</th><th>Title</th><th>Description</th><th>Actions</th></tr></thead>
+            <tbody id="admin-service-table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Manage Projects -->
+      <div class="admin-section">
+        <h2><i class="fa-solid fa-briefcase"></i> Manage Portfolio Projects</h2>
+        <form id="admin-project-form" class="admin-form">
+          <input type="hidden" id="p-edit-index" value="-1">
+          <input type="text" id="p-title" placeholder="Project Title" required>
+          <input type="text" id="p-desc" placeholder="Short Description" required>
+          <!-- Replaced text input with textarea for Code -->
+          <textarea id="p-code" placeholder="Paste HTML/CSS Code for Preview" required></textarea>
+          <input type="url" id="p-image" placeholder="Image URL (Unsplash, Imgur, etc.)" required>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="p-submit-btn"><i class="fa-solid fa-plus"></i> Add Project</button>
+            <button type="button" class="btn btn-secondary" id="p-cancel-btn" style="display:none;" onclick="resetProjectForm()">Cancel</button>
+          </div>
+        </form>
+        <div class="table-container">
+          <table class="admin-table">
+            <thead><tr><th>Image</th><th>Title</th><th>Description</th><th>Code Preview</th><th>Actions</th></tr></thead>
+            <tbody id="admin-portfolio-table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Manage Pricing -->
+      <div class="admin-section">
+        <h2><i class="fa-solid fa-tags"></i> Manage Pricing Plans</h2>
+        <form id="admin-pricing-form" class="admin-form">
+          <input type="hidden" id="pr-edit-index" value="-1">
+          <input type="text" id="pr-title" placeholder="Plan Name (e.g. Standard)" required>
+          <input type="text" id="pr-price" placeholder="Price (e.g. ₹2999)" required>
+          <input type="text" id="pr-features" placeholder="Features (Comma separated)" required style="grid-column: 1 / -1;">
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="pr-submit-btn"><i class="fa-solid fa-plus"></i> Add Plan</button>
+            <button type="button" class="btn btn-secondary" id="pr-cancel-btn" style="display:none;" onclick="resetPricingForm()">Cancel</button>
+          </div>
+        </form>
+        <div class="table-container">
+          <table class="admin-table">
+            <thead><tr><th>Plan Name</th><th>Price</th><th>Features</th><th>Actions</th></tr></thead>
+            <tbody id="admin-pricing-table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Manage Contact Details -->
+      <div class="admin-section">
+        <h2><i class="fa-solid fa-address-card"></i> Manage Contact Details</h2>
+        <form id="admin-contact-form" class="admin-form">
+          <input type="text" id="c-whatsapp" placeholder="WhatsApp Number" required>
+          <input type="text" id="c-telegram" placeholder="Telegram Username" required>
+          <input type="email" id="c-email" placeholder="Email Address" required>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Contact Info</button>
+          </div>
+        </form>
       </div>
 
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer>
-
-    <h2 class="logo">SiteNova <span>Studio</span></h2>
-
-    <p>
-      © 2026 SiteNova Studio. All Rights Reserved.
-    </p>
-
-    <div class="social-icons">
-      <a href="https://www.instagram.com/sitenovastudio/"><i class="fab fa-instagram"></i></a>
-      <a href="https://t.me/Official_Sahil_007"><i class="fab fa-telegram"></i></a>
-      <a href="https://wa.me/917875134104"><i class="fab fa-whatsapp"></i></a>
-    </div>
-
-  </footer>
-
-  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
   <script>
+    // --- SUPABASE CONFIGURATION ---
+    const { createClient } = supabase;
+    const supabaseUrl = 'https://hvujpqbnhrwqunuhvnzn.supabase.co';
+    const supabaseKey = 'sb_publishable_aldxCLFx-p38479nRijIVQ_EaIO9A_f';
+    const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
-    // AOS Animation
-    AOS.init({
-      duration:1000,
-      once:true
+    // --- UTILITIES ---
+    AOS.init({ duration: 800, once: true });
+    
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      const icon = document.getElementById('toast-icon');
+      document.getElementById('toast-msg').innerText = message;
+      
+      if(isError) {
+        toast.classList.add('error');
+        icon.className = 'fa-solid fa-circle-exclamation';
+      } else {
+        toast.classList.remove('error');
+        icon.className = 'fa-solid fa-circle-check';
+      }
+
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 3000);
+    }
+
+    // System Init
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.opacity = '0';
+      setTimeout(() => { document.getElementById('loader').style.display = 'none'; }, 800);
+      initializeData();
+      renderLiveSite();
     });
 
-    // Loading Screen
-    window.addEventListener('load',()=>{
-      document.getElementById('loader').style.opacity='0';
-      document.getElementById('loader').style.visibility='hidden';
+    // Default Site Data Models 
+    const defaultServices = [
+      {icon: "fa-globe", title: "Business Websites", desc: "Modern websites for startups and local businesses."},
+      {icon: "fa-heart", title: "Wedding Invitation", desc: "Elegant digital invitation websites with RSVP system."},
+      {icon: "fa-chart-line", title: "Landing Pages", desc: "High converting landing pages for marketing campaigns."}
+    ];
+    // Replaced 'link' with 'code' in default projects
+    const defaultProjects = [
+      {title: "Wedding Invitation", desc: "Elegant invitation website with RSVP.", code: "<!DOCTYPE html><html><head><style>body{background:#fdfbfb; color:#333; text-align:center; font-family:sans-serif; padding:50px;} h1{color:#e84393;}</style></head><body><h1>Wedding Invitation</h1><p>Join us to celebrate!</p></body></html>", image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop"},
+      {title: "Business Landing", desc: "Professional startup website.", code: "<!DOCTYPE html><html><head><style>body{background:#111; color:#fff; text-align:center; font-family:sans-serif; padding:50px;} button{background:#06b6d4; color:#fff; border:none; padding:10px 20px; border-radius:5px;}</style></head><body><h1>Startup Landing Page</h1><p>Building the future.</p><button>Get Started</button></body></html>", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"}
+    ];
+    const defaultPricing = [
+      {title: "Basic", price: "₹999", features: ["Responsive Website", "Basic Design", "Contact Form", "SEO Setup"]},
+      {title: "Standard", price: "₹2999", features: ["Premium Design", "Animations", "Booking System", "Admin Panel"]}
+    ];
+    const defaultContact = { whatsapp: "917875134104", telegram: "Official_Sahil_007", email: "sitenovastudio@gmail.com" };
+
+    function initializeData() {
+      if(!localStorage.getItem('sn_services')) localStorage.setItem('sn_services', JSON.stringify(defaultServices));
+      if(!localStorage.getItem('sn_projects')) localStorage.setItem('sn_projects', JSON.stringify(defaultProjects));
+      if(!localStorage.getItem('sn_pricing')) localStorage.setItem('sn_pricing', JSON.stringify(defaultPricing));
+      if(!localStorage.getItem('sn_contact')) localStorage.setItem('sn_contact', JSON.stringify(defaultContact));
+    }
+
+    // --- ROUTING & SUPABASE AUTHENTICATION ---
+    async function switchView(viewName) {
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      document.getElementById('auth-modal').style.display = 'none';
+
+      if (viewName === 'portfolio') {
+        document.getElementById('view-portfolio').classList.add('active');
+        renderLiveSite();
+        window.scrollTo(0, 0);
+      } else if (viewName === 'admin') {
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        if (session) {
+          document.getElementById('view-admin').classList.add('active');
+          loadAdminDashboard();
+        } else {
+          document.getElementById('view-portfolio').classList.add('active');
+          document.getElementById('auth-modal').style.display = 'flex';
+        }
+      }
+    }
+
+    async function handleAdminNav() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (session) switchView('admin');
+      else document.getElementById('auth-modal').style.display = 'flex';
+    }
+    
+    function closeAuthModal() { document.getElementById('auth-modal').style.display = 'none'; }
+    
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-pass').value;
+      const loginBtn = document.getElementById('login-btn');
+
+      loginBtn.disabled = true;
+      loginBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Authenticating...';
+
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email: email, password: password });
+
+      loginBtn.disabled = false;
+      loginBtn.innerHTML = 'Access Dashboard';
+
+      if (error) showToast(error.message, true);
+      else {
+        document.getElementById('login-form').reset();
+        showToast("Welcome to the Admin Panel!");
+        switchView('admin');
+      }
     });
 
+    async function adminLogout() { 
+      const { error } = await supabaseClient.auth.signOut();
+      if (error) showToast(error.message, true);
+      else {
+        showToast("Logged out successfully");
+        switchView('portfolio'); 
+      }
+    }
+
+    // --- CODE PREVIEW LOGIC ---
+    function previewCode(index) {
+      const projects = JSON.parse(localStorage.getItem('sn_projects'));
+      // Fallback to link if checking older data that wasn't cleared
+      const code = projects[index].code || projects[index].link; 
+      
+      const newWin = window.open("", "_blank");
+      newWin.document.open();
+      newWin.document.write(code);
+      newWin.document.close();
+    }
+
+    // --- RENDER LIVE SITE ---
+    function renderLiveSite() {
+      const services = JSON.parse(localStorage.getItem('sn_services'));
+      const projects = JSON.parse(localStorage.getItem('sn_projects'));
+      const pricing = JSON.parse(localStorage.getItem('sn_pricing'));
+      const contact = JSON.parse(localStorage.getItem('sn_contact'));
+
+      const sGrid = document.getElementById('dynamic-services-grid');
+      sGrid.innerHTML = services.map(s => `<div class="card" data-aos="fade-up"><i class="fa-solid ${s.icon}"></i><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+
+      const pGrid = document.getElementById('dynamic-portfolio-grid');
+      pGrid.innerHTML = projects.map((p, i) => {
+        const img = p.image || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"; 
+        return `<div class="portfolio-card" data-aos="zoom-in"><img src="${img}" alt="${p.title}"><div class="portfolio-content"><h3>${p.title}</h3><p>${p.desc}</p><button onclick="previewCode(${i})" class="btn btn-primary" style="border:none; cursor:pointer;">Live Preview</button></div></div>`;
+      }).join('');
+
+      const prGrid = document.getElementById('dynamic-pricing-grid');
+      prGrid.innerHTML = pricing.map(pr => {
+        let features = pr.features.map(f => `<li>${f.trim()}</li>`).join('');
+        return `<div class="pricing-card" data-aos="flip-left"><h3>${pr.title}</h3><div class="price">${pr.price}</div><ul>${features}</ul><a href="#contact" class="btn btn-primary">Get Started</a></div>`;
+      }).join('');
+
+      document.getElementById('dynamic-contact-buttons').innerHTML = `
+        <a href="https://wa.me/${contact.whatsapp}" target="_blank" class="btn btn-primary" style="background:#25D366; color:white; border:none;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://t.me/${contact.telegram}" target="_blank" class="btn btn-primary" style="background:#0088cc; color:white; border:none;"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="mailto:${contact.email}" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Us</a>
+      `;
+      document.getElementById('dynamic-social-icons').innerHTML = `
+        <a href="https://t.me/${contact.telegram}" target="_blank"><i class="fab fa-telegram"></i></a>
+        <a href="https://wa.me/${contact.whatsapp}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      `;
+    }
+
+    // --- ADMIN DASHBOARD LOGIC ---
+    function loadAdminDashboard() {
+      renderAdminServices(); renderAdminProjects(); renderAdminPricing(); renderAdminContact();
+    }
+
+    // SERVICES
+    function renderAdminServices() {
+      const table = document.getElementById('admin-service-table');
+      const services = JSON.parse(localStorage.getItem('sn_services'));
+      table.innerHTML = services.map((s, i) => `<tr>
+        <td><i class="fa-solid ${s.icon}" style="color:#06b6d4; font-size:18px;"></i> ${s.icon}</td>
+        <td>${s.title}</td><td>${s.desc}</td>
+        <td><div class="action-btns">
+          <button class="btn btn-warning" onclick="editService(${i})"><i class="fa-solid fa-pen"></i></button>
+          <button class="btn btn-danger" onclick="deleteService(${i})"><i class="fa-solid fa-trash"></i></button>
+        </div></td></tr>`).join('');
+    }
+    document.getElementById('admin-service-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      let services = JSON.parse(localStorage.getItem('sn_services'));
+      let idx = parseInt(document.getElementById('s-edit-index').value);
+      let newS = { icon: document.getElementById('s-icon').value, title: document.getElementById('s-title').value, desc: document.getElementById('s-desc').value };
+      if (idx > -1) { services[idx] = newS; showToast("Service Updated"); } 
+      else { services.push(newS); showToast("Service Added"); }
+      localStorage.setItem('sn_services', JSON.stringify(services));
+      resetServiceForm(); renderAdminServices();
+    });
+    function editService(i) {
+      const s = JSON.parse(localStorage.getItem('sn_services'))[i];
+      document.getElementById('s-edit-index').value = i;
+      document.getElementById('s-icon').value = s.icon; document.getElementById('s-title').value = s.title; document.getElementById('s-desc').value = s.desc;
+      document.getElementById('s-submit-btn').innerHTML = '<i class="fa-solid fa-check"></i> Update Service';
+      document.getElementById('s-cancel-btn').style.display = 'inline-block';
+      window.scrollTo(0, document.getElementById('admin-service-form').offsetTop - 100);
+    }
+    function deleteService(i) {
+      if(confirm("Delete this service?")){
+        let services = JSON.parse(localStorage.getItem('sn_services'));
+        services.splice(i, 1); localStorage.setItem('sn_services', JSON.stringify(services));
+        renderAdminServices(); showToast("Service Deleted");
+      }
+    }
+    function resetServiceForm() {
+      document.getElementById('admin-service-form').reset(); document.getElementById('s-edit-index').value = -1;
+      document.getElementById('s-submit-btn').innerHTML = '<i class="fa-solid fa-plus"></i> Add Service';
+      document.getElementById('s-cancel-btn').style.display = 'none';
+    }
+
+    // PROJECTS
+    function renderAdminProjects() {
+      const table = document.getElementById('admin-portfolio-table');
+      const projects = JSON.parse(localStorage.getItem('sn_projects'));
+      table.innerHTML = projects.map((p, i) => {
+        const img = p.image || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=150&auto=format&fit=crop";
+        return `<tr><td><img src="${img}" class="admin-project-thumb" alt="Thumb"></td>
+          <td>${p.title}</td><td>${p.desc}</td>
+          <td><button class="btn btn-secondary" style="padding:6px 12px; font-size:13px;" onclick="previewCode(${i})"><i class="fa-solid fa-code"></i> View Code</button></td>
+          <td><div class="action-btns">
+            <button class="btn btn-warning" onclick="editProject(${i})"><i class="fa-solid fa-pen"></i></button>
+            <button class="btn btn-danger" onclick="deleteProject(${i})"><i class="fa-solid fa-trash"></i></button>
+          </div></td></tr>`;
+      }).join('');
+    }
+    document.getElementById('admin-project-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      let projects = JSON.parse(localStorage.getItem('sn_projects'));
+      let idx = parseInt(document.getElementById('p-edit-index').value);
+      let newP = { 
+        title: document.getElementById('p-title').value, 
+        desc: document.getElementById('p-desc').value, 
+        code: document.getElementById('p-code').value, 
+        image: document.getElementById('p-image').value 
+      };
+      if (idx > -1) { projects[idx] = newP; showToast("Project Updated"); } 
+      else { projects.push(newP); showToast("Project Added"); }
+      localStorage.setItem('sn_projects', JSON.stringify(projects));
+      resetProjectForm(); renderAdminProjects(); renderLiveSite();
+    });
+    function editProject(i) {
+      const p = JSON.parse(localStorage.getItem('sn_projects'))[i];
+      document.getElementById('p-edit-index').value = i;
+      document.getElementById('p-title').value = p.title; 
+      document.getElementById('p-desc').value = p.desc; 
+      // fallback to link if previous data didn't have code
+      document.getElementById('p-code').value = p.code || p.link || ""; 
+      document.getElementById('p-image').value = p.image || "";
+      
+      document.getElementById('p-submit-btn').innerHTML = '<i class="fa-solid fa-check"></i> Update Project';
+      document.getElementById('p-cancel-btn').style.display = 'inline-block';
+      window.scrollTo(0, document.getElementById('admin-project-form').offsetTop - 100);
+    }
+    function deleteProject(i) {
+      if(confirm("Delete this project?")){
+        let projects = JSON.parse(localStorage.getItem('sn_projects'));
+        projects.splice(i, 1); localStorage.setItem('sn_projects', JSON.stringify(projects));
+        renderAdminProjects(); renderLiveSite(); showToast("Project Deleted");
+      }
+    }
+    function resetProjectForm() {
+      document.getElementById('admin-project-form').reset(); document.getElementById('p-edit-index').value = -1;
+      document.getElementById('p-submit-btn').innerHTML = '<i class="fa-solid fa-plus"></i> Add Project'; document.getElementById('p-cancel-btn').style.display = 'none';
+    }
+
+    // PRICING
+    function renderAdminPricing() {
+      const table = document.getElementById('admin-pricing-table');
+      const pricing = JSON.parse(localStorage.getItem('sn_pricing'));
+      table.innerHTML = pricing.map((pr, i) => `<tr>
+        <td>${pr.title}</td><td><strong style="color:#06b6d4;">${pr.price}</strong></td>
+        <td style="font-size:13px; color:#9ca3af;">${pr.features.join(', ')}</td>
+        <td><div class="action-btns">
+          <button class="btn btn-warning" onclick="editPricing(${i})"><i class="fa-solid fa-pen"></i></button>
+          <button class="btn btn-danger" onclick="deletePricing(${i})"><i class="fa-solid fa-trash"></i></button>
+        </div></td></tr>`).join('');
+    }
+    document.getElementById('admin-pricing-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      let pricing = JSON.parse(localStorage.getItem('sn_pricing'));
+      let idx = parseInt(document.getElementById('pr-edit-index').value);
+      let rawFeatures = document.getElementById('pr-features').value;
+      let featureArray = rawFeatures.split(',').map(f => f.trim()).filter(f => f.length > 0);
+      let newPr = { title: document.getElementById('pr-title').value, price: document.getElementById('pr-price').value, features: featureArray };
+      if (idx > -1) { pricing[idx] = newPr; showToast("Plan Updated"); } else { pricing.push(newPr); showToast("Plan Added"); }
+      localStorage.setItem('sn_pricing', JSON.stringify(pricing));
+      resetPricingForm(); renderAdminPricing();
+    });
+    function editPricing(i) {
+      const pr = JSON.parse(localStorage.getItem('sn_pricing'))[i];
+      document.getElementById('pr-edit-index').value = i;
+      document.getElementById('pr-title').value = pr.title; document.getElementById('pr-price').value = pr.price; document.getElementById('pr-features').value = pr.features.join(', ');
+      document.getElementById('pr-submit-btn').innerHTML = '<i class="fa-solid fa-check"></i> Update Plan'; document.getElementById('pr-cancel-btn').style.display = 'inline-block';
+      window.scrollTo(0, document.getElementById('admin-pricing-form').offsetTop - 100);
+    }
+    function deletePricing(i) {
+      if(confirm("Delete this plan?")){
+        let pricing = JSON.parse(localStorage.getItem('sn_pricing')); pricing.splice(i, 1); localStorage.setItem('sn_pricing', JSON.stringify(pricing));
+        renderAdminPricing(); showToast("Plan Deleted");
+      }
+    }
+    function resetPricingForm() {
+      document.getElementById('admin-pricing-form').reset(); document.getElementById('pr-edit-index').value = -1;
+      document.getElementById('pr-submit-btn').innerHTML = '<i class="fa-solid fa-plus"></i> Add Plan'; document.getElementById('pr-cancel-btn').style.display = 'none';
+    }
+
+    // CONTACT
+    function renderAdminContact() {
+      const contact = JSON.parse(localStorage.getItem('sn_contact'));
+      document.getElementById('c-whatsapp').value = contact.whatsapp;
+      document.getElementById('c-telegram').value = contact.telegram;
+      document.getElementById('c-email').value = contact.email;
+    }
+    document.getElementById('admin-contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      let contact = { whatsapp: document.getElementById('c-whatsapp').value, telegram: document.getElementById('c-telegram').value, email: document.getElementById('c-email').value };
+      localStorage.setItem('sn_contact', JSON.stringify(contact));
+      showToast("Contact details saved!");
+    });
   </script>
-
-
-
-```
-
-
-</body></html>
+</body>
+</html>
