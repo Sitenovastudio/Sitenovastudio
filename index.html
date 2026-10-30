@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SiteNova Studio | Modern Websites That Convert</title>
 
-  
   <!-- SEO -->
   <meta name="description" content="SiteNova Studio builds premium business websites, invitation websites, landing pages and event websites.">
   <meta name="keywords" content="Website Developer, Invitation Website, Landing Page, Portfolio Website, Business Website">
@@ -109,6 +108,19 @@
     .footer-admin-link { margin-top: 30px; display: inline-block; font-size: 13px; color: #475569; text-decoration: none; cursor: pointer; transition:0.3s;}
     .footer-admin-link:hover { color: #06b6d4; }
 
+    /* SOFTWARE SECTION + ADMIN SOFTWARE MANAGER */
+    .software-card{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:100%;}
+    .software-card img{width:100%;height:180px;object-fit:cover;border-radius:14px;margin-bottom:6px;}
+    .software-card .software-btn{margin-top:auto;}
+    .software-status{color:#9ca3af;line-height:1.6;margin-top:16px;text-align:center;}
+    .software-admin-list{display:grid;gap:12px;margin-top:20px;}
+    .software-admin-item{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;padding:16px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.03);}
+    .software-admin-item p{color:#9ca3af;line-height:1.5;margin-top:6px;white-space:pre-wrap;}
+    .software-admin-actions{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0;}
+    .software-admin-actions button{cursor:pointer;}
+    .software-published-label{font-size:12px;color:#06b6d4;margin-top:8px;display:inline-block;}
+    @media(max-width:768px){.software-admin-item{flex-direction:column}.software-admin-actions{width:100%}}
+
     /* AUTH & ADMIN UI STYLES */
     .view-section {display: none;}
     .view-section.active {display: block; animation: fadeIn 0.4s ease forwards;}
@@ -188,6 +200,7 @@
       <div class="logo" onclick="switchView('portfolio')">SiteNova <span>Studio</span></div>
       <div class="nav-links">
         <a href="#services" onclick="switchView('portfolio')">Services</a>
+        <a href="#software" onclick="switchView('portfolio')">Software</a>
         <a href="#portfolio" onclick="switchView('portfolio')">Portfolio</a>
         <a href="#pricing" onclick="switchView('portfolio')">Pricing</a>
         <a href="#contact" onclick="switchView('portfolio')">Contact</a>
@@ -214,6 +227,20 @@
         <h2 class="section-title">Our Services</h2>
         <p class="section-subtitle">Premium web solutions designed for startups, businesses and events.</p>
         <div class="grid-layout grid-4" id="dynamic-services-grid"></div>
+      </div>
+    </section>
+
+    <!-- Software showcase added while preserving the original site sections -->
+    <section id="software">
+      <div class="container">
+        <h2 class="section-title">Our <span class="gradient-text">Software</span></h2>
+        <p class="section-subtitle">Practical software solutions built for businesses. Explore our products or contact us for a demo.</p>
+        <div class="grid-layout grid-3" id="software-grid">
+          <article class="card software-card"><i class="fa-solid fa-flask-vial"></i><h3>Lab Management System</h3><p>Patient records, diagnostic tests, report generation, billing, and report verification.</p><a class="btn btn-primary software-btn" href="https://wa.me/917875134104?text=Hello%20SiteNova%20Studio%2C%20I%20want%20a%20demo%20of%20the%20Lab%20Management%20System." target="_blank" rel="noopener">Request a Demo</a></article>
+          <article class="card software-card"><i class="fa-solid fa-store"></i><h3>Aafiya Fashion Store</h3><p>Product and inventory management, sales, customer records, and reporting.</p><a class="btn btn-primary software-btn" href="https://sitenovastudio.github.io/aafiya-fashion-store/" target="_blank" rel="noopener">Open Software</a></article>
+          <article class="card software-card"><i class="fa-solid fa-chart-line"></i><h3>Business Analytics Tools</h3><p>Dashboards, Excel reporting automation, and SQL-based business analysis.</p><a class="btn btn-primary software-btn" href="https://wa.me/917875134104?text=Hello%20SiteNova%20Studio%2C%20I%20want%20to%20know%20about%20your%20analytics%20tools." target="_blank" rel="noopener">Enquire Now</a></article>
+        </div>
+        <p id="software-status" class="software-status" role="status" aria-live="polite"></p>
       </div>
     </section>
 
@@ -351,6 +378,28 @@
         </div>
       </div>
 
+      <!-- Manage Software: uses the existing Admin Control Panel login -->
+      <div class="admin-section" id="admin-software-section">
+        <h2><i class="fa-solid fa-cubes"></i> Software Management</h2>
+        <p style="color:#9ca3af;line-height:1.7;margin:-10px 0 22px;">Add software cards, update links and descriptions, and publish or hide items on the main website.</p>
+        <form id="admin-software-form" class="admin-form">
+          <input type="hidden" id="sw-edit-id" value="">
+          <input type="text" id="sw-title" placeholder="Software name" maxlength="120" required>
+          <input type="url" id="sw-image" placeholder="Image URL (optional, https://...)">
+          <textarea id="sw-desc" placeholder="Software description" maxlength="600" required style="grid-column:1/-1;"></textarea>
+          <input type="text" id="sw-button-text" placeholder="Button text" maxlength="40" value="Learn More" required>
+          <input type="url" id="sw-button-url" placeholder="Button destination URL (https://...)" required>
+          <input type="number" id="sw-order" placeholder="Display order" value="0" step="1" required>
+          <label style="display:flex;align-items:center;gap:10px;color:#cbd5e1;"><input type="checkbox" id="sw-published" checked> Publish on main website</label>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="sw-save-btn"><i class="fa-solid fa-plus"></i> Add Software</button>
+            <button type="button" class="btn btn-secondary" id="sw-cancel-btn" onclick="resetSoftwareForm()" style="display:none;">Cancel Edit</button>
+          </div>
+        </form>
+        <p id="software-admin-status" style="color:#9ca3af;line-height:1.6;margin:12px 0;" role="status" aria-live="polite"></p>
+        <div id="software-admin-list" class="software-admin-list"></div>
+      </div>
+
       <!-- Manage Contact Details -->
       <div class="admin-section">
         <h2><i class="fa-solid fa-address-card"></i> Manage Contact Details</h2>
@@ -401,6 +450,7 @@
       setTimeout(() => { document.getElementById('loader').style.display = 'none'; }, 800);
       initializeData();
       renderLiveSite();
+      loadPublicSoftware();
     });
 
     // Default Site Data Models 
@@ -535,6 +585,7 @@
     // --- ADMIN DASHBOARD LOGIC ---
     function loadAdminDashboard() {
       renderAdminServices(); renderAdminProjects(); renderAdminPricing(); renderAdminContact();
+      renderAdminSoftware();
     }
 
     // SERVICES
@@ -683,6 +734,121 @@
       document.getElementById('c-telegram').value = contact.telegram;
       document.getElementById('c-email').value = contact.email;
     }
+    // --- SOFTWARE SHOWCASE + ADMIN CRUD (uses existing Supabase sign-in) ---
+    const defaultSoftwareCards = [
+      {title:"Lab Management System",description:"Patient records, diagnostic tests, report generation, billing, and report verification.",image_url:"",button_text:"Request a Demo",button_url:"https://wa.me/917875134104?text=Hello%20SiteNova%20Studio%2C%20I%20want%20a%20demo%20of%20the%20Lab%20Management%20System.",sort_order:1,is_published:true},
+      {title:"Aafiya Fashion Store",description:"Product and inventory management, sales, customer records, and reporting.",image_url:"",button_text:"Open Software",button_url:"https://sitenovastudio.github.io/aafiya-fashion-store/",sort_order:2,is_published:true},
+      {title:"Business Analytics Tools",description:"Dashboards, Excel reporting automation, and SQL-based business analysis.",image_url:"",button_text:"Enquire Now",button_url:"https://wa.me/917875134104?text=Hello%20SiteNova%20Studio%2C%20I%20want%20to%20know%20about%20your%20analytics%20tools.",sort_order:3,is_published:true}
+    ];
+    let softwareRows = [];
+    let editingSoftwareId = "";
+    function escapeSoftwareHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+    }
+    function validSoftwareUrl(value) {
+      if (!value) return "";
+      try { const url = new URL(value); return ["https:","http:"].includes(url.protocol) ? url.href : ""; }
+      catch (_) { return ""; }
+    }
+    async function loadPublicSoftware() {
+      const grid = document.getElementById("software-grid");
+      const status = document.getElementById("software-status");
+      if (!grid) return;
+      try {
+        const { data, error } = await supabaseClient.from("site_software")
+          .select("id,title,description,image_url,button_text,button_url,sort_order,is_published")
+          .eq("is_published", true).order("sort_order", {ascending:true}).order("id", {ascending:true});
+        if (error) throw error;
+        softwareRows = data || [];
+        if (!softwareRows.length) {
+          grid.innerHTML = defaultSoftwareCards.map(item => `<article class="card software-card"><i class="fa-solid fa-cubes"></i><h3>${escapeSoftwareHtml(item.title)}</h3><p>${escapeSoftwareHtml(item.description)}</p><a class="btn btn-primary software-btn" href="${escapeSoftwareHtml(item.button_url)}" target="_blank" rel="noopener">${escapeSoftwareHtml(item.button_text)}</a></article>`).join("");
+          if (status) status.textContent = "Showing sample software cards. Add software from Admin Control Panel to manage the live showcase.";
+        } else {
+          grid.innerHTML = softwareRows.map(item => {
+            const img = validSoftwareUrl(item.image_url || "");
+            const url = validSoftwareUrl(item.button_url || "");
+            return `<article class="card software-card" data-aos="fade-up">${img ? `<img src="${escapeSoftwareHtml(img)}" alt="${escapeSoftwareHtml(item.title)}" loading="lazy">` : '<i class="fa-solid fa-cubes"></i>'}<h3>${escapeSoftwareHtml(item.title)}</h3><p>${escapeSoftwareHtml(item.description)}</p>${url ? `<a class="btn btn-primary software-btn" href="${escapeSoftwareHtml(url)}" target="_blank" rel="noopener">${escapeSoftwareHtml(item.button_text || "Learn More")}</a>` : ""}</article>`;
+          }).join("");
+          if (window.AOS) AOS.refresh();
+        }
+        if (status) status.textContent = "";
+      } catch (error) {
+        console.warn("Software table is not configured or cannot be read yet:", error.message);
+        if (status) status.textContent = "Showing sample software. Configure the site_software table and its public read policy to load admin-managed cards.";
+        grid.innerHTML = defaultSoftwareCards.map(item => `<article class="card software-card"><i class="fa-solid fa-cubes"></i><h3>${escapeSoftwareHtml(item.title)}</h3><p>${escapeSoftwareHtml(item.description)}</p><a class="btn btn-primary software-btn" href="${escapeSoftwareHtml(item.button_url)}" target="_blank" rel="noopener">${escapeSoftwareHtml(item.button_text)}</a></article>`).join("");
+      }
+    }
+    async function renderAdminSoftware() {
+      const list = document.getElementById("software-admin-list");
+      if (!list) return;
+      list.innerHTML = '<p style="color:#9ca3af;">Loading software records…</p>';
+      const { data, error } = await supabaseClient.from("site_software").select("*").order("sort_order", {ascending:true}).order("id", {ascending:true});
+      if (error) { list.innerHTML = ''; setSoftwareAdminStatus("Could not load software records: " + error.message, true); return; }
+      softwareRows = data || [];
+      if (!softwareRows.length) { list.innerHTML = '<p style="color:#9ca3af;">No software records yet. Add your first software card above.</p>'; return; }
+      list.innerHTML = softwareRows.map(item => `<div class="software-admin-item"><div><strong>${escapeSoftwareHtml(item.title)}</strong><p>${escapeSoftwareHtml(item.description)}</p><span class="software-published-label">${item.is_published ? "Published on site" : "Hidden from site"} · Order ${Number(item.sort_order)||0}</span></div><div class="software-admin-actions"><button class="btn btn-warning" type="button" onclick="editSoftwareRecord(${Number(item.id)})"><i class="fa-solid fa-pen"></i> Edit</button><button class="btn btn-secondary" type="button" onclick="toggleSoftwareRecord(${Number(item.id)},${item.is_published ? "true":"false"})">${item.is_published ? "Unpublish":"Publish"}</button><button class="btn btn-danger" type="button" onclick="deleteSoftwareRecord(${Number(item.id)})"><i class="fa-solid fa-trash"></i> Delete</button></div></div>`).join("");
+    }
+    function setSoftwareAdminStatus(message, isError=false) {
+      const el = document.getElementById("software-admin-status");
+      if (el) { el.textContent = message || ""; el.style.color = isError ? "#fca5a5" : "#9ca3af"; }
+    }
+    function resetSoftwareForm() {
+      const form = document.getElementById("admin-software-form");
+      if (!form) return;
+      form.reset(); editingSoftwareId = "";
+      document.getElementById("sw-edit-id").value = "";
+      document.getElementById("sw-button-text").value = "Learn More";
+      document.getElementById("sw-order").value = "0";
+      document.getElementById("sw-published").checked = true;
+      document.getElementById("sw-save-btn").innerHTML = '<i class="fa-solid fa-plus"></i> Add Software';
+      document.getElementById("sw-cancel-btn").style.display = "none";
+    }
+    function editSoftwareRecord(id) {
+      const item = softwareRows.find(row => Number(row.id) === Number(id));
+      if (!item) return;
+      editingSoftwareId = String(item.id);
+      document.getElementById("sw-edit-id").value = editingSoftwareId;
+      document.getElementById("sw-title").value = item.title || "";
+      document.getElementById("sw-desc").value = item.description || "";
+      document.getElementById("sw-image").value = item.image_url || "";
+      document.getElementById("sw-button-text").value = item.button_text || "Learn More";
+      document.getElementById("sw-button-url").value = item.button_url || "";
+      document.getElementById("sw-order").value = Number(item.sort_order) || 0;
+      document.getElementById("sw-published").checked = !!item.is_published;
+      document.getElementById("sw-save-btn").innerHTML = '<i class="fa-solid fa-check"></i> Update Software';
+      document.getElementById("sw-cancel-btn").style.display = "inline-flex";
+      document.getElementById("sw-title").focus();
+    }
+    async function toggleSoftwareRecord(id, currentlyPublished) {
+      const { error } = await supabaseClient.from("site_software").update({is_published:!currentlyPublished,updated_at:new Date().toISOString()}).eq("id", id);
+      if (error) return setSoftwareAdminStatus(error.message, true);
+      setSoftwareAdminStatus("Software publication status updated."); await renderAdminSoftware(); await loadPublicSoftware();
+    }
+    async function deleteSoftwareRecord(id) {
+      if (!confirm("Delete this software card permanently?")) return;
+      const { error } = await supabaseClient.from("site_software").delete().eq("id", id);
+      if (error) return setSoftwareAdminStatus(error.message, true);
+      setSoftwareAdminStatus("Software deleted."); await renderAdminSoftware(); await loadPublicSoftware();
+    }
+    document.getElementById("admin-software-form").addEventListener("submit", async event => {
+      event.preventDefault();
+      const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
+      if (sessionError || !session) return setSoftwareAdminStatus("Please sign in again to manage software.", true);
+      const title = document.getElementById("sw-title").value.trim();
+      const description = document.getElementById("sw-desc").value.trim();
+      const imageRaw = document.getElementById("sw-image").value.trim();
+      const buttonRaw = document.getElementById("sw-button-url").value.trim();
+      const imageUrl = imageRaw ? validSoftwareUrl(imageRaw) : null;
+      const buttonUrl = validSoftwareUrl(buttonRaw);
+      if (imageRaw && !imageUrl) return setSoftwareAdminStatus("Enter a valid HTTP/HTTPS image URL.", true);
+      if (!buttonUrl) return setSoftwareAdminStatus("Enter a valid HTTP/HTTPS button destination URL.", true);
+      const record = {title,description,image_url:imageUrl,button_text:document.getElementById("sw-button-text").value.trim() || "Learn More",button_url:buttonUrl,sort_order:Number.parseInt(document.getElementById("sw-order").value,10)||0,is_published:document.getElementById("sw-published").checked,updated_at:new Date().toISOString()};
+      setSoftwareAdminStatus("Saving software…");
+      const result = editingSoftwareId ? await supabaseClient.from("site_software").update(record).eq("id",Number(editingSoftwareId)) : await supabaseClient.from("site_software").insert(record);
+      if (result.error) return setSoftwareAdminStatus(result.error.message, true);
+      setSoftwareAdminStatus(editingSoftwareId ? "Software updated." : "Software added."); resetSoftwareForm(); await renderAdminSoftware(); await loadPublicSoftware();
+    });
+
     document.getElementById('admin-contact-form').addEventListener('submit', (e) => {
       e.preventDefault();
       let contact = { whatsapp: document.getElementById('c-whatsapp').value, telegram: document.getElementById('c-telegram').value, email: document.getElementById('c-email').value };
@@ -692,3 +858,4 @@
   </script>
 </body>
 </html>
+
